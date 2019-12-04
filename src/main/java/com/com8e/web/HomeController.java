@@ -35,6 +35,9 @@ public class HomeController {
 		
 		return "home";
 	}
-	// 섹
+
+	
+	// 섹tm
+
 	
 }
