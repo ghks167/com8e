@@ -30,6 +30,7 @@
     table{
         margin: auto;
     }
+    
    
     
 </style>
