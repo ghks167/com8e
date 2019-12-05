@@ -10,35 +10,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%@include file="/WEB-INF/inc/common_header.jsp"%>
 <title>com8e</title>
-<style type="text/css">
-.introduce{
-	height: 20vh;
-	position: relative;
-
-}
-
-
-.introduce_list {
-	position: absolute;
-	height: 100%;
-	display: inline-block;
-	width: 20%;
-}
-
-.introduce_view {
-	display: inline-block;
-	position: absolute;
-	width: 79%;
-	height: 100%;
-	flaot: top;
-	left: 20%;
-}
-</style>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common_css.css" >
 </head>
-<body>
-	<div style="background-color: lightgray">
+<body style="background-color: lightgray">
 	<div class="container">
 		<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
+		<%@include file="/WEB-INF/inc/common_main_search.jsp" %>
 		<div class="introduce">
 			<div class="introduce_list">
 				<ul class="nav nav-pills nav-stacked">
@@ -58,7 +35,6 @@
 		
 		<div class="main_product">
 		</div>
-	</div>
 	</div>
 </body>
 </html>

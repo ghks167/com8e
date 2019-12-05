@@ -1,0 +1,28 @@
+#div_total_search {
+	/* font-size : 1em;             */
+	border: 2px solid red;
+	line-height: 55px;
+	height: 125px;
+}
+.introduce{
+	height: 20vh;
+	position: relative;
+
+}
+
+
+.introduce_list {
+	position: absolute;
+	height: 100%;
+	display: inline-block;
+	width: 20%;
+}
+
+.introduce_view {
+	display: inline-block;
+	position: absolute;
+	width: 79%;
+	height: 100%;
+	flaot: top;
+	left: 20%;
+}
