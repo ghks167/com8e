@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 
+
 <style>
     body{
         margin: auto;
@@ -32,14 +33,15 @@
     <div style="background-color: black"> 
         <table id="foot_table" >
             <tr>
-            <td class="foot_td">    <a class="foot_a_class" href="#">공지사항            </a>      </td>
-            <td class="foot_td">    <a class="foot_a_class" href="#">FAQ                 </a>      </td>
-            <td class="foot_td">    <a class="foot_a_class" href="#">Q&A                 </a>      </td>
-            <td class="foot_td">    <a class="foot_a_class" href="#">자료실              </a>      </td>
-            <td class="foot_td">    <a class="foot_a_class" href="#">모바일APP           </a>      </td>
-            <td class="foot_td">    <a class="foot_a_class" href="#">저잔권 안내         </a>      </td>
-            <td class="foot_td">    <a class="foot_a_class" href="#">개인정보 처리 방침  </a>      </td>
-            <td class="foot_td">    <a class="foot_a_class" href="#">이용약관            </a>      </td>
+	            <td class="foot_td">    <a class="foot_a_class" href="#">공지사항            </a>      </td>
+	            <td class="foot_td">    <a class="foot_a_class" href="#">FAQ                 </a>      </td>
+	            <td class="foot_td">    <a class="foot_a_class" href="#">Q&amp;A                 </a>      </td>
+	            <td class="foot_td">    <a class="foot_a_class" href="#">자료실              </a>      </td>
+	            <td class="foot_td">    <a class="foot_a_class" href="#">모바일APP           </a>      </td>
+	            <td class="foot_td">    <a class="foot_a_class" href="#">저잔권 안내         </a>      </td>
+	            <td class="foot_td">    <a class="foot_a_class" href="#">개인정보 처리 방침  </a>      </td>
+	            <td class="foot_td">    <a class="foot_a_class" href="#">이용약관            </a>      </td>
+             </tr>
             <tr>
                 <td class="foot_td" colspan="2">    <a class="foot_a_class"> 고객센터 : 080-123-4567         </a>     </td>
                 <td class="foot_td" colspan="3">    <a class="foot_a_class"> 영상정보 처리기기 운영관리방침  </a>     </td>
@@ -53,6 +55,6 @@
 
         </table>
 
-    </div>    
+    </div>      
 </body>
 </html>
