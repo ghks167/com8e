@@ -36,7 +36,6 @@
 						<!-- 로그인 되어 있을 경우 -->
 			<!-- 		<li class="bg-warning"><p> 아이디 님 환영합니다.</p></li> -->
 			
-			
                     <li class="bg-warning"><a href="">마이페이지</a></li>
                     <li class="bg-warning"><a href="">장바구니</a></li>
 
