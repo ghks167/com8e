@@ -53,10 +53,11 @@
 			</div>
 		</div>
 		
-		<div class="category"></div>
+		<div class="category">
+		</div>
 		
-
-		<div class="main_product"></div>
+		<div class="main_product">
+		</div>
 	</div>
 	</div>
 </body>
