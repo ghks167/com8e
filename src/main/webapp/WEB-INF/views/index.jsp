@@ -35,6 +35,7 @@
 		
 		<div class="main_product">
 		</div>
+		<%@include file="/WEB-INF/inc/common_footer.jsp" %>
 	</div>
 </body>
 </html>

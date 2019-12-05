@@ -4,12 +4,11 @@
 	line-height: 55px;
 	height: 125px;
 }
-.introduce{
+
+.introduce {
 	height: 20vh;
 	position: relative;
-
 }
-
 
 .introduce_list {
 	position: absolute;
@@ -25,4 +24,24 @@
 	height: 100%;
 	flaot: top;
 	left: 20%;
+}
+
+.foot_a_class {
+	text-decoration: none; /*링크 밑줄 제거*/
+	color: white;
+}
+
+.foot_td {
+	padding: 5px;
+}
+
+#foot_table {
+	margin: auto;
+	width: 100%;
+}
+
+.footer{
+	position:absolute; 
+	width: 60%;
+	bottom:0px;
 }
