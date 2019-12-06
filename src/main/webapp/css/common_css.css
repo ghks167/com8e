@@ -27,7 +27,7 @@
 }
 
 .foot_a_class {
-	text-decoration: none; /*링크 밑줄 제거*/
+	text-decoration: none; /*留곹겕 諛묒쨪 �젣嫄�*/
 	color: white;
 }
 
@@ -50,6 +50,6 @@
    
 .footer {
 	position: absolute;
-	width: 60%;
+	width: 70%;
 	bottom: 0px;
 }
