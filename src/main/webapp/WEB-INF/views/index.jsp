@@ -12,6 +12,8 @@
 <title>com8e</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common_css.css" >
 </head>
+
+
 <body style="background-color: lightgray">
 	<div class="container">
 		<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>

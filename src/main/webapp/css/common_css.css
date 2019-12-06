@@ -33,6 +33,7 @@
 
 .foot_td {
 	padding: 5px;
+	text-align: center;
 }
 
 #foot_table {
@@ -40,8 +41,15 @@
 	width: 100%;
 }
 
-.footer{
-	position:absolute; 
+
+#a_link {
+	text-decoration: none;
+	color: white;
+	
+}
+
+.footer {
+	position: absolute;
 	width: 60%;
-	bottom:0px;
+	bottom: 0px;
 }
