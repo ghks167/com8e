@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- context-main.xml : 기본설정 componet scan context-datasource.xml : datadase 
+		설정 mydatis context-transaction.xml : transaction 설정 -->
+
+	<!-- 설정 프러퍼티 파일 -->
+	<util:properties id="app"
+		location="classpath:appconfig.properties" />
+	<!-- DataSource -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName"
+			value="#{app['jdbc.driverClassName']}" />
+		<property name="url" value="#{app['jdbc.url']}" />
+		<property name="username" value="#{app['jdbc.username']}" />
+		<property name="password" value="#{app['jdbc.password']}" />
+		<property name="defaultAutoCommit" value="false" />
+		<property name="maxTotal" value="4" />
+		<property name="maxIdle" value="4" />
+		<property name="minIdle" value="4" />
+		<property name="validationQuery" value="select 1 from dual" />
+	</bean>
+
+	<!-- myBatis 설정 -->
+	<bean id="sqlSessionFactoryBean"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation"
+			value="classpath:mybatis-config.xml" />
+		<property name="mapperLocations"
+			value="classpath:/mapper/**/*.xml" />
+	</bean>
+	
+	<!-- 매퍼 자동스캔할때는 SqlSessionTemplate 필요없음 
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactoryBean" />
+	</bean>
+	-->
+	
+	<!-- // mybatis 자동검색 
+			기본적으로 베이스페키지 밑에 있는 인터페이스는 자동으로 매퍼 생성
+			이를 제한하기위해 @mapper와 annotationclass 사용 		
+	-->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.study.*.dao" />
+		<property name="annotationClass" value="org.apache.ibatis.annotations.Mapper"/>
+	</bean>
+
+</beans>

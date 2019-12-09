@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 
+	namespace : DAO의 인터페이스 풀네임으로
+	id: 해당 인터페이스 메서드명 
+	자동으로 매핑
+ -->
+<mapper namespace="com.com8e.member.dao.IMemberDao">
+	
+	<insert id="insertMember">
+	</insert>
+</mapper>

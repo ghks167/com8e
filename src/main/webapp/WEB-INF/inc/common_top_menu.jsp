@@ -30,7 +30,7 @@
 						<!-- 로그인 되어있지 않을 경우 -->
 					 <%-- <c:if test="${empty ??????}"> --%>
                     <li class="bg-warning"><a href="login/loginForm">로그인</a></li>
-                    <li class="bg-warning"><a href="">회원가입</a></li>
+                    <li class="bg-warning"><a href="member/memberForm">회원가입</a></li>
 					<%-- </c:if> --%>
 					
 						<!-- 로그인 되어 있을 경우 -->
