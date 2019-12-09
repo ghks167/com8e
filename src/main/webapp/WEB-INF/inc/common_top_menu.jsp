@@ -29,7 +29,7 @@
                     	
 						<!-- 로그인 되어있지 않을 경우 -->
 					 <%-- <c:if test="${empty ??????}"> --%>
-                    <li class="bg-warning"><a href="">로그인</a></li>
+                    <li class="bg-warning"><a href="login/loginForm">로그인</a></li>
                     <li class="bg-warning"><a href="">회원가입</a></li>
 					<%-- </c:if> --%>
 					
