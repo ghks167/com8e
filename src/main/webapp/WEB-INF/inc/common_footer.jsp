@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 	
 	
-<div style="background-color: black" class="footer">
+<div class="footer">
 	<table id="foot_table">
 		<tr>
 			<td class="foot_td"><a id="a_link" href="#">공지사항 </a></td>
