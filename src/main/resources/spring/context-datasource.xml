@@ -50,7 +50,7 @@
 			이를 제한하기위해 @mapper와 annotationclass 사용 		
 	-->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.study.*.dao" />
+		<property name="basePackage" value="com.com8e.*.dao" />
 		<property name="annotationClass" value="org.apache.ibatis.annotations.Mapper"/>
 	</bean>
 

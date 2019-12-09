@@ -64,15 +64,6 @@
     				
     				<tr>
     					<th>
-    						생년월일 : 
-    					</th>
-    					<td>
-    						<input type="date" name="mem_bir">
-    					</td>
-    				</tr>
-    				
-    				<tr>
-    					<th>
     						주소 :
     					</th>
     					<td>

@@ -9,8 +9,8 @@ public class MemberVO {
 	private String mem_id = "";
 	private String mem_pass = "";
 	private String mem_name = "";
-	private int mem_regno1 ;
-	private int mem_regno2 ;
+	private String mem_regno1 = "";
+	private String mem_regno2 = "";
 	private String mem_hp = "";
 	private String mem_bir = "";
 	private String mem_addr = "";
@@ -35,16 +35,16 @@ public class MemberVO {
 	public void setMem_name(String mem_name) {
 		this.mem_name = mem_name;
 	}
-	public int getMem_regno1() {
+	public String getMem_regno1() {
 		return mem_regno1;
 	}
-	public void setMem_regno1(int mem_regno1) {
+	public void setMem_regno1(String mem_regno1) {
 		this.mem_regno1 = mem_regno1;
 	}
-	public int getMem_regno2() {
+	public String getMem_regno2() {
 		return mem_regno2;
 	}
-	public void setMem_regno2(int mem_regno2) {
+	public void setMem_regno2(String mem_regno2) {
 		this.mem_regno2 = mem_regno2;
 	}
 	public String getMem_hp() {

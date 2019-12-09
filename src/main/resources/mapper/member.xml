@@ -9,6 +9,27 @@
  -->
 <mapper namespace="com.com8e.member.dao.IMemberDao">
 	
-	<insert id="insertMember">
+	<insert id="insertMember" parameterType="com.com8e.member.vo.MemberVO">
+		insert into member(
+			mem_id,
+			mem_pass,
+			mem_name,
+			mem_regno1,
+			mem_regno2,
+			mem_hp,
+			mem_bir,
+			mem_addr,
+			mem_grade
+		)values(
+			#{mem_id},
+			#{mem_pass},
+			#{mem_name},
+			#{mem_regno1},
+			#{mem_regno2},
+			#{mem_hp},
+			#{mem_bir},
+			#{mem_addr},
+			'일반'
+		)
 	</insert>
 </mapper>
