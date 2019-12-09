@@ -18,7 +18,7 @@
     	<h3>회원가입</h3>
     	
     	<div class="cls_div_main_form row">
-    		<form:form action="member/memberRegist" commandName="member">
+    		<form:form action="memberRegist" commandName="member">
     			<table >
     				
     				<tr>
@@ -59,6 +59,15 @@
     					</th>
     					<td>
     						<form:input path="mem_hp"/>
+    					</td>
+    				</tr>
+    				
+    				<tr>
+    					<th>
+    						생년월일 : 
+    					</th>
+    					<td>
+    						<input type="date" name="mem_bir">
     					</td>
     				</tr>
     				
