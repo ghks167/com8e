@@ -1,7 +1,7 @@
 package com.com8e.member.vo;
 
-
-
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class MemberVO {
 	
@@ -72,6 +72,10 @@ public class MemberVO {
 		this.mem_grade = mem_grade;
 	}
 	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+	}
 	
 	
 }

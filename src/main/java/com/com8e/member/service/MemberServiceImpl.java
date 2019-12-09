@@ -24,7 +24,9 @@ public class MemberServiceImpl implements IMemberService{
 	@Override
 	public MemberVO selectMember(String mem_id) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		
+		
+		return memberDao.selectMember(mem_id);
 	}
 
 	@Override
