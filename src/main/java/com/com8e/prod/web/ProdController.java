@@ -13,11 +13,12 @@ public class ProdController {
 		return view;
 	}
 	
-	@RequestMapping(value = "/prod/prodRegist")
+	@RequestMapping(value = "/prod/prodForm")
 	public String ProdRegist() {
-		String view ="prod/prodRegist";
+		String view ="prod/prodForm";
 		return view;
 	}
+
 	
 	
 }

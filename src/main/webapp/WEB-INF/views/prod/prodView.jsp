@@ -22,9 +22,6 @@
     <script src="${pageContext.request.contextPath}/bootstrap-3.3.2/js/bootstrap.js"></script>
   </head>
   
-  <body>
-  
-    <h1></h1>
-
+  <body> 
   </body>
 </html>
