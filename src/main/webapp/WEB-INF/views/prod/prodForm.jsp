@@ -29,10 +29,10 @@
 			<table class="table">
 				<tr>
 					<th>상품분류</th>
-					<form:select path="prod_type">
+		<%-- 			<form:select path="prod_type">
 						<option value="">----------------</option>
 						<form:options items="" itemValue="" itemLabel=""></form:options>
-					</form:select>
+					</form:select> --%>
 				</tr>
 				<tr>
 					<th>상품명</th>
