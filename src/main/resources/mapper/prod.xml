@@ -30,7 +30,7 @@
 		)
 	</insert>
 	
-	
+	 
 	
 	<select id="selectProdType"
 			 resultType="com.com8e.prod.vo.ProdVO">
