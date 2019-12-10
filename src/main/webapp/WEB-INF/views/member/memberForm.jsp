@@ -11,15 +11,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%@include file="/WEB-INF/inc/common_header.jsp"%>
    	<title></title>
+   	<style type="text/css">
+   		#id_submit_btn{
+   			float: right;
+   		
+   		}
+   	
+   	
+   	</style>
   </head>
-  <body>
+<body>
     <div class="container">
     	<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
     	<h3>회원가입</h3>
-    	
+    	<hr>
     	<div class="cls_div_main_form row">
     		<form:form action="memberRegist" commandName="member">
-    			<table >
+    			<table class="table table-striped">
     				
     				<tr>
     					<th>
@@ -79,22 +87,17 @@
     						<form:input path="mem_addr"/>
     					</td>
     				</tr>
-    				<tr>
-    					<td>
-    						<input type="submit" value="회원가입"/>
-    					</td>
-    				</tr>
-    				
     			</table>
+    			<a href="${pageContext.request.contextPath}/" class="btn btn-default">홈으로</a>
+   				<input type="submit" id="id_submit_btn" class="btn btn-success" value="회원가입"/>
     		</form:form>
-    		
     	</div>	
-    
+    	<%@include file="/WEB-INF/inc/common_footer.jsp" %>
     </div>
   </body>
  
  <script type="text/javascript">
- 
+ 	
  	
  </script>
 

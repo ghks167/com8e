@@ -10,7 +10,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%@include file="/WEB-INF/inc/common_header.jsp"%>
 <title>com8e</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common_css.css" >
 </head>
 
 
