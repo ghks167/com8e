@@ -61,13 +61,17 @@ public class ProdController {
 		return view;
 	}
 	
-	@RequestMapping(value = "/prod/prodView")
-	public List<ProdVO> getProdList(@ModelAttribute("prod")ProdVO prod
+	@RequestMapping(value = "/prod/prodList")
+	public String prodList(@ModelAttribute("prod")ProdVO prod
 									, HttpServletRequest req) throws Exception{
+		
+		String view = "/prod/prodList";
 		ProdSearchVO searchVO = new ProdSearchVO();	
 		List<ProdVO> list = prodService.selectProdList(searchVO);
 	
-		return list;
+		req.setAttribute("prodList", list);
+		
+		return view;
 		
 		
 	}
