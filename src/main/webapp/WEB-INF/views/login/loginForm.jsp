@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -14,6 +15,9 @@
 #id_div_mem_find{
 	float: right;
 }
+.cls_login_form{
+	height: 70vh;
+}
 
 
 </style>
@@ -21,29 +25,32 @@
 </head>
 <body>
 	<div class="container">
-		<div>
+		<div class="row">
 			<h3>로그인</h3>
 		</div>
 		<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
-		<div style="text-align: center">
-			<form>
-				<br> <input type="text" name="mem_id" placeholder="ID">
-				<br> <input type="text" name="mem_pass" placeholder="PassWord">
-				<br> <br> <input type="submit" value="로그인"> <br>
-			</form>
-		</div>
-		<hr>
-		<div>
+		<div class="cls_login_form">
+			<div style="text-align: center">
+				<form:form action="logincheck" commandName="member">
+					<br> <form:input path="mem_id" placeholder="ID"/>
+					<br> <form:input path="mem_pass" placeholder="Password"/>
+					<br> <br> <input type="submit" value="로그인"> <br>
+				</form:form>
+			</div>
+			<hr>
 			<div>
-				<input id="id_home" type="button" value="홈">
-				<input id="id_join" type="button" value="회원가입">			
-			</div>
-		
-			<div id="id_div_mem_find">
-				<input id="id_searchId" type="button" value="아이디 찾기">
-				<input id="id_searchPw" type="button" value="비밀번호 찾기">
+				<div>
+					<input id="id_home" type="button" value="홈">
+					<input id="id_join" type="button" value="회원가입">			
+				</div>
+			
+				<div id="id_div_mem_find">
+					<input id="id_searchId" type="button" value="아이디 찾기">
+					<input id="id_searchPw" type="button" value="비밀번호 찾기">
+				</div>
 			</div>
 		</div>
+		<%@include file="/WEB-INF/inc/common_footer.jsp" %>
 		
 	</div>
 </html>
