@@ -12,7 +12,7 @@
                         class="icon-bar"></span> <span class="icon-bar"></span> 
                         <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">[기업 로고 이미지]</a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/">[기업 로고 이미지]</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
