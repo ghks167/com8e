@@ -18,6 +18,8 @@
 		<h3>회원 정보</h3>
 		<hr>
 		
+		
+		
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
 	</div>
 </body>
