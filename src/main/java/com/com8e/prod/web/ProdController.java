@@ -19,6 +19,8 @@ public class ProdController {
 		String view = "prod/prodView";
 		return view;
 	}
+	
+	
 
 	@RequestMapping(value = "/prod/prodForm")
 	public String ProdForm(@ModelAttribute("prod") ProdVO prod) {
