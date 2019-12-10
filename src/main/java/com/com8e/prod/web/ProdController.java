@@ -2,6 +2,8 @@ package com.com8e.prod.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.com8e.common.vo.ResultMessageVO;
 import com.com8e.prod.service.IProdService;
+import com.com8e.prod.vo.ProdSearchVO;
 import com.com8e.prod.vo.ProdVO;
 
 @Controller
@@ -56,6 +59,17 @@ public class ProdController {
 		
 		model.addAttribute("resultMessage",messageVO);
 		return view;
+	}
+	
+	@RequestMapping(value = "/prod/prodView")
+	public List<ProdVO> getProdList(@ModelAttribute("prod")ProdVO prod
+									, HttpServletRequest req) throws Exception{
+		ProdSearchVO searchVO = new ProdSearchVO();	
+		List<ProdVO> list = prodService.selectProdList(searchVO);
+	
+		return list;
+		
+		
 	}
 
 }

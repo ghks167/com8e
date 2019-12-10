@@ -8,30 +8,34 @@
 <mapper namespace="com.com8e.prod.dao.IProdDao">
 	
 	<insert id="insertProd" parameterType="com.com8e.prod.vo.ProdVO">
-	<selectKey keyProperty="prod_no" resultType="int" order="BEFORE">
-			select prod_seq01.nextval from dual
-	</selectKey>
-	INSERT INTO prod (
-    prod_no,
-    prod_name,
-    prod_price,
-    prod_com,
-    prod_qty,
-    prod_type,
-    prod_date
-	) VALUES (
-    #{prod_no},
-    #{prod_name},
-    #{prod_price},
-    #{prod_com},
-    #{prod_qty},
-    #{prod_type},
-    sysdate
-	)
+		INSERT INTO prod (
+	    prod_id,
+	    prod_name,
+	    prod_price,
+	    prod_com,
+	    prod_qty,
+	    prod_type,
+	    prod_date
+		) VALUES (
+	    #{prod_id},
+	    #{prod_name},
+	    #{prod_price},
+	    #{prod_com},
+	    #{prod_qty},
+	    #{prod_type},
+	    sysdate
+		)
 	</insert>
 	
-	<select id="selectProdType"
-			 resultType="com.com8e.prod.vo.ProdVO">
-	select distinct prod_type from prod
+	<select id="selectProdList" parameterType="com.com8e.prod.vo.ProdVO">
+	
+		SELECT		prod_no,
+				    prod_name,
+				    prod_price,
+				    prod_com,
+				    prod_qty,
+				    prod_type,
+				    TO_CHAR(prod_date, 'YYYY.MM.DD') AS prod_
+		FROM PROD
 	</select>
 </mapper>

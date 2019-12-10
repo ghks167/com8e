@@ -17,8 +17,8 @@ public class ProdServiceImpl implements IProdService {
 	
 	@Override
 	public List<ProdVO> selectProdList(ProdSearchVO searchVO) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List<ProdVO> list = prodDao.selectProdList(searchVO);
+		return list;
 	}
 
 	@Override
