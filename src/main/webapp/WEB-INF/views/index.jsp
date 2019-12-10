@@ -10,9 +10,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%@include file="/WEB-INF/inc/common_header.jsp"%>
 <title>com8e</title>
+<style type="text/css">
+.category{
+	height: 70vh;
+
+}
+
+</style>
 </head>
-
-
 <body style="background-color: lightgray">
 	<div class="container">
 		<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>

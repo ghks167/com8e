@@ -1,31 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<%@include file="/WEB-INF/inc/common_header.jsp"%>
-<title></title>
-<style type="text/css">
-#id_submit_btn {
-	float: right;
-}
-
-.cls_div_main_form {
-	height: 80vh;
-	padding: 0% 15% 0% 5%;
-}
-</style>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%@include file="/WEB-INF/inc/common_header.jsp"%>
+   	<title></title>
+  </head>
 <body>
 	<div class="container">
 		<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
-		<h3>회원가입</h3>
+		<h3>회원정보</h3>
 		<hr>
 		<div class="cls_div_main_form row">
 			<form:form action="memberRegist" commandName="member" cssClass="form-horizontal" id="id_form">
@@ -113,43 +103,4 @@
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
 	</div>
 </body>
-
-	<script type="text/javascript">
-		var overlap_check = false;
-	
- 		$("#id_overlap_check").click(function() {
- 			var id = $("#inputid").val();
- 			var pa = "id="+id;
- 			
-			$.ajax({
-				type : "POST",
-				data : pa,
-				url : "<c:url value='/member/overlapcheck'/>",
-				dataType : "json",
-				success  : function(data){
-					console.log(data.result);
-					if(data.result){
-						alert("사용가능한 아이디입니다.");
-						overlap_check = true;
-					}else {
-						alert("중복된아이디 입니다.");
-						$("#inputid").val = "";
-						overlap_check = false;						
-					}
-				}
-	 		});			
-		});
- 		
- 		$("#id_submit_btn").click(function() {
-			if(overlap_check){
-				$("#id_form").submit();
-			}else {
-				alert("중복체크해주세요!")
-			}
-		});
-	
- 	
-	</script>
 </html>
-
-

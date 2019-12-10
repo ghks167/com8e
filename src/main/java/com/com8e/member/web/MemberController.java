@@ -1,12 +1,18 @@
 package com.com8e.member.web;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.com8e.common.vo.ResultMessageVO;
 import com.com8e.member.service.IMemberService;
@@ -46,6 +52,21 @@ public class MemberController {
 		
 		
 		return "common/message";
+	}
+	
+	@RequestMapping(value = "/member/overlapcheck" ,method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> overlapCheck(String id) throws Exception{
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		MemberVO vo = memberService.selectMember(id);
+		
+		if(vo == null) {
+			map.put("result", true);
+		}else {
+			map.put("result", false);
+		}
+		return map;
 	}
 	
 }
