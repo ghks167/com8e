@@ -7,7 +7,7 @@
   
 <mapper namespace="com.com8e.prod.dao.IProdDao">
 	
-	<insert id="insertProd" parameterType="com.com8e.prod.vo.ProdVO">
+	<insert id="insertProd">
 	INSERT INTO prod (
     prod_id,
     prod_name,
