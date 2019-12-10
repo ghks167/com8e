@@ -22,7 +22,7 @@ public class ProdServiceImpl implements IProdService {
 	}
 
 	@Override
-	public ProdVO selectProd(String prod_id) throws Exception {
+	public ProdVO selectProd(int prod_no) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -46,9 +46,15 @@ public class ProdServiceImpl implements IProdService {
 	}
 
 	@Override
-	public void decreaseQty(String prod_id) throws Exception {
+	public void decreaseQty(int prod_no) throws Exception {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<ProdVO> selectProdType() throws Exception {
+		
+		return prodDao.selectProdType();
 	}
 	
 	
