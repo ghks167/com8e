@@ -15,7 +15,7 @@ public interface IProdDao {
 	public List<ProdVO> selectProdList(ProdSearchVO searchVO) throws Exception;
 	
 	/** 선택 상품 조회하기*/
-	public ProdVO selectProd(String prod_id) throws Exception;
+	public ProdVO selectProd(int prod_no) throws Exception;
 	
 	/** 상품 추가하기*/
 	public int insertProd(ProdVO prod) throws Exception;
@@ -28,6 +28,9 @@ public interface IProdDao {
 	
 	/** 주문완료시 상품수량 감소*/
 	public void decreaseQty(String prod_id)throws Exception;
+	
+	/** 상품분류 조회 */
+	public List<ProdVO> selectProdType() throws Exception;
 	
 
 }

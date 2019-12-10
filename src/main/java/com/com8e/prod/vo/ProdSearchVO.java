@@ -1,6 +1,8 @@
 package com.com8e.prod.vo;
 
-public class ProdSearchVO {
+import com.com8e.common.vo.PagingVO;
+
+public class ProdSearchVO extends PagingVO{
 	
 	private String searchType = "";
 	private String searchWord = ""; 
