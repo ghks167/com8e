@@ -39,4 +39,11 @@ public class LoginController {
 		
 	}
 	
+	@RequestMapping(value = "login/loginout")
+	public String loginout(HttpSession session) {
+		session.removeAttribute("LOGIN_INFO");
+		
+		return "index";
+	}
+	
 }
