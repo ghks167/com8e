@@ -37,7 +37,7 @@
 		select distinct prod_type from prod
 	</select>	
 	
-	
+	 
 	<select id="selectProdList" parameterType="com.com8e.prod.vo.ProdVO"
 	resultType="com.com8e.prod.vo.ProdVO">
 		SELECT		prod_no,
