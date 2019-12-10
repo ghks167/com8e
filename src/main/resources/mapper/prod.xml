@@ -28,6 +28,7 @@
     #{prod_type},
     sysdate
 	)
+	
 	</insert>
 	
 	<select id="selectProdType"
