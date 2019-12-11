@@ -61,7 +61,7 @@
 						<div class="file_input_div">
 							<input type="button" value="등록"
 								class="file_input_button" /> 
-								<input type="file" class="file_input_image_hidden" onchange="javascript: document.getElementById('fileName').value = this.value" />
+							<input type="file" class="file_input_image_hidden" id="id_img_1" onchange="javascript: document.getElementById('fileName').value = this.value" />
 						</div>
 					</td>
 					
@@ -71,7 +71,7 @@
 						<input type="text" id="fileName2" class="file_input_info_textbox" readonly="readonly">
 						<div class="file_input_div">
 							<input type="button" value="등록" class="file_input_button" />
-							 <input type="file" class="file_input_info_hidden" onchange="javascript: document.getElementById('fileName2').value = this.value" />
+							 <input type="file" class="file_input_info_hidden" id="id_img_2" onchange="javascript: document.getElementById('fileName2').value = this.value" />
 						</div>
 					</td>
 				</tr>
@@ -119,6 +119,7 @@
 		</form:form>
 	</div>
 </body>
+
 <script type="text/javascript">
 						var v_sel_file;
 						
@@ -133,8 +134,9 @@
 							filesArr.forEach(function (f) {
 								if(!f.type.match("image.*")){
 									alert("이미지 파일이 아닙니다.");
-							
-									document.getElementsByClassName("file_input_image_hidden")[0].value = "";
+									$("#id_img_1").val("");
+									$("#fileName").val("");
+									
 									return;
 								}
 								
@@ -159,8 +161,121 @@
 							filesArr.forEach(function (f) {
 								if(!f.type.match("image.*")){
 									alert("이미지 파일이 아닙니다.");
+									$("#id_img_2").val("");
+									$("#fileName2").val("");
+									
+									return;
+								}
+								
+								var reader = new FileReader();
+								reader.onload = function(e){
+									$("#img2").attr("src",e.target.result);
+								}
+								reader.readAsDataURL(f);
+								});
+							}
+						
+					</script>
+<script type="text/javascript">
+						var v_sel_file;
+						
+						$(document).ready(function(){
+							$(".file_input_image_hidden").on("change",handleImgFileSelect);
+						});
+						
+						function handleImgFileSelect(e){
+							var files = e.target.files;
+							var filesArr = Array.prototype.slice.call(files);
 							
-									document.getElementsByClassName("file_input_info_hidden")[0].value = "";
+							filesArr.forEach(function (f) {
+								if(!f.type.match("image.*")){
+									alert("이미지 파일이 아닙니다.");
+									$("#id_img_1").val("");
+									$("#fileName").val("");
+									
+									return;
+								}
+								
+								v_sel_file = f;
+								
+								var reader = new FileReader();
+								reader.onload = function(e){
+									$("#img1").attr("src",e.target.result);
+								}
+								reader.readAsDataURL(f);
+								});
+							}
+						
+						$(document).ready(function(){
+							$(".file_input_info_hidden").on("change",handleInfoFileSelect);
+						});
+						
+						function handleInfoFileSelect(e){
+							var files = e.target.files;
+							var filesArr = Array.prototype.slice.call(files);
+							
+							filesArr.forEach(function (f) {
+								if(!f.type.match("image.*")){
+									alert("이미지 파일이 아닙니다.");
+									$("#id_img_2").val("");
+									$("#fileName2").val("");
+									
+									return;
+								}
+								
+								var reader = new FileReader();
+								reader.onload = function(e){
+									$("#img2").attr("src",e.target.result);
+								}
+								reader.readAsDataURL(f);
+								});
+							}
+						
+					</script>
+<script type="text/javascript">
+						var v_sel_file;
+						
+						$(document).ready(function(){
+							$(".file_input_image_hidden").on("change",handleImgFileSelect);
+						});
+						
+						function handleImgFileSelect(e){
+							var files = e.target.files;
+							var filesArr = Array.prototype.slice.call(files);
+							
+							filesArr.forEach(function (f) {
+								if(!f.type.match("image.*")){
+									alert("이미지 파일이 아닙니다.");
+									$("#id_img_1").val("");
+									$("#fileName").val("");
+									
+									return;
+								}
+								
+								v_sel_file = f;
+								
+								var reader = new FileReader();
+								reader.onload = function(e){
+									$("#img1").attr("src",e.target.result);
+								}
+								reader.readAsDataURL(f);
+								});
+							}
+						
+						$(document).ready(function(){
+							$(".file_input_info_hidden").on("change",handleInfoFileSelect);
+						});
+						
+						function handleInfoFileSelect(e){
+							var files = e.target.files;
+							var filesArr = Array.prototype.slice.call(files);
+							
+							filesArr.forEach(function (f) {
+								if(!f.type.match("image.*")){
+									alert("이미지 파일이 아닙니다.");
+									$("#id_img_2").val("");
+									$("#fileName2").val("");
+									
 									return;
 								}
 								
