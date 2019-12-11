@@ -57,6 +57,7 @@ public class ProdController {
 		String view = "common/message";
 		
 		prodService.insertProd(prod);
+		         
 		
 		ResultMessageVO messageVO = new ResultMessageVO();
 		messageVO.setResult(true)
