@@ -153,9 +153,9 @@
 							<tr>
 								<td><input type="checkbox" name="pr_nos"></td>
 								<td>${prod.prod_no}</td>
+								<td>${prod.prod_name}</td>
 								<td>${prod.prod_com}</td>
 								<td>${prod.prod_price}</td>
-								<td>${prod.prod_name}</td>
 								<td>${prod.prod_qty}</td>
 								<td>${prod.prod_type}</td>
 								<td>${prod.prod_date}</td>
