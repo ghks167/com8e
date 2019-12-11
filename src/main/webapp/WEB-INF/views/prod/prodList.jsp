@@ -151,9 +151,15 @@
 					<tbody>
 						<c:forEach var="prod" items="${prodList}">
 							<tr>
-								<td><input type="checkbox" name="pr_nos"></td>
+								<td><input type="checkbox" name="pr_nos" value="${prod.prod_no}"></td>
 								<td>${prod.prod_no}</td>
-								<td>${prod.prod_name}</td>
+								
+								<td>
+									<a href="prodView?prod_no=${prod.prod_no}">
+										${prod.prod_name}
+									</a>
+								</td>
+								
 								<td>${prod.prod_com}</td>
 								<td>${prod.prod_price}</td>
 								<td>${prod.prod_qty}</td>

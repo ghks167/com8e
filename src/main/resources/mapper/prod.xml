@@ -26,7 +26,7 @@
 	    #{prod_com},
 	    #{prod_qty},
 	    #{prod_type},
-	    sysdate
+	    SYSDATE
 		)
 	</insert>
 	
@@ -34,7 +34,7 @@
 	
 	<select id="selectProdType"
 			 resultType="com.com8e.prod.vo.ProdVO">
-		select distinct prod_type from prod
+		select distinct prod_type from PROD
 	</select>	
 	
 	 
@@ -48,6 +48,20 @@
 				    prod_type,
 				    TO_CHAR(prod_date, 'YYYY.MM.DD') AS prod_date
 		FROM PROD
+	</select>
+	
+	<select id="selectProd" parameterType="int"
+			resultType="com.com8e.prod.vo.ProdVO">
+			SELECT		prod_no,
+					    prod_name,
+					    prod_price,
+					    prod_com,
+					    prod_qty,
+					    prod_type,
+					    TO_CHAR(prod_date, 'YYYY.MM.DD') AS prod_date
+			FROM PROD
+			WHERE prod_no = #{prod_no}	
+				
 	</select>
 	
 </mapper>

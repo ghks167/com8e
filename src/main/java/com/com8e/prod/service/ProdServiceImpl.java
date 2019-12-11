@@ -23,8 +23,8 @@ public class ProdServiceImpl implements IProdService {
 
 	@Override
 	public ProdVO selectProd(int prod_no) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		ProdVO vo = prodDao.selectProd(prod_no);
+		return vo;
 	}
 
 	@Override

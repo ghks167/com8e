@@ -6,10 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.com8e.common.vo.ResultMessageVO;
 import com.com8e.prod.service.IProdService;
@@ -24,13 +26,19 @@ public class ProdController {
 	
 	@ModelAttribute("prodTypeList")
 	public List<ProdVO> getProdTypeList() throws Exception{
+		
 		List<ProdVO> list = prodService.selectProdType();
+		
 		return list;
 	}
 
-	@RequestMapping(value = "/prod/prodView")
-	public String ProdView(@ModelAttribute("prod") ProdVO prod) throws Exception {
+	@RequestMapping(value = "/prod/prodView",params = "prod_no")
+	public String ProdView(@ModelAttribute("prod") ProdVO prod
+								,Model model,@RequestParam("prod_no") int prod_no) throws Exception {
 		String view = "prod/prodView";
+		ProdVO vo = prodService.selectProd(prod_no);
+		
+		model.addAttribute("prod", vo);
 		return view;
 	}
 	
