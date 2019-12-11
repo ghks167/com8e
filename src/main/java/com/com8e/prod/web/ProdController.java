@@ -32,7 +32,7 @@ public class ProdController {
 		return list;
 	}
 
-	@RequestMapping(value = "/prod/prodView",params = "prod_no")
+	@RequestMapping(value = "/prod/prodView" ,params = "prod_no")
 	public String ProdView(@ModelAttribute("prod") ProdVO prod
 								,Model model,@RequestParam("prod_no") int prod_no) throws Exception {
 		String view = "prod/prodView";

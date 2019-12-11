@@ -26,8 +26,8 @@
 			<div class="introduce_list">
 				<ul class="nav nav-pills nav-stacked">
 					<li role="presentation" class="active"><a>com8e.com</a></li>
-					<li role="presentation" ><a href="#">상품분류</a></li>
-					<li role="presentation" ><a href="#">공지사항</a></li>
+					<li role="presentation" ><a href="${pageContext.request.contextPath}/prod/prodList">상품분류</a></li>
+					<li role="presentation" ><a href="${pageContext.request.contextPath}/prod/prodForm">공지사항</a></li>
 					<li role="presentation" ><a href="#">게시판</a></li>
 				</ul>
 			</div>
