@@ -8,7 +8,6 @@
 	자동으로 매핑
  -->
 <mapper namespace="com.com8e.member.dao.IMemberDao">
-	
 	<select id="selectMember" parameterType="String" resultType="com.com8e.member.vo.MemberVO">
 		select * from member where mem_id = #{mem_id}
 	</select>
