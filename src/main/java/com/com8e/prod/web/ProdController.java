@@ -37,7 +37,6 @@ public class ProdController {
 								,Model model,@RequestParam("prod_no") int prod_no) throws Exception {
 		String view = "prod/prodView";
 		ProdVO vo = prodService.selectProd(prod_no);
-		
 		model.addAttribute("prod", vo);
 		return view;
 	}
