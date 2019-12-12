@@ -48,6 +48,8 @@
 				    prod_type,
 				    TO_CHAR(prod_date, 'YYYY.MM.DD') AS prod_date
 		FROM PROD
+		ORDER BY prod_no 
+		
 	</select>
 	
 	<select id="selectProd" parameterType="int"

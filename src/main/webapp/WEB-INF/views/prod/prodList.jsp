@@ -24,7 +24,7 @@
 <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.js"></script>
 <script
 	src="${pageContext.request.contextPath}/bootstrap-3.3.2/js/bootstrap.js"></script>
-</head> 
+</head>
 
 <script type="text/javascript">
 	$(document).ready(
@@ -36,35 +36,40 @@
 									"checked", $(this).prop("checked"));
 						}); // 전체 체크박스 클릭
 			});
+	
+	var go_page = function(p){
+		var f = document.forms["List_form"];
+		f.curPage.value = p;
+		fn_search_submit();	
+	}
 </script>
 
 
 <body>
 	<div class="container">
-
 		<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
 		<br> <br> <br> <br>
 
 		<div class="panel panel-default">
 			<div class="panel-body form-horizontal">
-				<form action="prodView">
+				<form action="prodView" name="List_form">
 
 					<div class="form-group">
-						<label class="col-sm-2  control-label">구분</label>
+						<label class="col-sm-2  control-label">제품 구분</label>
 						<div class="col-sm-3">
-							<select name="searchType" class="form-control input-sm">
-								<option value="">-- 전체 --</option>
+							<form:select path="prodTypeList" class="form-control input-sm">
+								<option value="">------------ 제품 분류----------</option>
+								<form:options items="${prodTypeList}" itemValue="prod_type"
+									itemLabel="prod_type" />
 
-							</select>
+							</form:select>
 						</div>
 					</div>
 					<label class="col-sm-2  control-label">제조사</label>
 					<div class="col-sm-3">
 						<select name="searchType" class="form-control input-sm">
-							<option value="">-- 전체 --</option>
-							<%-- <c:forEach var="" items="">
-									
-						</c:forEach>	 --%>
+							<option value="">------- 제조사 ------</option>
+
 						</select>
 					</div>
 
@@ -103,29 +108,35 @@
 		<div class="panel panel-default">
 			<br>
 			<div class="pull-left col-sm-8">
+
 				<div class="col-sm-2">
+
 					<select name="" class="form-control input-sm">
-						<option value="10">10</option>
+						<option value="10" selected="selected">10</option>
 						<option value="15">15</option>
 						<option value="20">20</option>
 						<option value="30">30</option>
 					</select>
 				</div>
+
+				전체 : ${searchVO.totalRowCount}
 				<button type="button" class="btn btn-sm btn-default"
 					onclick="fn_screen_size_change()">선택</button>
 			</div>
 			<div class="pull-right">
 				<button id="id_check_delete" class="btn btn-default btn-sm">
-					선택글 삭제</button>
-				<a href="boardForm.do" class="btn btn-primary btn-sm"> 글 작성 </a>
+					제품 제거</button>
+				<a href="boardForm.do" class="btn btn-primary btn-sm"> 제품 추가 </a>
+				
 			</div>
-			<br>
+			
 
 
 
 
 			<form:form commandName="prod" action="" method="post"
 				enctype="multipart/form-data">
+				<br><br><br>
 				<table class="table table-striped table-bordered table-ellipsis">
 					<colgroup>
 						<col width="4%" />
@@ -151,15 +162,13 @@
 					<tbody>
 						<c:forEach var="prod" items="${prodList}">
 							<tr>
-								<td><input type="checkbox" name="pr_nos" value="${prod.prod_no}"></td>
+								<td><input type="checkbox" name="pr_nos"
+									value="${prod.prod_no}"></td>
 								<td>${prod.prod_no}</td>
-								
-								<td>
-									<a href="prodView?prod_no=${prod.prod_no}">
-										${prod.prod_name}
-									</a>
-								</td>
-								
+
+								<td><a href="prodView?prod_no=${prod.prod_no}">
+										${prod.prod_name} </a></td>
+
 								<td>${prod.prod_com}</td>
 								<td>${prod.prod_price}</td>
 								<td>${prod.prod_qty}</td>
@@ -171,9 +180,30 @@
 
 				</table>
 			</form:form>
+			<nav class="text-center">
+				<ul class="pagination">
+					<!-- 이전 페이지  -->
+					<li><a href="#" aria-label="Previous"> <span
+							aria-hidden="true">&laquo;</span>
+					</a></li>
 
-			<br> <br> <br> <br> <br> <br> <br>
-			<br> <br> <br> <br> <br> <br> <br>
+					<!-- 페이징  -->
+					<c:forEach var="i" begin="${searchVO.startPage}"
+						end="${searchVO.endPage}">
+						<c:if test="${i ==  searchVO.curPage}">
+							<li class="active"><a href="#">${i}</a></li>
+						</c:if>
+						<c:if test="${i !=  searchVO.curPage}">
+							<li><a href="#" onclick="go_page(${i})">${i}</a></li>
+						</c:if>
+					</c:forEach>
+
+					<!-- 다음 페이지  -->
+					<li><a href="#" aria-label="Next"> <span
+							aria-hidden="true">&raquo;</span>
+					</a></li>
+				</ul>
+			</nav>
 
 		</div>
 </body>

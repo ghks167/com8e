@@ -36,7 +36,7 @@
 					<td>
 		 			<form:select path="prod_type">
 						<option value=""> - - - - - - - - - - - - - - - - </option>
-						<form:options items="${prodTypeList}" itemValue="prod_type" itemLabel="prod_type"></form:options>
+						<form:options items="${prodTypeList}" itemValue="prod_type" itemLabel="prod_type"/>
 					</form:select> 
 					<form:errors path="prod_type"/>
 					</td>
