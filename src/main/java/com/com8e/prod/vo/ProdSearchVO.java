@@ -4,9 +4,9 @@ import com.com8e.common.vo.PagingVO;
 
 public class ProdSearchVO extends PagingVO{
 	
-	private String searchType = "";		// 검색구분 : 제목, 작성자, 내용 , 전체
-	private String searchWord = "";		// 검색어
-	private String searchClass = "";	// 내용분류 : BC01(java), BC02(jsp)
+	private String searchType = "";
+	private String searchWord = ""; 
+	private String searchClass = "";
 	
 	public String getSearchType() {
 		return searchType;

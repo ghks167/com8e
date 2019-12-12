@@ -26,55 +26,25 @@ audio, canvas, progress, video {
 }
 
 audio
-
-
-
-
 :not
-
-
  
-
-
 (
 [
 controls
 ]
-
-
  
-
-
 )
 {
 display
-
-
-
-
 :
-
-
  
-
-
 none
-
-
-
-
 ;
+
+	
 height
-
-
-
-
 :
-
-
  
-
-
 0;
 }
 [hidden], template {
@@ -135,42 +105,20 @@ img {
 }
 
 svg
-
-
-
-
 :not
-
-
  
-
-
 (
 :root
-
-
  
-
-
 )
 {
 overflow
-
-
-
-
 :
-
-
  
-
-
 hidden
-
-
-
-
 ;
+
+
 }
 figure {
 	margin: 1em 40px;
@@ -3917,65 +3865,29 @@ tbody.collapse.in {
 .btn-group
 >
 .btn
-
-
-
-
 :not
-
-
  
-
-
 (
 :first-child
-
-
  
-
-
 )
 :not
-
-
  
-
-
 (
 :last-child
-
-
  
-
-
 )
 :not
-
-
  
-
-
 (
 .dropdown-toggle
 
-
-
 	
-
-
 )
 {
 border-radius
-
-
-
-
 :
-
-
  
-
-
 0;
 }
 .btn-group>.btn:first-child {
@@ -3985,141 +3897,57 @@ border-radius
 .btn-group
 >
 .btn
-
-
-
-
 :first-child
-
-
-
-
 :not
-
-
  
-
-
 (
 :last-child
-
-
  
-
-
 )
 :not
-
-
  
-
-
 (
 .dropdown-toggle
-
-
  
-
-
 )
 {
 border-top-right-radius
-
-
-
-
 :
-
-
  
-
-
 0;
 border-bottom-right-radius
-
-
-
-
 :
-
-
  
-
-
 0;
 }
 .btn-group
 >
 .btn
-
-
-
-
 :last-child
-
-
-
-
 :not
-
-
  
-
-
 (
 :first-child
-
-
  
-
-
 ),
 .btn-group
 >
 .dropdown-toggle
-
-
-
-
 :not
 
-
-
 	
-
-
 (
 :first-child
-
-
  
-
-
 )
 {
 border-top-left-radius
-
-
-
-
 :
-
-
  
-
-
 0;
 border-bottom-left-radius
-
-
-
-
 :
-
-
  
-
-
 0;
 }
 .btn-group>.btn-group {
@@ -4201,191 +4029,79 @@ border-bottom-left-radius
 .btn-group-vertical
 >
 .btn
-
-
-
-
 :not
-
-
  
-
-
 (
 :first-child
-
-
  
-
-
 )
 :not
-
-
  
-
-
 (
 :last-child
-
-
  
-
-
 )
 {
 border-radius
-
-
-
-
 :
-
-
  
-
-
 0;
 }
 .btn-group-vertical
 >
 .btn
-
-
-
-
 :first-child
-
-
-
-
 :not
-
-
  
-
-
 (
 :last-child
-
-
  
-
-
 )
 {
 border-top-right-radius
-
-
-
-
 :
-
-
  
-
-
 4
 px
-
-
-
-
 ;
+
+	
 border-bottom-right-radius
-
-
-
-
 :
-
-
  
-
-
 0;
 border-bottom-left-radius
-
-
-
-
 :
-
-
  
-
-
 0;
 }
 .btn-group-vertical
 >
 .btn
-
-
-
-
 :last-child
-
-
-
-
 :not
-
-
  
-
-
 (
 :first-child
-
-
  
-
-
 )
 {
 border-top-left-radius
-
-
-
-
 :
-
-
  
-
-
 0;
 border-top-right-radius
-
-
-
-
 :
-
-
  
-
-
 0;
 border-bottom-left-radius
-
-
-
-
 :
-
-
  
-
-
 4
 px
-
-
-
-
 ;
+
+
 }
 .btn-group-vertical>.btn-group:not (:first-child ):not (:last-child ) >.btn
 	{
@@ -4503,123 +4219,51 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 }
 
 .input-group-addon
-
-
-
-
 :not
-
-
  
-
-
 (
 :first-child
-
-
  
-
-
 )
 :not
-
-
  
-
-
 (
 :last-child
-
-
  
-
-
 ),
 .input-group-btn
-
-
-
-
 :not
-
-
  
-
-
 (
 :first-child
-
-
  
-
-
 )
 :not
-
-
  
-
-
 (
 :last-child
-
-
  
-
-
 ),
 .input-group
-
-
  
-
-
 .form-control
-
-
-
-
 :not
-
-
 
 	
-
-
 (
 :first-child
-
-
  
-
-
 )
 :not
-
-
  
-
-
 (
 :last-child
-
-
  
-
-
 )
 {
 border-radius
-
-
-
-
 :
-
-
  
-
-
 0;
 }
 .input-group-addon, .input-group-btn {
@@ -7750,37 +7394,45 @@ button.close {
 	}
 }
 
-/* 파일업로드 css */
-.file_input_image_textbox, .file_input_info_textbox {
-	float: left
-}
-
-.file_input_div {
-	position: relative;
-	width: 100px;
-	height: 23px;
+.filebox input[type="file"] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
 	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
 }
 
-.file_input_button {
-	width: 100px;
-	position: absolute;
-	top: 0px;
-	background-color: #33BB00;
-	color: #FFFFFF;
-	border-style: solid;
+.filebox label {
+	display: inline-block;
+	padding: .5em .75em;
+	color: #999;
+	font-size: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #fdfdfd;
+	cursor: pointer;
+	border: 1px solid #ebebeb;
+	border-bottom-color: #e2e2e2;
+	border-radius: .25em;
+} /* named upload */
+.filebox .upload-name {
+	display: inline-block;
+	padding: .5em .75em; /* label의 패딩값과 일치 */
+	font-size: inherit;
+	font-family: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #f5f5f5;
+	border: 1px solid #ebebeb;
+	border-bottom-color: #e2e2e2;
+	border-radius: .25em;
+	-webkit-appearance: none; /* 네이티브 외형 감추기 */
+	-moz-appearance: none;
+	appearance: none;
 }
 
-.file_input_image_hidden, .file_input_info_hidden {
-	font-size: 45px;
-	position: absolute;
-	right: 0px;
-	top: 0px;
-	opacity: 0;
-	filter: alpha(opacity = 0);
-	-ms-filter: "alpha(opacity=0)";
-	-khtml-opacity: 0;
-	-moz-opacity: 0;
-}
 
 /*# sourceMappingURL=bootstrap.css.map */
