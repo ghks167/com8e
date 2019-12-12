@@ -2,8 +2,6 @@ package com.com8e.prod.service;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-
 import com.com8e.prod.vo.ProdSearchVO;
 import com.com8e.prod.vo.ProdVO;
 
@@ -30,6 +28,8 @@ public interface IProdService {
 	
 	/** 상품분류 조회 */
 	public List<ProdVO> selectProdType() throws Exception;
+	
+	public ProdVO selectProdName(String prod_name) throws Exception;
 	
 
 }

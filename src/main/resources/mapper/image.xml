@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 
+	namespace : DAO의 인터페이스 풀네임으로
+	id: 해당 인터페이스 메서드명 
+	자동으로 매핑
+ -->
+<mapper namespace="com.com8e.image.dao.IImageDao">
+	
+	<insert id="insertImage" parameterType="com.com8e.image.vo.ImageVO">
+		insert into image(
+			image_no,
+			image_parent_no,
+			image_category,
+			image_file_name,
+			image_original_name,
+			image_file_size,
+			image_fancy_size,
+			image_content_type,
+			image_path,
+			image_reg_date
+		)values(
+			IMAGE_SEQ.nextval,
+			#{image_parent_no},
+			#{image_category},
+			#{image_file_name},
+			#{image_original_name},
+			#{image_file_size},
+			#{image_fancy_size},
+			#{image_content_type},
+			#{image_path},
+			sysdate
+		)
+	</insert>
+	
+	
+</mapper>
