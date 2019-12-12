@@ -31,11 +31,11 @@
 		<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
 		<div class="cls_login_form">
 			<div style="text-align: center">
-				<form:form action="logincheck" commandName="member">
-					<br> <form:input path="mem_id" placeholder="ID"/>
-					<br> <form:input path="mem_pass" placeholder="Password"/>
+				<form action="${pageContext.request.contextPath}/login/logincheck">
+					<br> <input name="mem_id" placeholder="ID"/>
+					<br> <input name="mem_pass" placeholder="Password"/>
 					<br> <br> <input type="submit" value="로그인"> <br>
-				</form:form>
+				</form>
 			</div>
 			<hr>
 			<div>

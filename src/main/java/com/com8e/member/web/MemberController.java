@@ -3,6 +3,8 @@ package com.com8e.member.web;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,19 +41,54 @@ public class MemberController {
 			
 			ResultMessageVO messageVO = new ResultMessageVO();
 			
-			messageVO.setResult(true).setMessage("회원가입되었습니다.").setTitle("회원가입성공").setUrlTitle("회원정보보기").setUrlTitle("#");
+			messageVO.setResult(true).setMessage("회원가입되었습니다.").setTitle("회원가입성공").setUrlTitle("회원정보보기").setUrl("#");
 			model.addAttribute("resultMessage", messageVO);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			ResultMessageVO messageVO = new ResultMessageVO();
-			messageVO.setResult(false).setMessage("회원가입에 실패하였습니다.").setTitle("회원가입실패").setUrlTitle("..").setUrlTitle("#");
+			messageVO.setResult(false).setMessage("회원가입에 실패하였습니다.").setTitle("회원가입실패").setUrlTitle("..").setUrl("#");
 			model.addAttribute("resultMessage", messageVO);
 		}
 		
 		
 		return "common/message";
 	}
+	
+	@RequestMapping(value = "member/memberView")
+	public String memberView(HttpSession session, Model model) throws Exception{
+		
+		if(session.getAttribute("LOGIN_INFO") == null) {
+			return "login/loginForm";
+		}
+		
+		String mem_id = (String)session.getAttribute("LOGIN_INFO");
+		MemberVO vo = memberService.selectMember(mem_id);
+		model.addAttribute("member", vo);
+		
+		
+		
+		
+		return "member/memberView";
+	}
+	
+	@RequestMapping(value = "member/memberView", method = RequestMethod.POST)
+	public String memberEdit(@ModelAttribute("member") MemberVO vo, Model model) throws Exception{
+		
+		int cnt = memberService.updateMember(vo);
+		ResultMessageVO messageVO = new ResultMessageVO();
+		if(cnt > 0) {
+			messageVO.setResult(true).setMessage("수정이완료되었습니다.").setTitle("수정성공").setUrlTitle("회원정보보기").setUrl("member/memberView");
+			model.addAttribute("resultMessage", messageVO);
+		}else {
+			messageVO.setResult(false).setMessage("수정에 실패하였습니다.").setTitle("수정실패").setUrlTitle("회원정보보기").setUrl("member/memberView");
+			model.addAttribute("resultMessage", messageVO);
+		}
+		
+		
+		return "common/message";
+	}
+	
 	
 	@RequestMapping(value = "/member/overlapcheck" ,method = RequestMethod.POST)
 	@ResponseBody
@@ -68,9 +105,7 @@ public class MemberController {
 		return map;
 	}
 	
-	@RequestMapping(value = "member/memberView")
-	public String memberView() {
-		return "member/memberView";
-	}
+	
+	
 	
 }
