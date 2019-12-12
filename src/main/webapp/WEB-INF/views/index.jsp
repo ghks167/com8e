@@ -10,10 +10,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%@include file="/WEB-INF/inc/common_header.jsp"%>
 <title>com8e</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common_css.css" >
+<style type="text/css">
+.category{
+	height: 70vh;
+
+}
+
+</style>
 </head>
-
-
 <body style="background-color: lightgray">
 	<div class="container">
 		<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
@@ -22,8 +26,8 @@
 			<div class="introduce_list">
 				<ul class="nav nav-pills nav-stacked">
 					<li role="presentation" class="active"><a>com8e.com</a></li>
-					<li role="presentation" ><a href="#">상품분류</a></li>
-					<li role="presentation" ><a href="#">공지사항</a></li>
+					<li role="presentation" ><a href="${pageContext.request.contextPath}/prod/prodList">상품분류</a></li>
+					<li role="presentation" ><a href="${pageContext.request.contextPath}/prod/prodForm">공지사항</a></li>
 					<li role="presentation" ><a href="#">게시판</a></li>
 				</ul>
 			</div>
@@ -38,7 +42,7 @@
 		<div class="main_product">
 		</div>
 		<%@include file="/WEB-INF/inc/common_footer.jsp" %>
-	</div>
+	</div>   
 </body>
 </html>
 

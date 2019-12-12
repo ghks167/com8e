@@ -23,7 +23,14 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:spring/mvc-servlet.xml</param-value>
 		</init-param>
-		<load-on-startup>1</load-on-startup>
+		<load-on-startup>1</load-on-startup>	
+		
+		<multipart-config>
+		<max-file-size>104857600</max-file-size> <!-- 파일당 제한 100M-->
+		<max-request-size>1048576000</max-request-size> <!-- 전체 제한 ,1G-->
+		<file-size-threshold>8192</file-size-threshold> <!-- 메모리에 보관 사이즈 -->
+		</multipart-config>
+		
 	</servlet>
 
 	<servlet-mapping>

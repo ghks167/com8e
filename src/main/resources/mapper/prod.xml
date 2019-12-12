@@ -7,5 +7,77 @@
   
 <mapper namespace="com.com8e.prod.dao.IProdDao">
 	
-	<insert id=""></insert>
+	<insert id="insertProd" parameterType="com.com8e.prod.vo.ProdVO">
+		<selectKey keyProperty="prod_no" resultType="int" order="BEFORE">
+				select prod_seq01.nextval from dual
+		</selectKey>
+		INSERT INTO prod (
+	    prod_no,
+	    prod_name,
+	    prod_price,
+	    prod_com,
+	    prod_qty,
+	    prod_type,
+	    prod_date
+		) VALUES (
+	    #{prod_no},
+	    #{prod_name},
+	    #{prod_price},
+	    #{prod_com},
+	    #{prod_qty},
+	    #{prod_type},
+	    SYSDATE
+		)
+	</insert>
+	
+	 
+	
+	<select id="selectProdType"
+			 resultType="com.com8e.prod.vo.ProdVO">
+		select distinct prod_type from PROD
+	</select>	
+	
+	 
+	<select id="selectProdList" parameterType="com.com8e.prod.vo.ProdVO"
+	resultType="com.com8e.prod.vo.ProdVO">
+		SELECT		prod_no,
+				    prod_name,
+				    prod_price,
+				    prod_com,
+				    prod_qty,
+				    prod_type,
+				    TO_CHAR(prod_date, 'YYYY.MM.DD') AS prod_date
+		FROM PROD
+	</select>
+	
+	<select id="selectProd" parameterType="int"
+			resultType="com.com8e.prod.vo.ProdVO">
+			SELECT		prod_no,
+					    prod_name,
+					    prod_price,
+					    prod_com,
+					    prod_qty,
+					    prod_type,
+					    TO_CHAR(prod_date, 'YYYY.MM.DD') AS prod_date
+			FROM PROD
+			WHERE prod_no = #{prod_no}	
+				
+	</select>
+	
+	<select id="selectProdName" parameterType="String" resultType="com.com8e.prod.vo.ProdVO">
+		SELECT		prod_no,
+					    prod_name,
+					    prod_price,
+					    prod_com,
+					    prod_qty,
+					    prod_type,
+					    TO_CHAR(prod_date, 'YYYY.MM.DD') AS prod_date
+			FROM PROD
+			WHERE prod_name = #{prod_name}
+	</select>
+	
+	
+	
+	
+	
 </mapper>

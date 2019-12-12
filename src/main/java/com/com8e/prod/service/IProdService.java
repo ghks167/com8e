@@ -1,14 +1,11 @@
-package com.com8e.prod.dao;
+package com.com8e.prod.service;
 
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 
 import com.com8e.prod.vo.ProdSearchVO;
 import com.com8e.prod.vo.ProdVO;
 
-@Mapper
-public interface IProdDao {
+public interface IProdService {
 	
 	
 	/** 상품 리스트 조회하기*/
@@ -27,10 +24,12 @@ public interface IProdDao {
 	public int deleteProd(ProdVO prod) throws Exception;
 	
 	/** 주문완료시 상품수량 감소*/
-	public void decreaseQty(String prod_id)throws Exception;
+	public void decreaseQty(int prod_no)throws Exception;
 	
 	/** 상품분류 조회 */
 	public List<ProdVO> selectProdType() throws Exception;
 	
 	public ProdVO selectProdName(String prod_name) throws Exception;
+	
+
 }

@@ -39,7 +39,7 @@ public class MemberServiceImpl implements IMemberService{
 	@Override
 	public int updateMember(MemberVO member) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return memberDao.updateMember(member);
 	}
 
 	@Override

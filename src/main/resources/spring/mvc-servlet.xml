@@ -16,6 +16,7 @@
 	<resources mapping="/bootstrap-3.3.2/**" location="/bootstrap-3.3.2/" />
 	<resources mapping="/js/**" location="/js/" />
 	<resources mapping="/images/**" location="/images/" />
+	<resources mapping="/upload/**" location="/upload/" />
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/css/**" location="/css/" />
 
@@ -27,6 +28,8 @@
 	
 	<context:component-scan base-package="com.com8e" />
 	
+	<beans:bean id ="multipartResolver"
+				class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></beans:bean>
 	
 	
 </beans:beans>
