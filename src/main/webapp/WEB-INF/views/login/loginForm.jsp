@@ -23,30 +23,47 @@
 </style>
 
 </head>
+
+<script type="text/javascript">
+	function go_home() {
+		window.location.href="/com8e/";
+		
+	}
+
+</script>
 <body>
 	<div class="container">
 		<div class="row">
 			<h3>로그인</h3>
 		</div>
 		<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
-		<div class="cls_login_form">
-			<div style="text-align: center">
-				<form action="${pageContext.request.contextPath}/login/logincheck">
-					<br> <input name="mem_id" placeholder="ID"/>
-					<br> <input name="mem_pass" placeholder="Password"/>
-					<br> <br> <input type="submit" value="로그인"> <br>
-				</form>
+
+		<div class="cls_login_form"">
+	
+			
+			<div class="container" style="  width: auto; margin-left: 30% "  >
+			<div	class = "col-sm-5"  style="text-align:center; ">
+				<form:form action="logincheck" commandName="member">
+		
+					<br> <form:input class="form-control  input-sm" path="mem_id" placeholder="ID"/>
+					<br> <form:input class="form-control  input-sm" path="mem_pass" placeholder="Password"/>
+					<br> <br> <input type="submit" class="btn btn-default" value="로그인"> <br>
+				</form:form>
+				
+			
+			</div>
+
 			</div>
 			<hr>
 			<div>
 				<div>
-					<input id="id_home" type="button" value="홈">
-					<input id="id_join" type="button" value="회원가입">			
+					<input id="id_home" type="button" class="btn btn-default" onclick="go_home()" value="홈">
+					<input id="id_join" type="button" class="btn btn-default" value="회원가입">			
 				</div>
 			
 				<div id="id_div_mem_find">
-					<input id="id_searchId" type="button" value="아이디 찾기">
-					<input id="id_searchPw" type="button" value="비밀번호 찾기">
+					<input id="id_searchId" type="button" class="btn btn-default" value="아이디 찾기">
+					<input id="id_searchPw" type="button" class="btn btn-default" value="비밀번호 찾기">
 				</div>
 			</div>
 		</div>
