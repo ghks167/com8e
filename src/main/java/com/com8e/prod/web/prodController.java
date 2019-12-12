@@ -69,13 +69,14 @@ public class prodController {
 			
 			MultipartFile[] multipartFiles = {mainFile,infoFile};
 			String[] paths = {"PROD_MAIN","PROD_INFO"};		
-			list = imageUtils.getOtherImageListByMultiparts(multipartFiles, "PROD",paths);
+			String[] category = {"PROD_M","PROD_I"};
+			list = imageUtils.getOtherImageListByMultiparts(multipartFiles, category,paths);
 			prod.setList(list);
 		}else if (mainFile != null) {
-			 list.add(imageUtils.getImageByMultipart(mainFile, "PROD", "PROD_MAIN"));
+			 list.add(imageUtils.getImageByMultipart(mainFile, "PROD_M", "PROD_MAIN"));
 			 prod.setList(list);
 		}else if (infoFile != null) {
-			list.add(imageUtils.getImageByMultipart(infoFile, "PROD", "PROD_INFO"));
+			list.add(imageUtils.getImageByMultipart(infoFile, "PROD_I", "PROD_INFO"));
 			prod.setList(list);
 		}
 		

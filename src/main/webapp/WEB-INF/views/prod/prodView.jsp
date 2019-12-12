@@ -11,10 +11,7 @@
 <%@include file="/WEB-INF/inc/common_header.jsp"%>
 <title>${prod.prod_name}</title>
 <style type="text/css">
-.main_area{
-	height: 80vw;
 
-}
 
 .main_image {
 	overflow: hidden;
@@ -26,36 +23,58 @@
 	width: 400px;
 	height: 400px;
 }
+.main_info{
+	margin-top: 50px;
+
+}
+.info_image{
+	margin-bottom: 50px;
+}
+.info_image > img {
+	width: 100%;
+}
+
+
 </style>
 </head>
 <body>
 	<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
 	<div class="container">
-		<div class="main_area">
+		<div class="main_area col-sm-12">
 			<h1>${prod.prod_name}</h1>	
 			<hr>
 			
 			<div class="col-sm-6 main_image">
-				<img class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/upload/PROD_MAIN/d5b370f4-a3fb-4c39-9659-88516b7a930f">	
+				<img class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/upload/PROD_MAIN/${prod.map.PROD_M.image_file_name }">
 			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-6 main_info">
 				<table class="table">
 					<tr>
 						<td><h4>상품명 : &nbsp;&nbsp; ${prod.prod_name}</h4></td>
 					</tr>
-				</table>
-		
-		
-			
-				
-			
-			
+					<tr>
+						<td><h4>분류 : &nbsp;&nbsp; ${prod.prod_type}</h4></td>
+					</tr>
+					<tr>
+						<td><h4>제조사 : &nbsp;&nbsp; ${prod.prod_com}</h4></td>
+					</tr>
+					<tr>
+						<td><h4>잔여수량 : &nbsp;&nbsp; ${prod.prod_qty}</h4></td>
+					</tr>
+					<tr>
+						<td><h2>가격 : &nbsp;&nbsp;&#8361;&nbsp; ${prod.prod_price}</h2></td>
+					</tr>
+				</table>	
 			</div>
-		<hr>	
+			<br>
+			<h2> &nbsp;</h2>
+			<hr>
 			
-		
-		
+			<div class="col-sm-12 info_image">
+				<img class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/upload/PROD_INFO/${prod.map.PROD_I.image_file_name }">	
+			</div>	
 		</div>
+		
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
 	</div>
 </body>

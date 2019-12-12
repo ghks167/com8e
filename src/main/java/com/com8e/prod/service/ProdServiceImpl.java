@@ -1,7 +1,11 @@
 package com.com8e.prod.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +24,9 @@ public class ProdServiceImpl implements IProdService {
 	@Autowired
 	private IImageDao imageDao;
 	
+	private Logger logger = LoggerFactory.getLogger(getClass());
+	
+	
 	@Override
 	public List<ProdVO> selectProdList(ProdSearchVO searchVO) throws Exception {
 		List<ProdVO> list = prodDao.selectProdList(searchVO);
@@ -29,6 +36,16 @@ public class ProdServiceImpl implements IProdService {
 	@Override
 	public ProdVO selectProd(int prod_no) throws Exception {
 		ProdVO vo = prodDao.selectProd(prod_no);
+		Map<String, ImageVO> map = new HashMap<>();
+		ImageVO mainImage = imageDao.selectImage(prod_no, "PROD_M");
+		ImageVO infoImage = imageDao.selectImage(prod_no, "PROD_I");
+		if(mainImage != null) {
+			map.put("PROD_M", mainImage);
+		}
+		if (infoImage != null) {
+			map.put("PROD_I", infoImage);
+		}
+		vo.setMap(map);
 		return vo;
 	}
 

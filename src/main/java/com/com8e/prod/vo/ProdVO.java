@@ -1,6 +1,7 @@
 package com.com8e.prod.vo;
 
 import java.util.List;
+import java.util.Map;
 
 import com.com8e.image.vo.ImageVO;
 
@@ -15,7 +16,14 @@ public class ProdVO {
 	private String prod_date = "";
 	
 	private List<ImageVO> list;
+	private Map<String, ImageVO> map;
 	
+	public Map<String, ImageVO> getMap() {
+		return map;
+	}
+	public void setMap(Map<String, ImageVO> map) {
+		this.map = map;
+	}
 	public int getProd_no() {
 		return prod_no;
 	}

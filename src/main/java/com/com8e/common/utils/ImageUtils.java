@@ -60,11 +60,11 @@ public class ImageUtils {
 		return imageList;
 	}
 	
-	public List<ImageVO> getOtherImageListByMultiparts(MultipartFile[] multipartFiles, String category, String[] path) throws IOException {
+	public List<ImageVO> getOtherImageListByMultiparts(MultipartFile[] multipartFiles, String[] category, String[] path) throws IOException {
 		List<ImageVO> imageList = new ArrayList<ImageVO>();
 		for (int i = 0; i < multipartFiles.length; i++) {
 			MultipartFile multipart = multipartFiles[i];
-			ImageVO vo = this.getImageByMultipart(multipart, category, path[i]);
+			ImageVO vo = this.getImageByMultipart(multipart, category[i], path[i]);
 			if (vo != null) {
 				imageList.add(vo);
 			}
