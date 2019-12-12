@@ -61,7 +61,7 @@
 						<div class="file_input_div">
 							<input type="button" value="등록"
 								class="file_input_button" /> 
-							<input type="file" class="file_input_image_hidden" id="id_img_1" onchange="javascript: document.getElementById('fileName').value = this.value" />
+							<input type="file" name= "prod_image" class="file_input_image_hidden" id="id_img_1" onchange="javascript: document.getElementById('fileName').value = this.value" />
 						</div>
 					</td>
 					
@@ -71,7 +71,7 @@
 						<input type="text" id="fileName2" class="file_input_info_textbox" readonly="readonly">
 						<div class="file_input_div">
 							<input type="button" value="등록" class="file_input_button" />
-							 <input type="file" class="file_input_info_hidden" id="id_img_2" onchange="javascript: document.getElementById('fileName2').value = this.value" />
+							 <input type="file" name= "prod_info" class="file_input_info_hidden" id="id_img_2" onchange="javascript: document.getElementById('fileName2').value = this.value" />
 						</div>
 					</td>
 				</tr>

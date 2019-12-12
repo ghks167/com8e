@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.com8e.common.vo.ResultMessageVO;
+import com.com8e.image.vo.ImageVO;
 import com.com8e.prod.service.IProdService;
 import com.com8e.prod.vo.ProdSearchVO;
 import com.com8e.prod.vo.ProdVO;
@@ -53,8 +55,13 @@ public class ProdController {
 	
 	@RequestMapping(value = "/prod/prodRegist" , method = RequestMethod.POST)
 	public String ProdRegist(@ModelAttribute("prod")ProdVO prod
-								,ModelMap model) throws Exception {
+								,ModelMap model
+								,@RequestParam(name = "prod_image", required = false) MultipartFile[] prod_images) throws Exception {
 		String view = "common/message";
+		
+		if(prod_images != null) {
+			List<ImageVO> images = attachUtils.
+		}
 		
 		prodService.insertProd(prod);
 		         
