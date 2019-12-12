@@ -30,12 +30,21 @@ public class ProdController {
 		return list;
 	}
 
+<<<<<<< HEAD
 	@RequestMapping(value = "/prod/prodView", params = "prod_no")
 	public String ProdView(@ModelAttribute("prod") ProdVO prod, ModelMap model, @RequestParam("prod_no") int prod_no)
 			throws Exception {
+=======
+	@RequestMapping(value = "/prod/prodView" ,params = "prod_no")
+	public String ProdView(@ModelAttribute("prod") ProdVO prod
+								,Model model,@RequestParam("prod_no") int prod_no) throws Exception {
+>>>>>>> refs/heads/master
 		String view = "prod/prodView";
 		ProdVO vo = prodService.selectProd(prod_no);
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/heads/master
 		model.addAttribute("prod", vo);
 		return view;
 	}

@@ -36,9 +36,6 @@
 					<div class="col-sm-8">
 						<form:input path="mem_id" id="inputid" cssClass="form-control" placeholder="ID"/>
 					</div>
-					<div class="col-sm-2">
-						<input type="button" class="btn btn-warning" id="id_overlap_check" value="중복체크">
-					</div>
 				</div>
 				<br>
 				
