@@ -37,7 +37,7 @@
 			<h3>로그인</h3>
 		</div>
 		<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
-<<<<<<< HEAD
+
 		<div class="cls_login_form"">
 	
 			
@@ -52,15 +52,7 @@
 				
 			
 			</div>
-=======
-		<div class="cls_login_form">
-			<div style="text-align: center">
-				<form action="${pageContext.request.contextPath}/login/logincheck">
-					<br> <input name="mem_id" placeholder="ID"/>
-					<br> <input name="mem_pass" placeholder="Password"/>
-					<br> <br> <input type="submit" value="로그인"> <br>
-				</form>
->>>>>>> refs/heads/master
+
 			</div>
 			<hr>
 			<div>
