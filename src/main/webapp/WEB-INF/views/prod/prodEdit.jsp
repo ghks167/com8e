@@ -99,9 +99,9 @@
 			<div class="col-sm-12 info_image">
 				<img id="img2" class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/upload/PROD_INFO/${prod.map.PROD_I.image_file_name }">	
 			</div>
+			<form:hidden path="prod_no"/>
 			</form:form>	
 		</div>
-		
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
 	</div>
 </body>

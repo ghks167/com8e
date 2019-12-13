@@ -145,15 +145,15 @@ public class prodController {
 			prod.setList(list);
 		}
 		
-		int cnt = prodService.updateProd(prod);
-		ProdVO vo = prodService.selectProdName(prod.getProd_name());
 		
+		
+		int cnt = prodService.updateProd(prod);	
 		ResultMessageVO messageVO = new ResultMessageVO();
 		messageVO.setResult(true)
 				   .setTitle("상품 수정 완료")
 				   .setMessage("해당 상품수정이 완료되었습니다.")
 				   .setUrlTitle("등록수정확인")
-				   .setUrl("prod/prodView?prod_no="+vo.getProd_no());
+				   .setUrl("prod/prodView?prod_no="+prod.getProd_no());
 		
 		model.addAttribute("resultMessage",messageVO);
 		return view;

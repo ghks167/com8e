@@ -81,14 +81,30 @@ public class ProdServiceImpl implements IProdService {
 
 	@Override
 	public int updateProd(ProdVO prod) throws Exception {
-		int cnt = prodDao.updateProd(prod);
-		ProdVO pp = prodDao.selectProdName(prod.getProd_name());
 		
+		int cnt = prodDao.updateProd(prod);
 		if(prod.getList() != null) {
+			ImageVO mainImage = imageDao.selectImage(prod.getProd_no(), "PROD_M");
+			ImageVO infoImage = imageDao.selectImage(prod.getProd_no(), "PROD_I");
 			List<ImageVO> list = prod.getList();
 			for(ImageVO vo : list) {
-				vo.setImage_parent_no(pp.getProd_no());
-				imageDao.insertImage(vo);
+				vo.setImage_parent_no(prod.getProd_no());
+				if(vo.getImage_category() == "PROD_M") {
+					if(mainImage != null) {
+						vo.setImage_no(mainImage.getImage_no());
+						imageDao.updateImage(vo);
+					}else {
+						imageDao.insertImage(vo);
+					}
+					
+				}else if(vo.getImage_category() == "PROD_I"){
+					if(infoImage != null) {
+						vo.setImage_no(infoImage.getImage_no());
+						imageDao.updateImage(vo);
+					}else {
+						imageDao.insertImage(vo);
+					}
+				}
 			}
 		}
 		return cnt;
