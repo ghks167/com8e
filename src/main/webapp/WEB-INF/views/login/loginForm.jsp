@@ -43,12 +43,12 @@
 			
 			<div class="container" style="  width: auto; margin-left: 30% "  >
 			<div	class = "col-sm-5"  style="text-align:center; ">
-				<form:form action="logincheck" commandName="member">
+				<form action="${pageContext.request.contextPath}/login/logincheck" method="post">
 		
-					<br> <form:input class="form-control  input-sm" path="mem_id" placeholder="ID"/>
-					<br> <form:input class="form-control  input-sm" path="mem_pass" placeholder="Password"/>
+					<br> <input class="form-control  input-sm" type="text" name="mem_id" placeholder="ID"/>
+					<br> <input class="form-control  input-sm" type="text" name="mem_pass" placeholder="Password"/>
 					<br> <br> <input type="submit" class="btn btn-default" value="로그인"> <br>
-				</form:form>
+				</form>
 				
 			
 			</div>

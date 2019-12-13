@@ -59,7 +59,7 @@ public class MemberController {
 	public String memberView(HttpSession session, Model model) throws Exception{
 		
 		if(session.getAttribute("LOGIN_INFO") == null) {
-			return "login/loginForm";
+			return "redirect:/login/loginForm";
 		}
 		
 		String mem_id = (String)session.getAttribute("LOGIN_INFO");
