@@ -32,5 +32,5 @@ public interface IProdDao {
 	/** 상품분류 조회 */
 	public List<ProdVO> selectProdType() throws Exception;
 	
-
+	public ProdVO selectProdName(String prod_name) throws Exception;
 }

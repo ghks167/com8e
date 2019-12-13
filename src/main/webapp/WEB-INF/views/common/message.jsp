@@ -10,40 +10,50 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%@include file="/WEB-INF/inc/common_header.jsp"%>
 <title>${resultMessage.title}</title>
+<style type="text/css">
+.cls_message_area{
+	height: 80vh;
+
+}
+</style>
 </head>
+	
 <body>
  <%@include file="/WEB-INF/inc/common_top_menu.jsp" %>
 	<div class="container">
-		<div class="row col-md-8 col-md-offset-2">
-			<div class="page-header">
-				<h3>${resultMessage.title}</h3>
-			</div>
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<p>${resultMessage.message}</p>
+		<div class="cls_message_area">
+			<div class="row col-md-8 col-md-offset-2">
+				<div class="page-header">
+					<h3>${resultMessage.title}</h3>
 				</div>
-				<div class="panel-body">
-					<a href="${pageContext.request.contextPath}/"
-						class="btn btn-primary"> <span
-						class="glyphicon glyphicon-home" aria-hidden="true"></span>
-						&nbsp;Home
-					</a>
-					<div class="pull-right">
-						<a href="#" onclick="history.back()" class="btn btn-default">
-							<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-							&nbsp;뒤로가기
-						</a> &nbsp;&nbsp;
-						<c:if test="${not empty resultMessage.url}">
-							<a href="${pageContext.request.contextPath}${resultMessage.url}"
-								class="btn btn-warning"> <span
-								class="glyphicon glyphicon-new-window aria-hidden="true"></span>
-								&nbsp;${resultMessage.urlTitle}
-							</a>
-						</c:if>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<p>${resultMessage.message}</p>
+					</div>
+					<div class="panel-body">
+						<a href="${pageContext.request.contextPath}/"
+							class="btn btn-primary"> <span
+							class="glyphicon glyphicon-home" aria-hidden="true"></span>
+							&nbsp;Home
+						</a>
+						<div class="pull-right">
+							<a href="#" onclick="history.back()" class="btn btn-default">
+								<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+								&nbsp;뒤로가기
+							</a> &nbsp;&nbsp;
+							<c:if test="${not empty resultMessage.url}">
+								<a href="${pageContext.request.contextPath}/${resultMessage.url}"
+									class="btn btn-warning"> <span
+									class="glyphicon glyphicon-new-window aria-hidden="true"></span>
+									&nbsp;${resultMessage.urlTitle}
+								</a>
+							</c:if>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
 	</div>
 </body>
 </html>

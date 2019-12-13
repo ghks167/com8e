@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 	
 	
-<div class="footer">
+<div class="footer col-sm-6">
 	<table id="foot_table">
 		<tr>
 			<td class="foot_td"><a id="a_link" href="#">공지사항 </a></td>
@@ -29,7 +29,4 @@
 		</tr>
 
 	</table>
-	
-	
-   
 </div>

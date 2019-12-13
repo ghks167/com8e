@@ -1,5 +1,6 @@
 package com.com8e.prod.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,67 +15,83 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.com8e.common.utils.ImageUtils;
 import com.com8e.common.vo.ResultMessageVO;
 import com.com8e.image.vo.ImageVO;
 import com.com8e.prod.service.IProdService;
 import com.com8e.prod.vo.ProdSearchVO;
 import com.com8e.prod.vo.ProdVO;
 
-@Controller
-public class ProdController {
 
+@Controller
+public class prodController {
+	
 	@Autowired
 	private IProdService prodService;
 	
+	@Autowired
+	private ImageUtils imageUtils;
+	
+	
 	@ModelAttribute("prodTypeList")
 	public List<ProdVO> getProdTypeList() throws Exception{
-		
 		List<ProdVO> list = prodService.selectProdType();
-		
 		return list;
 	}
-
+	
+	@RequestMapping(value = "/prod/prodForm")
+	public String prodForm(Model model) {	
+		ProdVO vo = new ProdVO();
+		model.addAttribute("prod", vo);
+		
+		
+		return "prod/prodForm";
+	}
+	
 	@RequestMapping(value = "/prod/prodView" ,params = "prod_no")
 	public String ProdView(@ModelAttribute("prod") ProdVO prod
 								,Model model,@RequestParam("prod_no") int prod_no) throws Exception {
 		String view = "prod/prodView";
 		ProdVO vo = prodService.selectProd(prod_no);
-		
 		model.addAttribute("prod", vo);
 		return view;
 	}
 	
-	
-
-	@RequestMapping(value = {"/prod/prodForm", "/prod/prodRegist"})
-	public String ProdForm(@ModelAttribute("prod") ProdVO prod) throws Exception {
-		String view = "prod/prodForm";
-		
-		return view;
-	}
-	
 	@RequestMapping(value = "/prod/prodRegist" , method = RequestMethod.POST)
-	public String ProdRegist(@ModelAttribute("prod")ProdVO prod
-								,ModelMap model
-								,@RequestParam(name = "prod_image", required = false) MultipartFile[] prod_images) throws Exception {
-		String view = "common/message";
+	public String ProdRegist(@ModelAttribute("prod")ProdVO prod, 
+			@RequestParam(name = "prod_main_image",required = false) MultipartFile mainFile ,
+			@RequestParam(name = "prod_info_image",required = false) MultipartFile infoFile ,
+			ModelMap model) throws Exception {
 		
-		if(prod_images != null) {
-			List<ImageVO> images = attachUtils.
+		List<ImageVO> list = new ArrayList<ImageVO>();
+		
+		if(mainFile != null && infoFile != null) {
+			
+			MultipartFile[] multipartFiles = {mainFile,infoFile};
+			String[] paths = {"PROD_MAIN","PROD_INFO"};		
+			String[] category = {"PROD_M","PROD_I"};
+			list = imageUtils.getOtherImageListByMultiparts(multipartFiles, category,paths);
+			prod.setList(list);
+		}else if (mainFile != null) {
+			 list.add(imageUtils.getImageByMultipart(mainFile, "PROD_M", "PROD_MAIN"));
+			 prod.setList(list);
+		}else if (infoFile != null) {
+			list.add(imageUtils.getImageByMultipart(infoFile, "PROD_I", "PROD_INFO"));
+			prod.setList(list);
 		}
 		
-		prodService.insertProd(prod);
-		         
+		int cnt = prodService.insertProd(prod);
+		ProdVO vo = prodService.selectProdName(prod.getProd_name());
 		
 		ResultMessageVO messageVO = new ResultMessageVO();
 		messageVO.setResult(true)
 				   .setTitle("상품 등록 성공")
 				   .setMessage("해당 상품등록을 완료하였습니다.")
 				   .setUrlTitle("등록상품확인")
-				   .setUrl("/prod/prodView?prod_no="+prod.getProd_no());
+				   .setUrl("prod/prodView?prod_no="+vo.getProd_no());
 		
 		model.addAttribute("resultMessage",messageVO);
-		return view;
+		return "common/message";
 	}
 	
 	@RequestMapping(value = "/prod/prodList")
@@ -91,5 +108,4 @@ public class ProdController {
 		
 		
 	}
-
 }

@@ -64,4 +64,20 @@
 				
 	</select>
 	
+	<select id="selectProdName" parameterType="String" resultType="com.com8e.prod.vo.ProdVO">
+		SELECT		prod_no,
+					    prod_name,
+					    prod_price,
+					    prod_com,
+					    prod_qty,
+					    prod_type,
+					    TO_CHAR(prod_date, 'YYYY.MM.DD') AS prod_date
+			FROM PROD
+			WHERE prod_name = #{prod_name}
+	</select>
+	
+	
+	
+	
+	
 </mapper>

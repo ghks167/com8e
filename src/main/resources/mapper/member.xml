@@ -36,4 +36,21 @@
 			'일반'
 		)
 	</insert>
+	
+	
+	<update id="updateMember" parameterType="com.com8e.member.vo.MemberVO">
+		update 
+			member 
+		set 
+			mem_pass = #{mem_pass},
+			mem_hp = #{mem_hp},
+			mem_bir = #{mem_bir},
+			mem_addr = #{mem_addr}
+		where  
+			mem_id = #{mem_id}
+	</update>
+	
+	
+	
+	
 </mapper>
