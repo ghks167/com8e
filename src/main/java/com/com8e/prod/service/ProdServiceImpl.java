@@ -30,7 +30,7 @@ public class ProdServiceImpl implements IProdService {
 	@Override
 	public List<ProdVO> selectProdList(ProdSearchVO searchVO) throws Exception {
 		
-		int count = prodDao.selectProdCount();
+		int count = prodDao.selectProdCount(searchVO);
 		searchVO.setTotalRowCount(count);
 		searchVO.pageSetting();
 		

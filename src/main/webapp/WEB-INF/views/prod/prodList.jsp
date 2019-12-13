@@ -37,6 +37,9 @@
 	margin-bottom: 3px;
 	
 }
+.category_area{
+	margin-bottom: 10px;
+}
 
 
 </style>
@@ -48,6 +51,57 @@
 		<h1>상품목록</h1>
 		<div class="main_area">
 			<form:form commandName="searchVO" action="/prod/prodList" method="post" id="id_list_form">
+			
+			
+				<div class="btn-group btn-group-justified col-sm-12 category_area" role="group" aria-label="...">
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-default" data-value="${type.prod_type}" onclick="f_caterory_select(this)">전체</button>
+					</div>
+					<c:forEach var="type" items="${prodTypeList}">
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-default" data-value="${type.prod_type}" onclick="f_caterory_select(this)">${type.prod_type}</button>
+						</div>
+					</c:forEach>
+				</div>
+				
+				<div class="col-md-2">
+					<div class="col-sm-1">
+						<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+					</div>
+					<div class="col-sm-9">
+						<form:select path="screenListSize" cssClass="form-control" id="id_screen_list_size">
+							<form:option value="10">10</form:option>
+							<form:option value="20">20</form:option>
+							<form:option value="30">30</form:option>
+						</form:select>
+					</div>	
+				</div>
+				<div class="col-md-3">
+					<h5>${searchVO.totalRowCount}개상품 &emsp; &emsp; 현재Page ${searchVO.curPage} /전체Page ${searchVO.totalPageCount} </h5>
+				</div>
+				<div class="col-md-7">
+					<div class="col-sm-1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+					<div class="col-sm-3">
+						<form:select path="searchType" cssClass="form-control">
+							<form:option value="N">상품이름</form:option>
+							<form:option value="C">제조사</form:option>
+						</form:select>
+					</div>
+					<div class="col-sm-6">
+						<form:input path="searchWord" cssClass="form-control"/>
+					</div>
+					<div class="col-sm-2">
+						<input type="submit" value="검색">
+					</div>
+				
+				
+				</div>
+				
+				
+				
+				
+
+
 				<c:forEach var="prod" items="${prodList}">
 					<div class="col-sm-12">
 						<hr>
@@ -79,7 +133,7 @@
 					</div>
 	
 				</c:forEach>
-				<nav class="text-center">
+				<nav class="text-center col-sm-12">
 				  <ul class="pagination">
 				  	<!-- 이전 페이지  -->
 				    <li>
@@ -111,10 +165,11 @@
 				    
 				  </ul>
 				</nav>
-				<input type="hidden" name="curPage" value="${searchVO.curPage }">
-				<input type="hidden" name="screenListSize" value="${searchVO.screenListSize}" id="screenListSize">
-				<input type="hidden" name="pageListSize" value="${searchVO.pageListSize}">
-				<input type="hidden" name="totalPageCount" value="${searchVO.totalPageCount}">
+				<form:hidden path="curPage"/>
+				<form:hidden path="pageListSize"/>
+				<form:hidden path="totalPageCount"/>
+				<form:hidden path="searchClass" id="id_searchClass"/>
+				 
 			</form:form>
 		</div>
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
@@ -126,14 +181,39 @@
 		var fn_search_submit = function(){
 			
 			f.submit();
-		}
+		};
 		
 		// 페이지 변경후 서브밋 호출 
 		var fn_go_page = function(p){
 		
 			f.curPage.value = p;
 			fn_search_submit();	
+		};
+		
+		document.getElementById("id_screen_list_size").onchange = function () { fn_search_submit(); };
+		
+		
+		function f_pre(p) {
+			f.curPage.value = parseInt(p) - parseInt(f.pageListSize.value);
+			if(1 > f.curPage.value ){
+				f.curPage.value = 1; 
+			}
+			f.submit();
 		}
+		
+		function f_nex(p) {
+			f.curPage.value = parseInt(p) + parseInt(f.pageListSize.value);
+			if(f.totalPageCount.value < f.curPage.value){
+				f.curPage.value = f.totalPageCount.value;
+			}
+			f.submit();
+		}													
+		
+		function f_caterory_select(p){
+			$("#id_searchClass").val(p.dataset.value);
+			f.submit();
+		}
+		
 		
 	</script>
 </body>

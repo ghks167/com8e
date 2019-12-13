@@ -19,6 +19,7 @@ public class PagingVO {
 		if(screenListSize<1) screenListSize=10;
 		if(pageListSize<1)	  pageListSize=10;
 		
+		
 		if(totalRowCount ==0) {
 			
 			totalPageCount=0;
@@ -28,6 +29,8 @@ public class PagingVO {
 			endPage=0;
 			
 		}else {
+			
+		
 			
 		
 		// (23 - 1) / 5 + 1 = ?  
@@ -42,7 +45,26 @@ public class PagingVO {
 		
 		// endPage = 10 -> endPage = 3
 		if(endPage > totalPageCount) endPage = totalPageCount;
+		if(curPage>endPage) {
+			curPage = endPage;
+			// (23 - 1) / 5 + 1 = ?  
+			totalPageCount = (totalRowCount - 1) / screenListSize + 1;
+			// curPage = 2 -> startRow = 11, endRow = 20
+			startRow = (curPage - 1 ) * screenListSize;
+			endRow = screenListSize * curPage;
+			
+			// curPage = 2, pageListSize = 10 -> startPage = 1, endPage = 10
+			startPage = ((curPage-1) / pageListSize) * pageListSize + 1; 
+			endPage = startPage + pageListSize - 1;
+			
+			// endPage = 10 -> endPage = 3
+			if(endPage > totalPageCount) endPage = totalPageCount;
 		}
+		
+		
+		
+		}
+		
 	}
 	
 	

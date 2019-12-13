@@ -36,7 +36,6 @@ public interface IProdDao {
 	public ProdVO selectProdName(String prod_name) throws Exception;
 	
 	/** 데이터 카운터 **/
-	
-	public int selectProdCount() throws Exception;
+	public int selectProdCount(ProdSearchVO searchVO) throws Exception;
 	
 }
