@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.com8e.member.service.IMemberService;
 import com.com8e.member.vo.MemberVO;
@@ -23,8 +24,8 @@ public class LoginController {
 		return "login/loginForm";
 	}
 	
-	@RequestMapping(value = "login/logincheck")
-	public String loginCheck(HttpSession session ,@ModelAttribute("member")MemberVO vo, BindingResult errors) throws Exception{
+	@RequestMapping(value = "login/logincheck", method = RequestMethod.POST)
+	public String loginCheck(HttpSession session ,MemberVO vo, BindingResult errors) throws Exception{
 		
 		MemberVO vo2 = memberService.selectMember(vo.getMem_id());
 		if(vo2 != null) {
