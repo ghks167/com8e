@@ -66,8 +66,17 @@ public class ProdServiceImpl implements IProdService {
 
 	@Override
 	public int updateProd(ProdVO prod) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		int cnt = prodDao.updateProd(prod);
+		ProdVO pp = prodDao.selectProdName(prod.getProd_name());
+		
+		if(prod.getList() != null) {
+			List<ImageVO> list = prod.getList();
+			for(ImageVO vo : list) {
+				vo.setImage_parent_no(pp.getProd_no());
+				imageDao.updateImage(vo);
+			}
+		}
+		return cnt;
 	}
 
 	@Override

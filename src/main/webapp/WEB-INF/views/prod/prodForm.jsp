@@ -62,7 +62,7 @@
 							<form:options items="${prodTypeList}" itemValue="prod_type"
 								itemLabel="prod_type"></form:options>
 						</form:select>
-						<form:input path="prod_qty" id="input_prod_pty"
+						<form:input type= "number" path="prod_qty" id="input_prod_pty"
 							cssClass="form-control margining" placeholder="Product_qty" />
 							
 						<form:input path="prod_com" id="input_prod_com"

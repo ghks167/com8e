@@ -108,4 +108,55 @@ public class prodController {
 		
 		
 	}
+	
+	@RequestMapping(value = "/prod/prodEdit")
+	public String prodEdit(@ModelAttribute("prod")ProdVO prod,@RequestParam("prod_no") int prod_no, ModelMap model) throws Exception{
+		String view = "prod/prodEdit"; 
+		
+		ProdVO vo = prodService.selectProd(prod_no);
+		model.addAttribute("prod",vo);
+		return view;
+		
+	}
+	
+	@RequestMapping(value = "/prod/prodModify")
+	public String prodModify(@ModelAttribute("prod")ProdVO prod,
+								 @RequestParam(name = "prod_main_image",required = false) MultipartFile mainFile ,
+								 @RequestParam(name = "prod_info_image",required = false) MultipartFile infoFile ,
+								 ModelMap model)throws Exception{
+		
+		String view = "common/message";
+		
+		List<ImageVO> list = new ArrayList<ImageVO>();
+		
+		if(mainFile != null && infoFile != null) {
+			
+			MultipartFile[] multipartFiles = {mainFile,infoFile};
+			String[] paths = {"PROD_MAIN","PROD_INFO"};		
+			String[] category = {"PROD_M","PROD_I"};
+			list = imageUtils.getOtherImageListByMultiparts(multipartFiles, category,paths);
+			prod.setList(list);
+		}else if (mainFile != null) {
+			 list.add(imageUtils.getImageByMultipart(mainFile, "PROD_M", "PROD_MAIN"));
+			 prod.setList(list);
+		}else if (infoFile != null) {
+			list.add(imageUtils.getImageByMultipart(infoFile, "PROD_I", "PROD_INFO"));
+			prod.setList(list);
+		}
+		
+		int cnt = prodService.updateProd(prod);
+		ProdVO vo = prodService.selectProdName(prod.getProd_name());
+		
+		ResultMessageVO messageVO = new ResultMessageVO();
+		messageVO.setResult(true)
+				   .setTitle("상품 수정 완료")
+				   .setMessage("해당 상품수정이 완료되었습니다.")
+				   .setUrlTitle("등록수정확인")
+				   .setUrl("prod/prodView?prod_no="+vo.getProd_no());
+		
+		model.addAttribute("resultMessage",messageVO);
+		return view;
+	}
+	
+	
 }

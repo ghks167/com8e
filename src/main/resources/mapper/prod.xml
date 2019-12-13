@@ -76,6 +76,19 @@
 			WHERE prod_name = #{prod_name}
 	</select>
 	
+	<update id="updateProd" parameterType="com.com8e.prod.vo.ProdVO">
+	
+	UPDATE prod
+	   SET prod_no =    #{prod_no},
+	 		prod_name =  #{prod_name},
+          prod_price = #{prod_price},
+          prod_com =   #{prod_com},
+          prod_qty =   #{prod_qty},
+          prod_type =  #{prod_type}
+    WHERE prod_no = #{prod_no}
+    
+	</update>
+	
 	
 	
 	

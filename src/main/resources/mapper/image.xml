@@ -42,4 +42,19 @@
 		select image_file_name from image where image_parent_no = #{image_parent_no} and image_category = #{image_category}
 	</select>
 	
+	<update id="updateImage" parameterType="int">
+	UPDATE image
+	   SET image_no =    #{image_no},
+	 		image_parent_no =  #{image_parent_no},
+          image_category = #{image_category},
+          image_file_name =   #{image_file_name},
+          image_original_name =   #{image_original_name},
+          image_file_size =  #{image_file_size},
+          image_fancy_size =  #{image_fancy_size},
+          image_content_type =  #{image_content_type},
+          image_path =  #{image_path}
+          image_reg_date = #{image_reg_date}
+    WHERE image_no = #{image_no}
+	</update>
+	
 </mapper>
