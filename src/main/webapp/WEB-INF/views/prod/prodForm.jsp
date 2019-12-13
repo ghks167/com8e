@@ -57,7 +57,7 @@
 					<div class="col-sm-4">
 						<form:input path="prod_price" id="input_prod_price"
 							cssClass="form-control margining" placeholder="Product_price" />
-						<form:select path="prod_type" cssClass="form-control margining">
+						<form:select path="prod_type" cssClass="form-control margining" id="input_prod_type">
 							<option value="">- - - - - - - - - - - - - - - -</option>
 							<form:options items="${prodTypeList}" itemValue="prod_type"
 								itemLabel="prod_type"></form:options>
@@ -131,8 +131,8 @@
 			if($("#input_prod_price").val() == 0){
 				$("#input_prod_price").val("");
 			}
-			if($("#input_prod_pty").val() == 0){
-				$("#input_prod_pty").val("");
+			if($("#input_prod_qty").val() == 0){
+				$("#input_prod_qty").val("");
 			}
 			
 			
