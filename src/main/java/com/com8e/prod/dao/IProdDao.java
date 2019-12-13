@@ -32,5 +32,10 @@ public interface IProdDao {
 	/** 상품분류 조회 */
 	public List<ProdVO> selectProdType() throws Exception;
 	
+	/** 이름으로 조회 */
 	public ProdVO selectProdName(String prod_name) throws Exception;
+	
+	/** 데이터 카운터 **/
+	public int selectProdCount(ProdSearchVO searchVO) throws Exception;
+	
 }
