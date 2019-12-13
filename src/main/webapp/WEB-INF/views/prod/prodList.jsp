@@ -50,7 +50,7 @@
 		<%@include file="/WEB-INF/inc/common_main_search.jsp" %>
 		<h1>상품목록</h1>
 		<div class="main_area">
-			<form:form commandName="searchVO" action="/prod/prodList" method="post" id="id_list_form">
+			<form:form commandName="searchVO" action="${pageContext.request.contextPath}/prod/prodList" method="post" id="id_list_form">
 			
 			
 				<div class="btn-group btn-group-justified col-sm-12 category_area" role="group" aria-label="...">
@@ -113,7 +113,7 @@
 						<div class="col-sm-6 name_area">
 							<div class="page-header">
 								<h4>
-									<a href="/prod/prodView?prod_no=${prod.prod_no}">${prod.prod_name}</a>
+									<a href="${pageContext.request.contextPath}/prod/prodView?prod_no=${prod.prod_no}">${prod.prod_name}</a>
 								</h4>
 								<h4>
 									<small>${prod.prod_type} </small>
