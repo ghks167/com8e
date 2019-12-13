@@ -36,18 +36,43 @@
 			 resultType="com.com8e.prod.vo.ProdVO">
 		select distinct prod_type from PROD
 	</select>	
-	
+<!-- 	
+	 <sql id="searchCondition">
+  		<if test='@org.apache.commons.lang3.StringUtils@isNotBlank(searchWord)'>
+ 	   		<choose>
+ 	   			<when test='searchType == "T"'>AND bo_title LIKE '%'||#{searchWord}||'%'</when>
+ 	   			<when test='searchType.equals("W")'>AND bo_writer LIKE '%'||#{searchWord}||'%'</when>
+ 	   			<when test='searchType eq "C"'>AND bo_content LIKE '%'||#{searchWord}||'%'</when>
+ 	   			<otherwise> 
+ 	   				and ( 
+       					bo_title like '%'||#{searchWord}||'%' 
+      					or bo_writer like '%'||#{searchWord}||'%' 
+      					or bo_content like '%'||#{searchWord}||'%' 
+      				) 
+      			</otherwise>
+ 	   		</choose> 	   	
+ 	   </if>
+ 	   <if test="searchClass != null and searchClass != ''">
+ 	   		and bo_class = #{searchClass}
+ 	   </if>
+  	</sql>
 	 
-	<select id="selectProdList" parameterType="com.com8e.prod.vo.ProdVO"
-	resultType="com.com8e.prod.vo.ProdVO">
+	  -->
+	 
+	 
+	 
+	<select id="selectProdList" parameterType="com.com8e.prod.vo.ProdSearchVO" resultType="com.com8e.prod.vo.ProdVO">
+		<include refid="common.PAGING_PREFIX"/>	
 		SELECT		prod_no,
 				    prod_name,
 				    prod_price,
 				    prod_com,
 				    prod_qty,
 				    prod_type,
-				    TO_CHAR(prod_date, 'YYYY.MM.DD') AS prod_date
+				  	prod_date
 		FROM PROD
+ 	 	ORDER BY prod_no DESC
+ 	   <include refid="common.PAGING_SUFFIX"/>
 	</select>
 	
 	<select id="selectProd" parameterType="int"
@@ -76,7 +101,9 @@
 			WHERE prod_name = #{prod_name}
 	</select>
 	
-	
+	<select id="selectProdCount" resultType="int">
+		select count(*) as cnt from prod
+	</select>
 	
 	
 	

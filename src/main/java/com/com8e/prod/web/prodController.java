@@ -95,14 +95,15 @@ public class prodController {
 	}
 	
 	@RequestMapping(value = "/prod/prodList")
-	public String prodList(@ModelAttribute("prod")ProdVO prod
-									, HttpServletRequest req) throws Exception{
+	public String prodList(@ModelAttribute("prod")ProdVO prod, @ModelAttribute("searchVO") ProdSearchVO searchVO
+									, Model model) throws Exception{
 		
-		String view = "/prod/prodList";
-		ProdSearchVO searchVO = new ProdSearchVO();	
+		String view = "/prod/prodList";	
 		List<ProdVO> list = prodService.selectProdList(searchVO);
-	
-		req.setAttribute("prodList", list);
+		
+		
+		model.addAttribute("prodList", list);
+		model.addAttribute("searchVO", searchVO);
 		
 		return view;
 		

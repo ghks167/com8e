@@ -14,7 +14,6 @@
 	<logger name="com.com8e">
 		<level value="debug" />
 	</logger>
-	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
 		<level value="info" />
