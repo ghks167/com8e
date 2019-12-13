@@ -42,7 +42,7 @@
 		select image_file_name from image where image_parent_no = #{image_parent_no} and image_category = #{image_category}
 	</select>
 	
-	<update id="updateImage" parameterType="int">
+	<update id="updateImage" parameterType="com.com8e.image.vo.ImageVO">
 	UPDATE image
 	   SET image_no =    #{image_no},
 	 		image_parent_no =  #{image_parent_no},

@@ -78,14 +78,14 @@
 	
 	<update id="updateProd" parameterType="com.com8e.prod.vo.ProdVO">
 	
-	UPDATE prod
-	   SET prod_no =    #{prod_no},
-	 		prod_name =  #{prod_name},
-          prod_price = #{prod_price},
-          prod_com =   #{prod_com},
-          prod_qty =   #{prod_qty},
-          prod_type =  #{prod_type}
-    WHERE prod_no = #{prod_no}
+		update PROD 
+   			set prod_no = #{prod_no}
+    		 , prod_name = #{prod_name}
+     		 , prod_price = #{prod_price}
+     		 , prod_com = #{prod_com} 
+     		 , prod_qty = #{prod_qty}
+     		 , prod_type = #{prod_type} 
+		 	where prod_no= #{prod_no}
     
 	</update>
 	

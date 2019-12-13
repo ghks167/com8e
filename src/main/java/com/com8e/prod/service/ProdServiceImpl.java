@@ -73,7 +73,7 @@ public class ProdServiceImpl implements IProdService {
 			List<ImageVO> list = prod.getList();
 			for(ImageVO vo : list) {
 				vo.setImage_parent_no(pp.getProd_no());
-				imageDao.updateImage(vo);
+				imageDao.insertImage(vo);
 			}
 		}
 		return cnt;
