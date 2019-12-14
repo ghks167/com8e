@@ -22,8 +22,8 @@
 	<div class="container">
 		<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
 		<%@include file="/WEB-INF/inc/common_main_search.jsp" %>
-		<div class="introduce col-sm-12">
-			<div class="introduce_list">
+		<div class="introduce col-md-12">
+			<div class="introduce_list col-sm-4">
 				<ul class="nav nav-pills nav-stacked">
 					<li role="presentation" class="active"><a>com8e.com</a></li>
 					<li role="presentation" ><a href="${pageContext.request.contextPath}/prod/prodList">상품분류</a></li>
@@ -31,7 +31,7 @@
 					<li role="presentation" ><a href="#">게시판</a></li>
 				</ul>
 			</div>
-			<div class="introduce_view">
+			<div class="introduce_view col-sm-8">
 				<img alt="" src="${pageContext.request.contextPath}/images/background.jpg" style="height: 100%; width: 100%;">
 			</div>
 		</div>
