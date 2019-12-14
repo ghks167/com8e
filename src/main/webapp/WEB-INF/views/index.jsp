@@ -22,7 +22,7 @@
 	<div class="container">
 		<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
 		<%@include file="/WEB-INF/inc/common_main_search.jsp" %>
-		<div class="introduce">
+		<div class="introduce col-sm-12">
 			<div class="introduce_list">
 				<ul class="nav nav-pills nav-stacked">
 					<li role="presentation" class="active"><a>com8e.com</a></li>

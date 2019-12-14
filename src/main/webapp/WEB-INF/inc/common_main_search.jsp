@@ -1,13 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-	<div class="bg-info" id="div_total_search">
-		<div style="background-color: red; width: 20%; height: 100%; float: left;" >
-			<img alt="없음" src="testimg.jpg">
+	<div class="col-md-12 main_search_area">
+		<div class="col-sm-3 logo_area">
+			<img alt="" src="${pageContext.request.contextPath}/upload/PROD_MAIN/1bdb270b-0cef-4e9a-8d7b-999d3f46180e">
 		</div>
-		<div style="margin: auto; width: 65%; height: 100%; background-color: blue;  float: left;" > 
-			
+		<div class="col-sm-7 search_text_area">
+			<div class="form-group has-success has-feedback">
+  				<input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status">
+  				<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+  				<span id="inputSuccess2Status" class="sr-only">(success)</span>
+			</div>
 		</div>
-
+		<div class="col-sm-2 search_btn_area">
+			<button type="button" class="btn btn-success">통합검색</button>
+		</div>
 		
 	</div>
