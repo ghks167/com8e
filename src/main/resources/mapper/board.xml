@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.com8e.board.dao.IBoardDao">
+	<select id="selectBoardList" resultType="com.com8e.board.vo.BoardVO">
+		select * from board
+	</select>
+	
+	<select id="selectBoard" parameterType="int" resultType="com.com8e.board.vo.BoardVO">
+		select * from board where bo_no = #{bo_no}
+	</select>
+</mapper>

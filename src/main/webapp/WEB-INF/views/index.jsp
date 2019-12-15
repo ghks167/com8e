@@ -33,7 +33,7 @@
 					<li role="presentation" class="active"><a>com8e.com</a></li>
 					<li role="presentation" id="prod_category"><a href="${pageContext.request.contextPath}/prod/prodList">상품분류</a></li>
 					<li role="presentation" id="prod_board" ><a href="${pageContext.request.contextPath}/prod/prodForm">공지사항</a></li>
-					<li role="presentation" id="prod_notice" ><a href="#">게시판</a></li>
+					<li role="presentation" id="prod_notice" ><a href="${pageContext.request.contextPath}/board/boardList">게시판</a></li>
 				</ul>
 			</div>
 			<div class="introduce_view col-sm-8">
