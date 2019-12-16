@@ -46,30 +46,20 @@ public class boardController {
 	
 	@RequestMapping(value = "board/boardForm")
 	public String boardForm(Model model, HttpSession session, @ModelAttribute("board")BoardVO board) {
-		
 		String mem_id = (String)session.getAttribute("LOGIN_INFO");
-		
 		if(mem_id == null) {
-			return "login/loginForm";
-			
+			return "login/loginForm";	
 		}
-		
-		
 		board.setBo_mem(mem_id);
-		
-		
 		model.addAttribute("board",board);
-		
 		return "board/boardForm";
 	}
 	
 	
 	@RequestMapping(value = "board/boardRegist")
 	public String boardRegist(BoardVO board, Model model) {
-		
 		int i = boardService.insertBoard(board);
 		ResultMessageVO messageVO = new ResultMessageVO();
-		
 		if(i>0) {			
 			messageVO.setResult(true).setMessage("성공적으로 등록되었습니다.").setTitle("등록 성공").setUrlTitle("글보기").setUrl("#");
 			model.addAttribute("resultMessage", messageVO);
