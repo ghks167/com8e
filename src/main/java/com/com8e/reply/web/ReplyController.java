@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.com8e.board.service.IBoardService;
 import com.com8e.reply.service.IReplyService;
 import com.com8e.reply.vo.ReplyVO;
 
@@ -18,12 +19,15 @@ public class ReplyController {
 	
 	@Autowired
 	IReplyService replyService;
+	@Autowired
+	IBoardService boardService;
 	
 	
 	@RequestMapping(value = "reply/replyRegist")
 	@ResponseBody
 	public Map<String, Object> replyRegist(ReplyVO vo) throws Exception{
 		int i = replyService.insertReply(vo);
+		boardService.updateReplyCnt(vo.getRe_bo_no());
 		Map<String, Object> map = new HashMap<String, Object>();
 		if(i > 0) {
 			map.put("result", true);

@@ -16,5 +16,7 @@ public interface IBoardService {
 	public int selectBoardCount(BoardSearchVO searchVO) throws Exception;
 
 	List<BoardVO> selectBoardList(BoardSearchVO searchVO) throws Exception;
+	
+	public int updateReplyCnt(int bo_no) throws Exception;
 
 }

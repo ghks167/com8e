@@ -78,4 +78,8 @@
          		,bo_content = #{bo_content}
     	 WHERE bo_no = #{bo_no}
 	</update>
+	
+	<update id="updateReplyCnt" parameterType="int">
+		update board set bo_re_cnt = bo_re_cnt + 1 where bo_no = #{bo_no}
+	</update>
 </mapper>

@@ -20,4 +20,6 @@ public interface IBoardDao {
 	
 	/** 카운트 */
 	public int selectBoardCount(BoardSearchVO searchVO) throws Exception;
+	
+	public int updateReplyCnt(int bo_no) throws Exception;
 }

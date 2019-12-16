@@ -162,7 +162,8 @@
 		var re_content = $("#id_comment_content").val();
 		console.log(re_content);
 		
-		pa = {	"re_bo_no":${board.bo_no},
+		pa = {	
+				"re_bo_no":${board.bo_no},
 				"re_parent_no":re_parent_no,
 				"re_content":re_content,
 				"re_mem":"${LOGIN_INFO}"

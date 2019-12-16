@@ -164,7 +164,7 @@
 					<input type="text" id="id_keyword" name="searchWord" class="form-control input-sm" value="${searchVO.searchWord}">
 				</div>
 				<div class="col-sm-2 bb">
-				<button type="submit" class="btn btn-sm btn-primary">
+				<button type="submit" class="btn btn-primary btn-sm ">
 				<span class="glyphicon glyphicon-search" aria-hidden="true"></span> &nbsp;&nbsp;검 색</button>
 				</div>
 				</div>

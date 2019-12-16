@@ -52,4 +52,10 @@ public class BoardServiceImpl implements IBoardService{
 		return 0;
 	}
 
+	@Override
+	public int updateReplyCnt(int bo_no) throws Exception {
+		
+		return boardDao.updateReplyCnt(bo_no);
+	}
+
 }
