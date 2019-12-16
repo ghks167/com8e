@@ -20,7 +20,7 @@
 	min-height: 70vh;
 }
 .title_area{
-	margin-top: 20px;
+	margin-top: 5px;
 	margin-bottom: 0;
 }
 .info_area{
@@ -30,43 +30,43 @@
 	background-color: white;
 }
 
-
-
-
 </style>
 </head>
 <!-- 기본 -->
 <body>
 	<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
 	<div class="container">
-		<h1>글보기</h1>	
+		<div class="main_area col-sm-12">
+		<h1>글보기</h1>
+		<a href="${pageContext.request.contextPath}/board/boardList"><button type="button" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp;&nbsp;목록으로</button></a>
+		</div>
 		<hr>
 		<div class="main_area col-sm-12">
-			
-			
+
+			<div class="col-sm-12 info_area" style="background-color: #6699FF">
+				<div class="col-sm-3 info"><h4>${board.bo_mem}</h4></div> 
+				<div class="col-sm-3 info"><h4>${board.bo_date}</h4></div>
+				<div class="col-sm-3 info"><h4>조회 : ${board.bo_hit}</h4></div>
+				<div class="col-sm-3 info"><h4>댓글 : [${board.bo_re_cnt}]</h4></div>
+			</div> 
+
 			<div class="col-sm-12 title_area well well-sm">
-				<h4>${board.bo_title}</h4>
+				<h4 id ="id_bo_title">${board.bo_title}</h4>
 			</div>
 			
-			<div class="col-sm-12 info_area">
-				<div class="col-sm-3 info">
-					글쓴이 : ${board.bo_mem}
-				</div>
-				<div class="col-sm-3 info">
-					작성일 : ${board.bo_date}
-				</div>
-				
-				<div class="col-sm-6">
-					<a class="btn btn-default">수정하기</a>
-				</div>
-			</div>
 			<div class="col-sm-12 content_area well well-sm">
 				${board.bo_content}
 			</div>
 			
-			
+			<div class="col-sm-6">
+					<a class="btn btn-default">수정하기</a>
+				</div>
 		</div>
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
 	</div>
 </body>
+<script type="text/javascript">
+ document.getElementById("id_bo_title").innerHTML = ${board.bo_title}
+
+</script>
 </html>
