@@ -12,4 +12,6 @@ public interface IBoardDao {
 	public List<BoardVO> selectBoardList();
 	
 	public BoardVO selectBoard(int bo_no);
+	
+	public int insertBoard(BoardVO vo); 
 }

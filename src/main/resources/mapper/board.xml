@@ -11,4 +11,27 @@
 	<select id="selectBoard" parameterType="int" resultType="com.com8e.board.vo.BoardVO">
 		select * from board where bo_no = #{bo_no}
 	</select>
+	
+	<insert id="insertBoard">
+		insert into board (
+			bo_no,
+			bo_title,
+			bo_content,
+			bo_date,
+			bo_hit,
+			bo_re_cnt,
+			bo_mem,
+			bo_category
+		) values (
+			board_seq.nextval,
+			#{bo_title},
+			#{bo_content},
+			sysdate,
+			0,
+			0,
+			#{bo_mem},
+			'free'
+		)
+			
+	</insert>
 </mapper>

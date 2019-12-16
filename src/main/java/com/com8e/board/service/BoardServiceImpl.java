@@ -29,4 +29,11 @@ public class BoardServiceImpl implements IBoardService{
 		return vo;
 	}
 
+	@Override
+	public int insertBoard(BoardVO vo) {
+		// TODO Auto-generated method stub
+		int i = boardDao.insertBoard(vo);
+		return i;
+	}
+
 }

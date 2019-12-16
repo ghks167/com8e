@@ -9,5 +9,7 @@ public interface IBoardService {
 	public List<BoardVO> selectBoardList();
 	
 	public BoardVO selectBoard(int bo_no);
+	
+	public int insertBoard(BoardVO vo);
 
 }

@@ -54,7 +54,7 @@
 				&nbsp;
 			</div>
 			<div class="col-sm-4">
-				<a href="${pageContext.request.contextPath}/board/boardEdit" class="btn btn-primary">글쓰기</a>
+				<a href="${pageContext.request.contextPath}/board/boardForm" class="btn btn-primary">글쓰기</a>
 			</div>
 		</div>
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
