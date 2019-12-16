@@ -31,7 +31,7 @@
 <body>
 	<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
 	<div class="container">
-		<h1>글쓰기</h1>	
+		<h1>글수정</h1>	
 		<hr>
 		<div class="main_area">
 			<form:form commandName="board" method="post" action="boardModify?bo_no=${board.bo_no}">
@@ -59,7 +59,7 @@
 				
 				<div class="col-sm-12">
 					<input type="submit" class="btn btn-success" value="수정완료">
-					<input type="reset" class="btn btn-warning" value="초기화">		
+					<a href="${pageContext.request.contextPath}/board/boardView?bo_no=${board.bo_no}"><input type="button" class="btn btn-warning" value="뒤로가기"></a>		
 				</div>
 			</form:form>
 			

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.com8e.board.service.IBoardService;
+import com.com8e.board.vo.BoardSearchVO;
 import com.com8e.board.vo.BoardVO;
 import com.com8e.common.vo.ResultMessageVO;
 
@@ -24,10 +25,15 @@ public class boardController {
 	
 	
 	@RequestMapping(value = "board/boardList")
-	public String boardList(Model model){
+	public String boardList(@ModelAttribute("board")BoardVO board, 
+								@ModelAttribute("searchVO") BoardSearchVO searchVO, Model model) throws Exception{
+		
 			
-		List<BoardVO> list = boardService.selectBoardList();
+		List<BoardVO> list = boardService.selectBoardList(searchVO);
+		
 		model.addAttribute("boardList", list);
+		model.addAttribute("searchVO",searchVO);
+		
 		return "board/boardList";			
 	}
 	
