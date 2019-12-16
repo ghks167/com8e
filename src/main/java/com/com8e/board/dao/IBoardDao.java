@@ -14,4 +14,6 @@ public interface IBoardDao {
 	public BoardVO selectBoard(int bo_no);
 	
 	public int insertBoard(BoardVO vo); 
+	
+	public int updateBoard(BoardVO vo);
 }

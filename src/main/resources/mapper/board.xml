@@ -34,4 +34,11 @@
 		)
 			
 	</insert>
+	
+	<update id="updateBoard" parameterType="com.com8e.board.vo.BoardVO">
+		UPDATE board
+	  	   SET  bo_title = #{bo_title}
+         		,bo_content = #{bo_content}
+    	 WHERE bo_no = #{bo_no}
+	</update>
 </mapper>

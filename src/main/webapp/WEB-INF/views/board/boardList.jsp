@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -20,7 +21,8 @@
 	<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
 	<div class="container">
 		<div class="main_area">
-			<h1>자유게시판</h1>	
+		<h1>자유게시판</h1>	
+			<form:form commandName="searchVO" action="${pageContext.request.contextPath}/board/boardList" method="post" id="id_list_form"></form:form>
 			<hr>
 			<div class="boardList_area col-sm-12">
 				<table class="table table-striped">
@@ -41,7 +43,7 @@
 					<c:forEach var="board" items="${boardList}">
 						<tr>
 							<td align="center">${board.bo_no}</td>
-							<td><a href="${pageContext.request.contextPath}/board/boardView?bo_no=${board.bo_no}">${board.bo_title}</a></td>
+							<td><a href="${pageContext.request.contextPath}/board/boardView?bo_no=${board.bo_no}">${board.bo_title}&nbsp;&nbsp;<font color=tomato>[${board.bo_re_cnt}]</font></a></td>
 							<td align="center">${board.bo_mem}</td>
 							<td align="center">${board.bo_hit}</td>
 							<td align="center">${board.bo_date}</td>
@@ -50,11 +52,13 @@
 				</table>
 				
 			</div>
-			<div class="col-sm-8">
-				&nbsp;
-			</div>
-			<div class="col-sm-4">
-				<a href="${pageContext.request.contextPath}/board/boardForm" class="btn btn-primary">글쓰기</a>
+			<div class="boardList_bottom_area col-sm-12">
+				<div class="col-sm-8">
+					&nbsp;
+				</div>
+				<div class="col-sm-4">
+					<a href="${pageContext.request.contextPath}/board/boardForm" class="btn btn-primary">글쓰기</a>
+				</div>
 			</div>
 		</div>
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>

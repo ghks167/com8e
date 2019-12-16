@@ -59,7 +59,7 @@
 			</div>
 			
 			<div class="col-sm-6">
-					<a class="btn btn-default">수정하기</a>
+					<a class="btn btn-default" href="${pageContext.request.contextPath}/board/boardEdit?bo_no=${board.bo_no}">수정하기</a>
 				</div>
 		</div>
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>

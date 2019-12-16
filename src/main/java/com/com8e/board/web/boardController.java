@@ -7,8 +7,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.com8e.board.service.IBoardService;
 import com.com8e.board.vo.BoardVO;
@@ -31,9 +33,30 @@ public class boardController {
 	
 	
 	@RequestMapping(value = "board/boardEdit")
-	public String boardEdit() {
+	public String boardEdit(@ModelAttribute("board")BoardVO board,@RequestParam("bo_no") int bo_no, ModelMap model) {
+		
+		BoardVO vo = boardService.selectBoard(bo_no);
+		
+		model.addAttribute("board",vo);
 		
 		return "board/boardEdit";
+		
+	}
+	
+	@RequestMapping(value="board/boardModify")
+	public String boardModify(BoardVO board, ModelMap model,@RequestParam("bo_no") int bo_no) {
+		int i = boardService.updateBoard(board);
+		ResultMessageVO messageVO = new ResultMessageVO();
+		
+		if(i>0) {			
+			messageVO.setResult(true).setMessage("성공적으로 수정되었습니다.").setTitle("수정 완료").setUrlTitle("글보기").setUrl("board/boardView?bo_no="+bo_no);
+			model.addAttribute("resultMessage", messageVO);
+			return "common/message";
+		}else {
+			messageVO.setResult(false).setMessage("글수정에 실패하였습니다.").setTitle("수정 실패").setUrlTitle("뒤로가기").setUrl("board/boardEdit?bo_no="+bo_no);
+			model.addAttribute("resultMessage", messageVO);
+			return "common/message";
+		}
 	}
 	
 	@RequestMapping(value = "board/boardView", params = "bo_no")
