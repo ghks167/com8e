@@ -4,8 +4,45 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.com8e.board.dao.IBoardDao">
+
+	<sql id="searchCondition">
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(searchWord)">
+			 <if test="searchWord != null and searchWord != ''">
+			   		<choose>
+			   		 	<when test='searchType == "T"'>
+			   		 		AND bo_title LIKE '%' || #{searchWord} || '%'
+			   		 	</when>
+			   		 	<when test='searchType == "W"'>
+			   		 		AND bo_mem LIKE '%' || #{searchWord} || '%'
+			   		 	</when>
+			   		 	 <when test='searchType == "C"'>
+			   		 		AND bo_content LIKE '%' || #{searchWord} || '%'
+			   		 	</when>
+			   			<otherwise>
+			   			AND (  	bo_title   LIKE '%' || #{searchWord} || '%'
+			   				  OR	bo_mem  LIKE '%' || #{searchWord} || '%'
+			   				  OR	bo_content LIKE '%' || #{searchWord} || '%'
+			   				  )
+			   			</otherwise>
+			   		</choose>
+		</if>
+		</if>
+	</sql>
+	
+	<select id="selectBoardCount" resultType="int" parameterType="com.com8e.board.vo.BoardSearchVO">
+	select count (*) as cnt from board
+	where 1=1
+	<include refid="searchCondition"></include>
+	</select>
+	
+	
 	<select id="selectBoardList" resultType="com.com8e.board.vo.BoardVO">
+		<include refid="common.PAGING_PREFIX"></include>
 		select * from board
+		where 1=1
+		<include refid="searchCondition"/>
+		ORDER BY bo_no desc
+		<include refid="common.PAGING_SUFFIX"/>
 	</select>
 	
 	<select id="selectBoard" parameterType="int" resultType="com.com8e.board.vo.BoardVO">
@@ -34,4 +71,15 @@
 		)
 			
 	</insert>
+	
+	<update id="updateBoard" parameterType="com.com8e.board.vo.BoardVO">
+		UPDATE board
+	  	   SET  bo_title = #{bo_title}
+         		,bo_content = #{bo_content}
+    	 WHERE bo_no = #{bo_no}
+	</update>
+	
+	<update id="updateReplyCnt" parameterType="int">
+		update board set bo_re_cnt = bo_re_cnt + 1 where bo_no = #{bo_no}
+	</update>
 </mapper>

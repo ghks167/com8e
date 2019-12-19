@@ -91,7 +91,7 @@
 						<form:input path="searchWord" cssClass="form-control"/>
 					</div>
 					<div class="col-sm-2">
-						<input type="submit" value="검색">
+						<input type="submit" class="btn btn-primary btn-sm" value="검색">
 					</div>
 				
 				

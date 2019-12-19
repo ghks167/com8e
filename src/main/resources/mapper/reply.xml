@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.com8e.reply.dao.IReplyDao">
+	<insert id="insertReply">
+		insert into 
+		reply(
+			re_no,
+			re_mem,
+			re_bo_no,
+			re_content,
+			re_date
+		)values(
+			reply_seq.nextval,
+			#{re_mem},
+			#{re_bo_no},
+			#{re_content},
+			sysdate	
+		)
+	</insert>
+	
+	<select id="selectReplyList" parameterType="int" resultType="com.com8e.reply.vo.ReplyVO">
+		select * from reply where re_bo_no = #{re_bo_no} and re_parent_no is null
+	</select>
+	
+	<select id="selectReply" parameterType="int" resultType="com.com8e.reply.vo.ReplyVO">
+		select * from reply where re_parent_no = #{re_parent_no}
+	</select>
+	
+	<insert id="insertComment" parameterType="com.com8e.reply.vo.ReplyVO">
+		insert into
+			reply(
+				re_no,
+				re_mem,
+				re_bo_no,
+				re_content,
+				re_date,
+				re_parent_no
+			)values(
+				reply_seq.nextval,
+				#{re_mem},
+				#{re_bo_no},
+				#{re_content},
+				sysdate,
+				#{re_parent_no}
+			)
+			
+	</insert>
+</mapper>

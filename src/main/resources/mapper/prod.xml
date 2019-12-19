@@ -49,9 +49,6 @@
  	   </if>
   	</sql>
 	 
-	  
-	 
-	 
 	 
 	<select id="selectProdList" parameterType="com.com8e.prod.vo.ProdSearchVO" resultType="com.com8e.prod.vo.ProdVO">
 		<include refid="common.PAGING_PREFIX"/>	

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.com8e.cart.dao.ICartDao">
+	<select id="selectCartList" parameterType="String" resultType="com.com8e.cart.vo.CartVO">
+		select 
+			a.cart_no,
+			a.cart_mem,
+			a.cart_prod,
+			a.cart_qty,
+			b.prod_price as cart_prod_price
+		from
+			cart a,
+			prod b
+		where
+			a.cart_mem = #{cart_mem}
+		and
+			a.cart_prod = b.prod_no
+	</select>
+</mapper>
