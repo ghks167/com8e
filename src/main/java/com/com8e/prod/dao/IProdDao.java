@@ -38,4 +38,9 @@ public interface IProdDao {
 	/** 데이터 카운터 **/
 	public int selectProdCount(ProdSearchVO searchVO) throws Exception;
 	
+	/** 메인화면에서 각 타입별로 데이터 4개씩 보이기*/
+	public List<ProdVO> selectMainThreeList(ProdSearchVO searchVO) throws Exception;
+
+
+	
 }

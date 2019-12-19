@@ -30,6 +30,10 @@ public interface IProdService {
 	public List<ProdVO> selectProdType() throws Exception;
 	
 	public ProdVO selectProdName(String prod_name) throws Exception;
-	
+
+	/** 메인화면 상품 타입별로 3개씩 보여주기*/
+	public List<ProdVO> selectMainThreeList(ProdSearchVO searchVO) throws Exception;
+
+
 
 }
