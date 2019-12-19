@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -14,7 +15,7 @@
 <style type="text/css">
 .preview_image > img{
 	width: 80%;
-	height: auto;
+	height: 100px;
 
 }
 .price_area{
@@ -36,6 +37,9 @@
 .page-header {
 	margin-top: 0;
 }
+.main_area{
+	min-height: 70vh;
+}
 
 </style>
 </head>
@@ -46,37 +50,48 @@
 		<hr>
 		<div class="main_area">
 				<table class="table table-striped">
-					
-					<tr>
-						<td>
-							<div class="col-sm-12 prod_obj">
-								<div class="col-sm-2 preview_image">
-									<input type="checkbox">
-									<img class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/upload/PROD_MAIN/091c0e1e-3675-4279-b27a-e9c0d1ee9d94">
-								</div>
-								<div class="col-sm-6 name_area">
-									<div class="page-header">
-										<h4>
-											<a href="${pageContext.request.contextPath}/prod/prodView?prod_no=1"></a>
-										</h4>
-										<h4>
-											<small>cpu </small>
-										</h4>
-									</div>
-									<div class="qty_area">
-										<h5>선택수량 : 2</h5>
-									</div>
-								</div>
-								<div class="col-sm-2 price_area">
-									<h3>484848 원</h3>
-									<br>
-								</div>
-								<div class="col-sm-2">
-									<h3>intel</h3>
-								</div>
+					<c:choose>
+						<c:when test="${fn:length(cart_list) == 0}">
+							<div class="col-sm-12">
+								<h3>장바구니가 비여있습니다.</h3>
 							</div>
-						</td>
-					</tr>				
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="cart" items="${cart_list}">
+								<tr>
+									<td>
+										<div class="col-sm-12 prod_obj">
+											<div class="col-sm-2 preview_image">
+												<input type="checkbox">
+												<img class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/upload/PROD_MAIN/${cart.main_image_name}">
+											</div>
+											<div class="col-sm-6 name_area">
+												<div class="page-header">
+													<h4>
+														<a href="${pageContext.request.contextPath}/prod/prodView?prod_no=${cart.prod.prod_no}">${cart.prod.prod_name}</a>
+													</h4>
+													<h4>
+														<small>${cart.prod.prod_type}</small>
+													</h4>
+												</div>
+												<div class="qty_area">
+													<h5 id="id_price_area">선택수량 : ${cart.cart_qty}</h5>
+												</div>
+											</div>
+											<div class="col-sm-2 price_area">
+												<h3>${cart.cart_qty * cart.prod.prod_price} 원</h3>
+												<br>
+											</div>
+											<div class="col-sm-2">
+												<h3>${cart.prod.prod_com}</h3>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</c:forEach>		
+						</c:otherwise>
+					</c:choose>
+						
 				</table>	
 			</div>
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>

@@ -9,14 +9,10 @@
 			a.cart_no,
 			a.cart_mem,
 			a.cart_prod,
-			a.cart_qty,
-			b.prod_price as cart_prod_price
+			a.cart_qty
 		from
-			cart a,
-			prod b
+			cart a
 		where
 			a.cart_mem = #{cart_mem}
-		and
-			a.cart_prod = b.prod_no
 	</select>
 </mapper>

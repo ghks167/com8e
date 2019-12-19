@@ -1,19 +1,28 @@
 package com.com8e.cart.vo;
 
+import com.com8e.prod.vo.ProdVO;
+
 public class CartVO {
 	private int cart_no;
 	private String cart_mem = "";
 	private int cart_prod;
 	private int cart_qty;
-	private int cart_prod_price;
+	private String main_image_name;
+	private ProdVO prod;
 	
 	
 	
-	public int getCart_prod_price() {
-		return cart_prod_price;
+	public ProdVO getProd() {
+		return prod;
 	}
-	public void setCart_prod_price(int cart_prod_price) {
-		this.cart_prod_price = cart_prod_price;
+	public void setProd(ProdVO prod) {
+		this.prod = prod;
+	}
+	public String getMain_image_name() {
+		return main_image_name;
+	}
+	public void setMain_image_name(String main_image_name) {
+		this.main_image_name = main_image_name;
 	}
 	public int getCart_qty() {
 		return cart_qty;

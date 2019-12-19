@@ -22,6 +22,11 @@ public class CartController {
 	public String cartList(HttpSession session, Model model) throws Exception{
 		
 		String mem_id = (String)session.getAttribute("LOGIN_INFO");
+		System.out.println(mem_id);
+		if(mem_id == null) {
+			return "redirect:/login/loginForm";
+		}
+		
 		List<CartVO> list = cartService.selectCartList(mem_id);
 		
 		model.addAttribute("cart_list",list);
