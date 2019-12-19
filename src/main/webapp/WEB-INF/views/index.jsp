@@ -37,29 +37,31 @@
 					<li role="presentation" id="prod_notice" ><a href="${pageContext.request.contextPath}/board/boardList">게시판</a></li>
 				</ul>
 			</div>
-			<div class="introduce_view col-sm-8" padding-top: 20px;">
+			<div class="introduce_view col-sm-8" style="padding-top: 0px;">
 				<div class="col-sm-12" id="view_area">
 					<img id="introduce_img" class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/images/aaaaaa.JPG">
 				</div>
 			</div>
 		</div>
+		<div style="height: 400px">&nbsp;</div>
 		<div class="main_product col-sm-12" style="background-color: #F6F6F6;  border-radius: 10px; padding-top: 20px;">	
 		
 		 <c:forEach items="${prodMainLable}" var="divNum" >
-			<label>${divNum.prod_type}</label>
+			<label><h3>${divNum.prod_type} <a href="${pageContext.request.contextPath}/prod/prodList?searchClass=${divNum.prod_type}"><font color=tomato>☜</font></a></h3></label>
 			<div class="row">
 				<c:forEach items="${prodMainthreeList}" var="mainThreeView">
 					<c:if test="${divNum.prod_type eq mainThreeView.prod_type}">
 			  			<div class="col-sm-3" style="text-align: center; "> 	
-							<img class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/upload/PROD_MAIN/${prod.map.PROD_M.image_file_name}"><br>
-			  		
-			  				${mainThreeView.prod_name}
-			  			 
-
+							<a href="${pageContext.request.contextPath}/prod/prodView?prod_no=${mainThreeView.prod_no}">
+							<img class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/upload/PROD_MAIN/${mainThreeView.map.PROD_M.image_file_name}" style="width: 225px; height: 225px"><br>
+			  				</a>
+			  				<a href="${pageContext.request.contextPath}/prod/prodView?prod_no=${mainThreeView.prod_no}"><h4>${mainThreeView.prod_name}</h4></a>
+			  			 	<font size="3px">&#8361;&nbsp;${mainThreeView.prod_price}</font>
 			  				<hr>
-			  		</div>
-			  		</c:if>
+			  			</div>
 			  		
+			  		</c:if>
+			  
 			  </c:forEach>
 			</div>
 			</c:forEach>
@@ -74,7 +76,7 @@
 	
 	$("#prod_category").on("mouseover",function(){
 		$.ajax({ 
-		    url: "${pageContext.request.contextPath}/indexInclude/category.jsp", 
+		    url: "${pageContext.request.contextPath}/indexInclude/category", 
 		    success: function(data){ 
 		      $("#view_area").html(data); 
 		    } 

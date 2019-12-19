@@ -139,7 +139,16 @@ public class ProdServiceImpl implements IProdService {
 	@Override
 	public List<ProdVO> selectMainThreeList(ProdSearchVO searchVO) throws Exception{
 		List<ProdVO> list = prodDao.selectMainThreeList(searchVO);
-
+		
+		for(ProdVO vo : list) {
+			
+			ImageVO image = imageDao.selectImage(vo.getProd_no(), "PROD_M");
+			if(image != null) {
+				Map<String, ImageVO> map = new HashMap<>();
+				map.put("PROD_M",image);
+				vo.setMap(map);
+			}	
+		}
 		return list;
 		
 	}

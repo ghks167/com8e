@@ -26,6 +26,8 @@
 }
 
 </style>
+
+<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script> --%>
 </head>
 <!-- 기본 -->
 <body>
@@ -54,6 +56,11 @@
 					<label for="inputContent" class="col-sm-12 control-label">내용 </label>
 					<div class="col-sm-12">
 						<form:textarea path="bo_content" cssClass="form-control" id="inputContent" rows="15" placeholder="content"/>
+						<script type="text/javascript">
+						window.onload(function(){
+						CKEDITOR.replace('inputContent');
+						});
+						</script>
 					</div>
 				</div>
 				
