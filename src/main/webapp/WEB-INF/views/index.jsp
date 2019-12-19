@@ -64,7 +64,7 @@
 			</div>
 			</c:forEach>
 				  
-		
+		 
 		</div>
 		<%@include file="/WEB-INF/inc/common_footer.jsp" %>
 	</div>   
