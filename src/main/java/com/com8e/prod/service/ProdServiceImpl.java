@@ -136,6 +136,13 @@ public class ProdServiceImpl implements IProdService {
 		return prodDao.selectProdName(prod_name);
 	}
 	
-	
+	@Override
+	public List<ProdVO> selectMainThreeList(ProdSearchVO searchVO) throws Exception{
+		List<ProdVO> list = prodDao.selectMainThreeList(searchVO);
+
+		return list;
+		
+	}
+
 
 }

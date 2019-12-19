@@ -115,4 +115,24 @@
     
 	</update>
 	
+	<select id="selectMainThreeList" parameterType="String" resultType="com.com8e.prod.vo.ProdVO"	>
+	<![CDATA[
+		select *  
+		  from (select prod_no
+		             , prod_name
+		             , prod_price
+		             , prod_type
+		             ,row_number() over (partition by prod_type order by prod_price desc) as rnum 
+		         from prod 
+		        )
+	     where rnum < 5
+    ]]>         
+                
+                
+  
+
+	
+	
+	</select>
+	
 </mapper>
