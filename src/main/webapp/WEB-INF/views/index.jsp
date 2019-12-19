@@ -54,7 +54,7 @@
 							<img class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/upload/PROD_MAIN/${prod.map.PROD_M.image_file_name}"><br>
 			  		
 			  				${mainThreeView.prod_name}
-			  			
+			  			 
 
 			  				<hr>
 			  		</div>
