@@ -41,6 +41,7 @@ public interface IProdDao {
 	
 	/** 메인화면에서 각 타입별로 데이터 4개씩 보이기*/
 	public List<ProdVO> selectMainThreeList(ProdSearchVO searchVO) throws Exception;
+
 	
 	public List<ProdVO> selectProdLikeName(String keyword) throws Exception;
 }
