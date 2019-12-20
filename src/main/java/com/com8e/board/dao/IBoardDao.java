@@ -22,4 +22,5 @@ public interface IBoardDao {
 	public int selectBoardCount(BoardSearchVO searchVO) throws Exception;
 	
 	public int updateReplyCnt(int bo_no) throws Exception;
+	
 }

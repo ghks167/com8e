@@ -1,6 +1,9 @@
 package com.com8e.board.web;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,17 +14,22 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.com8e.board.service.IBoardService;
 import com.com8e.board.vo.BoardSearchVO;
 import com.com8e.board.vo.BoardVO;
 import com.com8e.common.vo.ResultMessageVO;
+import com.com8e.prod.service.IProdService;
+import com.com8e.prod.vo.ProdVO;
 
 @Controller
 public class boardController {
 	
 	@Autowired
 	IBoardService boardService;
+	@Autowired
+	IProdService prodService;
 	
 	
 	@RequestMapping(value = "board/boardList")
@@ -99,6 +107,24 @@ public class boardController {
 			return "common/message";
 		}
 		
+	}
+	
+	@RequestMapping(value = "/board/prodadd")
+	public String boardProdAdd() {
+		return "board/boardProdEdit";
+	}
+	
+	@RequestMapping(value = "/board/search")
+	@ResponseBody
+	public Map<String, List<ProdVO>> boardProdSearch(@RequestParam("keyword")String keyword) throws Exception{
+		System.out.println(keyword);
+		Map<String, List<ProdVO>> map = new HashMap<String, List<ProdVO>>();
+		
+		List<ProdVO> list = prodService.selectProdLikeName(keyword);
+		
+		map.put("prod_list", list);
+		
+		return map;
 	}
 	
 

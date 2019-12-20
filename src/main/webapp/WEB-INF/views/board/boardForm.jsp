@@ -24,10 +24,13 @@
 	height: 420px;
 	
 }
+.prod_area{
+	min-height: 30px;
+}
 
 </style>
 
-<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script> --%>
+
 </head>
 <!-- 기본 -->
 <body>
@@ -39,28 +42,32 @@
 			<form:form commandName="board" method="post" action="boardRegist">
 				<div class="form-group title_area">
 					<label for="inputTitle" class="col-sm-2 control-label">제목 : </label>
-					<div class="col-sm-10">
+					<div class="col-sm-10 title_area">
 						<form:input path="bo_title" cssClass="form-control" id="inputTitle" placeholder="title"/>
 					</div>
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group title_area">
 					<label class="col-sm-2 control-label">작성자 : </label>
 					<div class="col-sm-10">
 						<form:input path="bo_mem" cssClass="form-control"  readonly="true"/>
 					</div>
 				</div>
 				
+				<div class="form-group">
+					<label class="col-sm-5 control-label">게시물에 상품추가 : </label>
+					<div class="col-sm-7" style="text-align: right;">
+						<input type="button" class="btn btn-default" onclick="prod_add()" value="추가">
+					</div>
+				</div>
+				<div class="col-sm-12 prod_area">
+					
+				</div>
 				
 				<div class="form-group content_area">
 					<label for="inputContent" class="col-sm-12 control-label">내용 </label>
 					<div class="col-sm-12">
 						<form:textarea path="bo_content" cssClass="form-control" id="inputContent" rows="15" placeholder="content"/>
-						<script type="text/javascript">
-						window.onload(function(){
-						CKEDITOR.replace('inputContent');
-						});
-						</script>
 					</div>
 				</div>
 				
@@ -71,7 +78,21 @@
 			</form:form>
 			
 		</div>
-		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
 	</div>
 </body>
+
+<script type="text/javascript">
+	function prod_add() {
+		window.open("<c:url value = '/board/prodadd'/>" ,"","width=500,height=500,left=600,top=200")
+	}
+
+
+
+
+</script>
+
+
+
+
+
 </html>

@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.com8e.board.vo.BoardVO;
 import com.com8e.image.dao.IImageDao;
 import com.com8e.image.vo.ImageVO;
 import com.com8e.prod.dao.IProdDao;
@@ -151,6 +152,12 @@ public class ProdServiceImpl implements IProdService {
 		}
 		return list;
 		
+	}
+
+	@Override
+	public List<ProdVO> selectProdLikeName(String keyword) throws Exception {
+
+		return prodDao.selectProdLikeName(keyword);
 	}
 
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.com8e.board.vo.BoardVO;
 import com.com8e.prod.vo.ProdSearchVO;
 import com.com8e.prod.vo.ProdVO;
 
@@ -40,7 +41,6 @@ public interface IProdDao {
 	
 	/** 메인화면에서 각 타입별로 데이터 4개씩 보이기*/
 	public List<ProdVO> selectMainThreeList(ProdSearchVO searchVO) throws Exception;
-
-
 	
+	public List<ProdVO> selectProdLikeName(String keyword) throws Exception;
 }
