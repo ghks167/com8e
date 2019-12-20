@@ -39,7 +39,7 @@
 			</div>
 			<div class="introduce_view col-sm-8" style="padding-top: 0px;">
 				<div class="col-sm-12" id="view_area">
-					<img id="introduce_img" class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/images/aaaaaa.JPG">
+					<img id="introduce_img" class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/images/mainImage.png">
 				</div>
 			</div>
 		</div>

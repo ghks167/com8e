@@ -3,7 +3,7 @@
 
 	<div class="col-sm-12 main_search_area">
 		<div class="col-sm-3 logo_area">
-			<img alt="" src="${pageContext.request.contextPath}/upload/PROD_MAIN/1bdb270b-0cef-4e9a-8d7b-999d3f46180e">
+			<img alt="" class="img-rounded" src="${pageContext.request.contextPath}/images/logo.png">
 		</div>
 		<div class="col-sm-7 search_text_area">
 			<div class="form-group has-success has-feedback">
