@@ -31,7 +31,7 @@ public class LoginController {
 		if(vo2 != null) {
 			if(vo.getMem_pass().equals(vo2.getMem_pass())) {
 				session.setAttribute("LOGIN_INFO", vo2.getMem_id());
-				return "index";
+				return "redirect:/";
 			}		
 		}
 		
@@ -44,7 +44,7 @@ public class LoginController {
 	public String loginout(HttpSession session) {
 		session.removeAttribute("LOGIN_INFO");
 		
-		return "index";
+		return "redirect:/";
 	}
 	
 }

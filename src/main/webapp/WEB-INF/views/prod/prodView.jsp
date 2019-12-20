@@ -64,6 +64,33 @@
 					<tr>
 						<td><h2>가격 : &nbsp;&nbsp;&#8361;&nbsp; ${prod.prod_price}</h2></td>
 					</tr>
+					<tr>
+						<td>
+							<div class="col-sm-2" style="margin-top: 5px;">
+								수량 :
+							</div> 
+							<div class="col-sm-2" id="id_select_qty">
+								<select class="form-control" id="id_cart_qty">
+									  <option value="1">1</option>
+									  <option value="2">2</option>
+									  <option value="2">3</option>
+									  <option value="4">4</option>
+									  <option value="5">5</option>
+									  <option value="6">6</option>
+									  <option value="7">7</option>
+									  <option value="8">8</option>
+									  <option value="9">9</option>
+									  <option value="10">10</option>
+								</select>
+							</div>
+							<div class="col-sm-2">
+								<input id="id_input_free" type="button" class="btn btn-default btn-xs" value="직접입력" style="margin-top: 5px;">
+							</div>
+							<div class="col-sm-6" style="text-align: right;">
+								<input id="id_add_cart" type="button" class="btn btn-default" value="장바구니에 담기">
+							</div>
+						</td>
+					</tr>
 				</table>	
 			</div>
 			<br>
@@ -77,5 +104,36 @@
 		
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
 	</div>
+	<script type="text/javascript">
+		$("#id_add_cart").on("click",function(){
+			if("${LOGIN_INFO}" == ""){
+				location.href = "${pageContext.request.contextPath}/login/loginForm";	
+			}
+			var para = {
+					"cart_prod":${prod.prod_no},
+					"cart_qty":$("#id_cart_qty").val()
+			}
+			$.ajax({
+				url: "<c:url value='/cart/cartAdd'/>",
+				data: para,
+				type: "post",
+				dataType:"json",
+				success: function (data) {
+					if(data.result){
+						alert("장바구니에 등록되었습니다.");
+					}else {
+						alert("등록에 실패하였습니다.");
+					}
+				}
+			});//ajax
+			
+		});
+		
+		$("#id_input_free").on("click",function(){
+			console.log($("#id_select_qty").html());
+			$("#id_select_qty").html('<input type="text" id="id_cart_qty" class="form-control" placeholder="수량">');
+		});
+	
+	</script>
 </body>
 </html>

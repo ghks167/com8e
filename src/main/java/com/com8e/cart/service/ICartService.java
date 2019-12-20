@@ -7,4 +7,6 @@ import com.com8e.cart.vo.CartVO;
 
 public interface ICartService {
 	public List<CartVO> selectCartList(String cart_mem) throws Exception;
+	
+	public int insertCart(CartVO vo) throws Exception;
 }

@@ -38,7 +38,7 @@
 		</div>
 		<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
 
-		<div class="cls_login_form"">
+		<div class="cls_login_form">
 	
 			
 			<div class="container" style="  width: auto; margin-left: 30% "  >

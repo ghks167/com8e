@@ -32,5 +32,13 @@ public class CartServiceImpl implements ICartService{
 		
 		return list;
 	}
+
+
+	@Override
+	public int insertCart(CartVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		int i = cartDao.insertCart(vo);
+		return i;
+	}
 	
 }

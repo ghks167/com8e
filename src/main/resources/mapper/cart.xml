@@ -15,4 +15,16 @@
 		where
 			a.cart_mem = #{cart_mem}
 	</select>
+	
+	<insert id="insertCart">
+		insert into 
+			cart
+		values(
+			cart_seq.nextval,
+			#{cart_mem},
+			#{cart_prod},
+			#{cart_qty}
+		)
+	
+	</insert>
 </mapper>

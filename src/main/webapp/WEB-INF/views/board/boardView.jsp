@@ -172,7 +172,7 @@
 		
 		$.ajax({
 			type: 'post',
-			url: '<c:url value='/reply/commentRegist'/>',
+			url: "<c:url value='/reply/commentRegist'/>",
 			data: pa,
 			dataType: 'json',
 			success: function (data) {

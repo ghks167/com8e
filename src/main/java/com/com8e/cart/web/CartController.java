@@ -1,6 +1,8 @@
 package com.com8e.cart.web;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.com8e.cart.service.ICartService;
 import com.com8e.cart.vo.CartVO;
@@ -33,4 +36,20 @@ public class CartController {
 		
 		return "cart/cartList";
 	}
+	
+	@RequestMapping("cart/cartAdd")
+	@ResponseBody
+	public Map<String, Object> cartInsert(CartVO vo, HttpSession session) throws Exception{
+		HashMap<String, Object> map = new HashMap<>();
+		String mem_id = (String)session.getAttribute("LOGIN_INFO");
+		vo.setCart_mem(mem_id);
+		int i = cartService.insertCart(vo);
+		if(i > 0) {
+			map.put("result", true);
+		}else {
+			map.put("result", false);
+		}
+		return map;
+	}
+	
 }

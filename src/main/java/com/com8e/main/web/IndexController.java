@@ -8,7 +8,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.com8e.image.dao.IImageDao;
 import com.com8e.prod.service.IProdService;
 import com.com8e.prod.vo.ProdSearchVO;
 import com.com8e.prod.vo.ProdVO;
@@ -20,8 +19,6 @@ public class IndexController {
 	@Autowired
 	private IProdService prodService;
 	
-	@Autowired
-	private IImageDao imageDao;
 
 	
 	@RequestMapping(value = "/")

@@ -11,4 +11,6 @@ public interface ICartDao {
 	
 	public List<CartVO> selectCartList(String cart_mem) throws Exception;
 	
+	public int insertCart(CartVO vo) throws Exception;
+	
 }
