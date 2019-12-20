@@ -71,7 +71,13 @@
 				<div class='col-sm-3 info'><h4>조회 : ${board.bo_hit}</h4></div>
 				<div class='col-sm-3 info'><h4>댓글 : [${board.bo_re_cnt}]</h4></div>
 			</div> 
-
+			<div class="col-sm-12">
+				<c:forEach var="prod" items="${board.prod_list}">
+					<div class="col-sm-12" style="margin-top: 7px; margin-bottom: 7px;">
+					 	<a class="btn btn-default" href="${pageContext.request.contextPath}/prod/prodView?prod_no=${prod.prod_no}" style="width: 100%;">${prod.prod_name}</a>
+					 </div>
+				</c:forEach>
+			</div>
 			<div class='col-sm-12 title_area well well-sm'>
 				<h4 id ='id_bo_title'>${board.bo_title}</h4>
 			</div>
@@ -81,7 +87,7 @@
 			</div>
 			
 
-			<div class="col-sm-6">
+			<div class="col-sm-12" style="text-align: right; margin-bottom: 50px;">
 					<a class="btn btn-default" href="${pageContext.request.contextPath}/board/boardEdit?bo_no=${board.bo_no}">수정하기</a>
 				</div>
 		</div>

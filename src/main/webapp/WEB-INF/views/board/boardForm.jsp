@@ -27,6 +27,10 @@
 .prod_area{
 	min-height: 30px;
 }
+.prod_text{
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
 
 </style>
 
@@ -60,8 +64,8 @@
 						<input type="button" class="btn btn-default" onclick="prod_add()" value="추가">
 					</div>
 				</div>
-				<div class="col-sm-12 prod_area">
-					
+				<div class="col-sm-12" id="prod_area">
+
 				</div>
 				
 				<div class="form-group content_area">
@@ -85,8 +89,7 @@
 	function prod_add() {
 		window.open("<c:url value = '/board/prodadd'/>" ,"","width=500,height=500,left=600,top=200")
 	}
-
-
+	
 
 
 </script>

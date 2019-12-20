@@ -2,7 +2,6 @@ package com.com8e.board.web;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -24,7 +23,7 @@ import com.com8e.prod.service.IProdService;
 import com.com8e.prod.vo.ProdVO;
 
 @Controller
-public class boardController {
+public class BoardController {
 	
 	@Autowired
 	IBoardService boardService;
@@ -47,7 +46,7 @@ public class boardController {
 	
 	
 	@RequestMapping(value = "board/boardEdit")
-	public String boardEdit(@ModelAttribute("board")BoardVO board,@RequestParam("bo_no") int bo_no, ModelMap model) {
+	public String boardEdit(@ModelAttribute("board")BoardVO board,@RequestParam("bo_no") int bo_no, ModelMap model) throws Exception{
 		
 		BoardVO vo = boardService.selectBoard(bo_no);
 		
@@ -58,7 +57,7 @@ public class boardController {
 	}
 	
 	@RequestMapping(value="board/boardModify")
-	public String boardModify(BoardVO board, ModelMap model,@RequestParam("bo_no") int bo_no) {
+	public String boardModify(BoardVO board, ModelMap model,@RequestParam("bo_no") int bo_no) throws Exception{
 		int i = boardService.updateBoard(board);
 		ResultMessageVO messageVO = new ResultMessageVO();
 		
@@ -74,8 +73,9 @@ public class boardController {
 	}
 	
 	@RequestMapping(value = "board/boardView", params = "bo_no")
-	public String boardView(int bo_no, Model model) {
+	public String boardView(int bo_no, Model model) throws Exception{
 		BoardVO vo = boardService.selectBoard(bo_no);
+		
 		model.addAttribute("board", vo);
 		return "board/boardView";
 	}
@@ -94,8 +94,9 @@ public class boardController {
 	
 	
 	@RequestMapping(value = "board/boardRegist")
-	public String boardRegist(BoardVO board, Model model) {
+	public String boardRegist(BoardVO board, Model model) throws Exception{
 		int i = boardService.insertBoard(board);
+
 		ResultMessageVO messageVO = new ResultMessageVO();
 		if(i>0) {			
 			messageVO.setResult(true).setMessage("성공적으로 등록되었습니다.").setTitle("등록 성공").setUrlTitle("글보기").setUrl("#");

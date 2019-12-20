@@ -22,7 +22,7 @@
 			<div class="col-xs-2">
 				<input id="prod_search" type="button" class="btn btn-default" value="검색">
 			</div>
-			<div class="col-xs-12">
+			<div class="col-xs-12" style="margin-top: 20px;">
 				<table class="table table-striped">
 					<tbody id="list_area">
 					
@@ -42,10 +42,26 @@
 			dataType: "json",
 			type: "post",
 			success: function (data) {
-				var json = data;
+				var json = data.prod_list;
+				var aa = ""
+				
+				for(var i in json){
+					aa += "<tr><td><a href='#' data-no='"+json[i].prod_no+"' onclick='f_add(this)'>"+json[i].prod_name+"</a></td></tr>"
+				}			
+				
+				$("#list_area").html(aa);
+				
 				
 			}
-		})
+		});
 	});
+	
+	function f_add(aa) {
+		event.preventDefault(); 
+		console.log(aa.dataset.no);
+		window.opener.document.getElementById("prod_area").innerHTML += "<input type='hidden' name='bo_prod_list' value='"+aa.dataset.no+"'><input type='text' class='form-control prod_text' value='"+$(aa).html()+"' readonly='readonly'>";
+		alert("선택되었습니다.");
+		self.close();
+	}
 </script>
 </html>

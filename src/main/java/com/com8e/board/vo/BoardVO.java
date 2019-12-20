@@ -1,5 +1,9 @@
 package com.com8e.board.vo;
 
+import java.util.List;
+
+import com.com8e.prod.vo.ProdVO;
+
 public class BoardVO {
 	private int bo_no;
 	private String bo_title = "";
@@ -8,8 +12,22 @@ public class BoardVO {
 	private int bo_hit;
 	private int bo_re_cnt;
 	private String bo_mem = "";
+	private int[] bo_prod_list;
+	private List<ProdVO> prod_list;
 	
 	
+	public List<ProdVO> getProd_list() {
+		return prod_list;
+	}
+	public void setProd_list(List<ProdVO> prod_list) {
+		this.prod_list = prod_list;
+	}
+	public int[] getBo_prod_list() {
+		return bo_prod_list;	
+	}
+	public void setBo_prod_list(int[] bo_prod_list) {
+		this.bo_prod_list = bo_prod_list;
+	}
 	public int getBo_no() {
 		return bo_no;
 	}
