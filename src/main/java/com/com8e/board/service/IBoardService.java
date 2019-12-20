@@ -18,5 +18,8 @@ public interface IBoardService {
 	List<BoardVO> selectBoardList(BoardSearchVO searchVO) throws Exception;
 	
 	public int updateReplyCnt(int bo_no) throws Exception;
+	
+	/** 통합검색을 통한 상품 리스트 조회하기*/
+	public List<BoardVO> searchBoardList(String keyword) throws Exception;
 
 }

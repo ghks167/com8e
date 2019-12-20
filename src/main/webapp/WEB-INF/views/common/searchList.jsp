@@ -42,35 +42,6 @@
 		<hr><br>
 		<div class="notice_area">
 			<h2>공지사항</h2>
-						<div class="top_area col-sm-12 a">
-				<div class="form-group">
-					<label class="col-sm-6 control-label b">전체 : ${searchVO.totalRowCount},${searchVO.curPage}/${searchVO.totalPageCount}pages </label>
-					<div class="col-sm-6 a">
-						<div class="col-sm-3 a">
-							<select id="ListSize" class="form-control input-sm">
-								<option value="10"
-									${searchVO.screenListSize == 10 ? 'selected="selected"' : '' }>10개씩
-									보기</option>
-								<option value="15"
-									${searchVO.screenListSize == 15 ? 'selected="selected"' : '' }>15개씩
-									보기</option>
-								<option value="20"
-									${searchVO.screenListSize == 20 ? 'selected="selected"' : '' }>20개씩
-									보기</option>
-								<option value="30"
-									${searchVO.screenListSize == 30 ? 'selected="selected"' : '' }>30개씩
-									보기</option>
-							</select>
-						</div>
-						<div class="col-sm-3 a">
-							<button type="button" class="btn btn-sm btn-default" onclick="fn_screen_size_change()">선택</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-1">
-				
-				</div>
-			</div>
 			<div class="boardList_area col-sm-12">
 				<table class="table table-striped">
 					<colgroup>
@@ -99,82 +70,12 @@
 						</tr>
 					</c:forEach>
 				</table>
-							<div class ="paging area col-sm-12">
-			<div class = col-sm-10 style="text-align: center">
-				<nav>
-					<ul class="pagination">
-						<c:if test="${searchVO.curPage != searchVO.startPage}">
-							<li><a href="#" onclick="fn_go_page(${searchVO.curPage-1})"
-								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-							</a></li>
-						</c:if>
-						<c:if test="${searchVO.curPage <= searchVO.startPage}">
-							<li><a href="#" onclick="" aria-label="Previous"> <span
-									aria-hidden="true">&laquo;</span>
-							</a></li>
-						</c:if>
-
-						<!-- 페이징 -->
-						<c:forEach var="i" begin="${searchVO.startPage}"
-							end="${searchVO.endPage}">
-							<c:if test="${i==searchVO.curPage}">
-								<li class="active"><a href="#">${i}</a></li>
-							</c:if>
-							<c:if test="${i!= searchVO.curPage}">
-								<li><a href="#" onclick="fn_go_page(${i})">${i}</a></li>
-							</c:if>
-
-						</c:forEach>
-						<!-- 다음 페이지 -->
-						<c:if test="${searchVO.curPage < searchVO.totalPageCount}">
-							<li><a href="#" onclick="fn_go_page(${searchVO.curPage+1})"
-								aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-							</a>
-						</c:if>
-						<c:if test="${searchVO.curPage >= searchVO.totalPageCount}">
-							<li><a href="#" onclick="" aria-label="Next"> <span
-									aria-hidden="true">&raquo;</span> 
-							</a>
-						</c:if>
-
-					</ul>
-				</nav>
-				</div>
-			</div>
 			</div>
 			</div>
 			<hr><br>
 			<div class="freeboard_area">
 			<h2>자유게시판</h2>
 			<div class="top_area col-sm-12 a">
-				<div class="form-group">
-					<label class="col-sm-6 control-label b">전체 : ${searchVO.totalRowCount},${searchVO.curPage}/${searchVO.totalPageCount}pages </label>
-					<div class="col-sm-6 a">
-						<div class="col-sm-3 a">
-							<select id="ListSize" class="form-control input-sm">
-								<option value="10"
-									${searchVO.screenListSize == 10 ? 'selected="selected"' : '' }>10개씩
-									보기</option>
-								<option value="15"
-									${searchVO.screenListSize == 15 ? 'selected="selected"' : '' }>15개씩
-									보기</option>
-								<option value="20"
-									${searchVO.screenListSize == 20 ? 'selected="selected"' : '' }>20개씩
-									보기</option>
-								<option value="30"
-									${searchVO.screenListSize == 30 ? 'selected="selected"' : '' }>30개씩
-									보기</option>
-							</select>
-						</div>
-						<div class="col-sm-3 a">
-							<button type="button" class="btn btn-sm btn-default" onclick="fn_screen_size_change()">선택</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-1">
-				
-				</div>
-			</div>
 			<div class="boardList_area col-sm-12">
 				<table class="table table-striped">
 					<colgroup>
@@ -203,52 +104,49 @@
 						</tr>
 					</c:forEach>
 				</table>
-							<div class ="paging area col-sm-12">
-			<div class = col-sm-10 style="text-align: center">
-				<nav>
-					<ul class="pagination">
-						<c:if test="${searchVO.curPage != searchVO.startPage}">
-							<li><a href="#" onclick="fn_go_page(${searchVO.curPage-1})"
-								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-							</a></li>
-						</c:if>
-						<c:if test="${searchVO.curPage <= searchVO.startPage}">
-							<li><a href="#" onclick="" aria-label="Previous"> <span
-									aria-hidden="true">&laquo;</span>
-							</a></li>
-						</c:if>
-
-						<!-- 페이징 -->
-						<c:forEach var="i" begin="${searchVO.startPage}"
-							end="${searchVO.endPage}">
-							<c:if test="${i==searchVO.curPage}">
-								<li class="active"><a href="#">${i}</a></li>
-							</c:if>
-							<c:if test="${i!= searchVO.curPage}">
-								<li><a href="#" onclick="fn_go_page(${i})">${i}</a></li>
-							</c:if>
-
-						</c:forEach>
-						<!-- 다음 페이지 -->
-						<c:if test="${searchVO.curPage < searchVO.totalPageCount}">
-							<li><a href="#" onclick="fn_go_page(${searchVO.curPage+1})"
-								aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-							</a>
-						</c:if>
-						<c:if test="${searchVO.curPage >= searchVO.totalPageCount}">
-							<li><a href="#" onclick="" aria-label="Next"> <span
-									aria-hidden="true">&raquo;</span> 
-							</a>
-						</c:if>
-
-					</ul>
-				</nav>
-				</div>
 			</div>
 			</div>
-			</div>
+			<hr><br> 
+			<div class="prod_area">
+			<hr><br> 
+			<h2>상품목록</h2>
+			<br>
+			<div class="main_area">
+				<c:forEach var="prod" items="${prodList}">
+					<div class="col-sm-12">
+						<hr>
+					</div>
+					<div class="col-sm-12 prod_obj">
+						<div class="col-sm-2 preview_image">
+							<img class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/upload/PROD_MAIN/${prod.map.PROD_M.image_file_name}">
+						</div>
+						<div class="col-sm-6 name_area">
+							<div class="page-header">
+								<h4>
+									<a href="${pageContext.request.contextPath}/prod/prodView?prod_no=${prod.prod_no}">${prod.prod_name}</a>
+								</h4>
+								<h4>
+									<small>${prod.prod_type} </small>
+								</h4>
+							</div>
+							<div class="qty_area">
+								<h5>잔여수량 : ${prod.prod_qty}</h5>
+							</div>
+						</div>
+						<div class="col-sm-2 price_area">
+							<h3>${prod.prod_price} 원</h3>
+							<br>
+						</div>
+						<div class="col-sm-2">
+							<h3>${prod.prod_com}</h3>
+						</div>
+					</div>
+	
+				</c:forEach>
+		</div>
 			<hr>
 		</div> 
+		</div>
 		
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
 	</div>

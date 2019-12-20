@@ -58,4 +58,12 @@ public class BoardServiceImpl implements IBoardService{
 		return boardDao.updateReplyCnt(bo_no);
 	}
 
+	@Override
+	public List<BoardVO> searchBoardList(String keyword) throws Exception {
+		
+		List<BoardVO> list = boardDao.searchBoardList(keyword);
+		return list;
+
+	}
+
 }

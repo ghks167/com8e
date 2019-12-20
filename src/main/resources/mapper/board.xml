@@ -82,4 +82,9 @@
 	<update id="updateReplyCnt" parameterType="int">
 		update board set bo_re_cnt = bo_re_cnt + 1 where bo_no = #{bo_no}
 	</update>
+	
+	<select id="searchBoardList" parameterType="String" resultType="com.com8e.board.vo.BoardVO">
+	
+	select * from board where bo_title like '%'||#{bo_title}||'%'
+	</select>
 </mapper>
