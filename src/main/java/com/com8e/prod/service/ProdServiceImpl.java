@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.com8e.board.vo.BoardVO;
 import com.com8e.image.dao.IImageDao;
 import com.com8e.image.vo.ImageVO;
 import com.com8e.prod.dao.IProdDao;
@@ -154,20 +155,11 @@ public class ProdServiceImpl implements IProdService {
 	}
 
 	@Override
-	public List<ProdVO> searchProdList(String keyword) throws Exception {
-		
-		List<ProdVO> list = prodDao.searchProdList(keyword);
-		for(ProdVO vo : list) {
-			
-			ImageVO image = imageDao.selectImage(vo.getProd_no(), "PROD_M");
-			if(image != null) {
-				Map<String, ImageVO> map = new HashMap<>();
-				map.put("PROD_M",image);
-				vo.setMap(map);
-			}	
-		}
-		
-		return list;
+
+	public List<ProdVO> selectProdLikeName(String keyword) throws Exception {
+
+		return prodDao.selectProdLikeName(keyword);
+
 	}
 
 

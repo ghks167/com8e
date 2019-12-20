@@ -124,12 +124,15 @@
 		        )
 	     where rnum < 5
     ]]>         
-                
-                
-  
-
-	
-	
 	</select>
+	
+	<select id="selectProdLikeName" parameterType="String" resultType="com.com8e.prod.vo.ProdVO">
+		select * from prod where prod_name like '%'||#{keyword}||'%'
+	</select>
+	
+	
+	
+	
+	
 	
 </mapper>

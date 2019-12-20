@@ -2,6 +2,7 @@ package com.com8e.prod.service;
 
 import java.util.List;
 
+import com.com8e.board.vo.BoardVO;
 import com.com8e.prod.vo.ProdSearchVO;
 import com.com8e.prod.vo.ProdVO;
 
@@ -33,9 +34,9 @@ public interface IProdService {
 
 	/** 메인화면 상품 타입별로 3개씩 보여주기*/
 	public List<ProdVO> selectMainThreeList(ProdSearchVO searchVO) throws Exception;
-	
-	/** 통합검색을 통한 상품 리스트 조회하기*/
-	public List<ProdVO> searchProdList(String keyword) throws Exception;
+
+
+	public List<ProdVO> selectProdLikeName(String keyword) throws Exception;
 
 
 }
