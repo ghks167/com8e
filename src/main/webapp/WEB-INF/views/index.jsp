@@ -23,7 +23,7 @@
 
 </style>
 </head>
-<body style="background-color: lightgray">
+<body>
 		<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
 	<div class="container">
 		<%@include file="/WEB-INF/inc/common_main_search.jsp" %>
