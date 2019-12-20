@@ -2,7 +2,6 @@ package com.com8e.prod.service;
 
 import java.util.List;
 
-import com.com8e.board.vo.BoardVO;
 import com.com8e.prod.vo.ProdSearchVO;
 import com.com8e.prod.vo.ProdVO;
 

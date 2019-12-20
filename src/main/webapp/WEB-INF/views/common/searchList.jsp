@@ -147,7 +147,7 @@
 			<hr>
 		</div> 
 		</div>
-		
+		</div>
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
 	</div>
 		

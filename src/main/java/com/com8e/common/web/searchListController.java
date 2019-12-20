@@ -38,7 +38,7 @@ public class searchListController {
 								,@ModelAttribute("board")BoardVO board) throws Exception {
 		
 		
-		List<ProdVO> plist = prodService.searchProdList(keyword);
+		List<ProdVO> plist = prodService.selectProdLikeName(keyword);
 		List<BoardVO> blist = boardService.searchBoardList(keyword);
 		
 		model.addAttribute("prodList",plist);
