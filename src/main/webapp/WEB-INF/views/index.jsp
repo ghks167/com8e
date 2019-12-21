@@ -43,11 +43,10 @@
 				</div>
 			</div>
 		</div>
-		<div style="height: 400px">&nbsp;</div>
-		<div class="main_product col-sm-12" style="background-color: #F6F6F6;  border-radius: 10px; padding-top: 20px;">	
+		<div class="main_product col-sm-12" style="background-color: #F6F6F6;  border-radius: 10px; padding-top: 20px; margin-top: 25px;">	
 		
 		 <c:forEach items="${prodMainLable}" var="divNum" >
-			<label><h3>${divNum.prod_type} <a href="${pageContext.request.contextPath}/prod/prodList?searchClass=${divNum.prod_type}"><font color=tomato>☜</font></a></h3></label>
+			<h3><label>${divNum.prod_type} <a href="${pageContext.request.contextPath}/prod/prodList?searchClass=${divNum.prod_type}"><font color=tomato>☜</font></a></label></h3>
 			<div class="row">
 				<c:forEach items="${prodMainthreeList}" var="mainThreeView">
 					<c:if test="${divNum.prod_type eq mainThreeView.prod_type}">
@@ -55,7 +54,7 @@
 							<a href="${pageContext.request.contextPath}/prod/prodView?prod_no=${mainThreeView.prod_no}">
 							<img class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/upload/PROD_MAIN/${mainThreeView.map.PROD_M.image_file_name}" style="width: 225px; height: 225px"><br>
 			  				</a>
-			  				<a href="${pageContext.request.contextPath}/prod/prodView?prod_no=${mainThreeView.prod_no}"><h4>${mainThreeView.prod_name}</h4></a>
+			  				<h4><a href="${pageContext.request.contextPath}/prod/prodView?prod_no=${mainThreeView.prod_no}">${mainThreeView.prod_name}</a></h4>
 			  			 	<font size="3px">&#8361;&nbsp;${mainThreeView.prod_price}</font>
 			  				<hr>
 			  			</div>

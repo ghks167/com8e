@@ -45,7 +45,7 @@
 				var json = data;
 				
 			}
-		})
+		});
 	});
 </script>
 </html>

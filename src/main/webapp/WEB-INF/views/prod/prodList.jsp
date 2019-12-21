@@ -49,7 +49,8 @@
 	<div class="container">
 		<%@include file="/WEB-INF/inc/common_main_search.jsp" %>
 		<h1>상품목록</h1>
-		<div class="main_area">
+		<hr>
+		<div class="main_area col-sm-12">
 			<form:form commandName="searchVO" action="${pageContext.request.contextPath}/prod/prodList" method="post" id="id_list_form">
 			
 			

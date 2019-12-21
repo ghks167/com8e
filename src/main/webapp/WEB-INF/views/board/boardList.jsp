@@ -33,7 +33,7 @@
 <body>
 	<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
 	<div class="container">
-		<div class="main_area">
+		<div class="main_area col-sm-12">
 		<h1>자유게시판</h1>	
 			<hr>
 			<div class="top_area col-sm-12 a">
