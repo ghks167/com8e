@@ -13,4 +13,8 @@ public interface ICartDao {
 	
 	public int insertCart(CartVO vo) throws Exception;
 	
+	public int updateCartQty(CartVO vo)throws Exception;
+	
+	public CartVO selectCart(int cart_no)throws Exception;
+	
 }

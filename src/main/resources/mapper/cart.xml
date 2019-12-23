@@ -27,4 +27,7 @@
 		)
 	
 	</insert>
+	<update id="updateCartQty">
+		update cart set cart_qty = #{cart_qty} where cart_no = #{cart_no}
+	</update>
 </mapper>

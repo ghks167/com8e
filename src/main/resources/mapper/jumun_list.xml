@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.com8e.jumun.dao.IJumunListDao">
+	
+	<select id="selectJumunListByCart" parameterType="map" resultType="com.com8e.jumun.vo.JumunListVO">
+		select 
+			a.cart_prod as jl_prod_no,
+			a.cart_qty as jl_prod_qty,
+			b.prod_price as jl_prod_price,
+			c.image_file_name as jl_image_name
+		from
+			cart a, prod b, image c
+		where
+			b.prod_no = a.cart_prod
+		and
+			b.prod_no = c.image_parent_no
+		and 
+			c.image_category ='PROD_M'
+		and
+			a.cart_mem = #{mem_id}
+		and 
+			a.cart_prod in (
+		<foreach collection="prods" item="prod_no"   separator=",">
+			#{prod_no}	
+		</foreach>
+			)
+			
+	</select>
+</mapper>

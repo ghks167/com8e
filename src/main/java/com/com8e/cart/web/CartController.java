@@ -21,7 +21,7 @@ public class CartController {
 	@Autowired
 	ICartService cartService;
 	
-	@RequestMapping("cart/cartList")
+	@RequestMapping(value = "cart/cartList")
 	public String cartList(HttpSession session, Model model) throws Exception{
 		
 		String mem_id = (String)session.getAttribute("LOGIN_INFO");
@@ -37,7 +37,7 @@ public class CartController {
 		return "cart/cartList";
 	}
 	
-	@RequestMapping("cart/cartAdd")
+	@RequestMapping(value = "cart/cartAdd")
 	@ResponseBody
 	public Map<String, Object> cartInsert(CartVO vo, HttpSession session) throws Exception{
 		HashMap<String, Object> map = new HashMap<>();
@@ -51,5 +51,21 @@ public class CartController {
 		}
 		return map;
 	}
+	
+	@RequestMapping(value = "cart/cartQtyChange")
+	@ResponseBody
+	public void cartQtyChage(CartVO vo) throws Exception{
+		
+		cartService.updateCartQty(vo);
+	}
+	
+	@RequestMapping(value = "cart/cartJumun")
+	public String cartJumun(int[] cart_no) {
+		
+		
+		
+		return "cart/cartJumun";
+	}
+	
 	
 }

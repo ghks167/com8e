@@ -1,5 +1,6 @@
 package com.com8e.cart.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,23 @@ public class CartServiceImpl implements ICartService{
 		// TODO Auto-generated method stub
 		int i = cartDao.insertCart(vo);
 		return i;
+	}
+
+
+	@Override
+	public int updateCartQty(CartVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return cartDao.updateCartQty(vo);
+	}
+
+
+	@Override
+	public List<CartVO> selectCart(int[] cart_no) throws Exception {
+		ArrayList<CartVO> list = new ArrayList<>();	
+		
+		
+		
+		return list;
 	}
 	
 }

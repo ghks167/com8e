@@ -49,52 +49,117 @@
 		<h1>장바구니</h1>
 		<hr>
 		<div class="main_area">
-				<table class="table table-striped">
-					<c:choose>
-						<c:when test="${fn:length(cart_list) == 0}">
-							<div class="col-sm-12">
-								<h3>장바구니가 비여있습니다.</h3>
-							</div>
-						</c:when>
-						<c:otherwise>
-							<c:forEach var="cart" items="${cart_list}">
-								<tr>
-									<td>
-										<div class="col-sm-12 prod_obj">
-											<div class="col-sm-2 preview_image">
-												<input type="checkbox">
-												<img class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/upload/PROD_MAIN/${cart.main_image_name}">
-											</div>
-											<div class="col-sm-6 name_area">
-												<div class="page-header">
-													<h4>
-														<a href="${pageContext.request.contextPath}/prod/prodView?prod_no=${cart.prod.prod_no}">${cart.prod.prod_name}</a>
-													</h4>
-													<h4>
-														<small>${cart.prod.prod_type}</small>
-													</h4>
+			<form:form action="${pageContext.request.contextPath}/jumun/jumunRegist" method="post" id="id_order_form">
+					<table class="table table-striped">
+						<c:choose>
+							<c:when test="${fn:length(cart_list) == 0}">
+								<div class="col-sm-12">
+									<h3>장바구니가 비여있습니다.</h3>
+								</div>
+							</c:when>
+							<c:otherwise>
+								
+									<c:forEach var="cart" items="${cart_list}">
+										<tr>
+											<td>
+												<div class="col-sm-12 prod_obj">
+													<div class="col-sm-2 preview_image">
+														<input type="checkbox" name="cart_prod" value="${cart.cart_prod}" >
+														<img class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/upload/PROD_MAIN/${cart.main_image_name}">
+													</div>
+													<div class="col-sm-6 name_area">
+														<div class="page-header" style="margin-bottom: 5px;">
+															<h4>
+																<a href="${pageContext.request.contextPath}/prod/prodView?prod_no=${cart.prod.prod_no}">${cart.prod.prod_name}</a>
+															</h4>
+															<h4>
+																<small>${cart.prod.prod_type}</small>
+															</h4>
+														</div>
+														<div class="qty_area col-sm-12" >
+															<div class="col-sm-4">
+																<h5 id="id_price_area">선택수량 : </h5>
+															</div>
+															<div class="col-sm-4" style="margin-top: 0; margin-bottom: 0;">
+																
+																<select class="form-control" onchange="f_qty_chage(this)" data-cart_no ="${cart.cart_no}">
+																	<c:forEach var="i" begin="1" end="99">
+																		<c:choose>
+																			<c:when test="${i == cart.cart_qty}">
+																				<option value="${i}" selected="selected">${i}</option>
+																			</c:when>
+																			<c:otherwise>
+																				<option value="${i}">${i}</option>	
+																			</c:otherwise>
+																		</c:choose>															
+																	</c:forEach>
+																</select>
+															</div>
+														</div>
+														
+													</div>
+													<div class="col-sm-2 price_area">
+														<h3>${cart.cart_qty * cart.prod.prod_price} 원</h3>
+														<br>
+													</div>
+													<div class="col-sm-2">
+														<h3>${cart.prod.prod_com}</h3>
+													</div>
 												</div>
-												<div class="qty_area">
-													<h5 id="id_price_area">선택수량 : ${cart.cart_qty}</h5>
-												</div>
-											</div>
-											<div class="col-sm-2 price_area">
-												<h3>${cart.cart_qty * cart.prod.prod_price} 원</h3>
-												<br>
-											</div>
-											<div class="col-sm-2">
-												<h3>${cart.prod.prod_com}</h3>
-											</div>
-										</div>
-									</td>
-								</tr>
-							</c:forEach>		
-						</c:otherwise>
-					</c:choose>
-						
-				</table>	
+											</td>
+										</tr>
+									</c:forEach>		
+									
+								
+							</c:otherwise>
+						</c:choose>
+					</table>	
+				</form:form>
+				<div class="col-sm-12">
+					<input type="button" value="전체상품주문" class="btn btn-success" id="id_all_order">
+					<input type="button" value="선택상품주문" class="btn btn-success" id="id_select_order">
+				</div>
 			</div>
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
 	</div>
+	<script type="text/javascript">
+		function f_qty_chage(aa) {
+			para = {
+					"cart_qty":$(aa).val(),
+					"cart_no":aa.dataset.cart_no
+			};
+			
+			$.ajax({
+				url: "<c:url value ='/cart/cartQtyChange'/>",
+				data: para,
+				type: "post"
+			});
+			
+		}
+		
+		
+		$("#id_all_order").on("click",function(){
+			var noarr = document.getElementsByName("cart_prod");
+			
+			for(var i = 0; i<noarr.length; i++){
+				console.log(noarr[i]);
+				$(noarr[i]).attr("checked",true);
+			}
+			
+			$("#id_order_form").submit();
+		});
+		
+		
+		$("#id_select_order").on("click",function(){
+			$("#id_order_form").submit();
+		});
+		
+		
+		
+		
+		
+	
+	
+	</script>
 </body>
 </html>
