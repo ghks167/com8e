@@ -12,10 +12,7 @@
 <%@include file="/WEB-INF/inc/common_header.jsp"%>
 <title>글쓰기</title>
 <style type="text/css">
-.main_area{
-	padding: 0 10% 0 10%;
 
-}
 
 .title_area{
 	height: 5vh;
@@ -42,7 +39,7 @@
 	<div class="container">
 		<h1>글쓰기</h1>	
 		<hr>
-		<div class="main_area">
+		<div class="main_area col-sm-12">
 			<form:form commandName="board" method="post" action="boardRegist">
 				<div class="form-group title_area">
 					<label for="inputTitle" class="col-sm-2 control-label">제목 : </label>
@@ -82,6 +79,7 @@
 			</form:form>
 			
 		</div>
+		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
 	</div>
 </body>
 

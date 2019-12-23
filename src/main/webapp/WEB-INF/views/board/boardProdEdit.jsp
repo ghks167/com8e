@@ -13,7 +13,7 @@
 </head>
 <body style="padding-top: 0;">
 	<div class="container">
-		<div class="main_area">
+		<div class="main_area col-xs-12">
 			<h3>상품선택</h3>
 			
 			<div class="col-xs-10">
