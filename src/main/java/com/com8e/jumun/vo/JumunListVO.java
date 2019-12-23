@@ -3,11 +3,18 @@ package com.com8e.jumun.vo;
 public class JumunListVO {
 	private int jl_jumun_no;
 	private int jl_prod_no;
+	private String jl_prod_name;
 	private int jl_prod_qty;
 	private int jl_prod_price;
 	private String jl_image_name;
 	
 	
+	public String getJl_prod_name() {
+		return jl_prod_name;
+	}
+	public void setJl_prod_name(String jl_prod_name) {
+		this.jl_prod_name = jl_prod_name;
+	}
 	public String getJl_image_name() {
 		return jl_image_name;
 	}

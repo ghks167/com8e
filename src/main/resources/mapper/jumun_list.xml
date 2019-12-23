@@ -10,6 +10,7 @@
 			a.cart_prod as jl_prod_no,
 			a.cart_qty as jl_prod_qty,
 			b.prod_price as jl_prod_price,
+			b.prod_name as jl_prod_name,
 			c.image_file_name as jl_image_name
 		from
 			cart a, prod b, image c
