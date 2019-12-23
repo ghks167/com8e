@@ -37,7 +37,7 @@
 		select distinct prod_type from PROD
 	</select>	
 
-	 <sql id="searchCondition">
+	 <sql id="searchCondition2">
   		<if test='@org.apache.commons.lang3.StringUtils@isNotBlank(searchWord)'>
  	   		<choose>
  	   			<when test='searchType.equals("N")'>AND prod_name LIKE '%'||#{searchWord}||'%'</when>
@@ -61,7 +61,7 @@
 				  	prod_date
 		FROM PROD
 		where 1 = 1 
-		<include refid="searchCondition"/>
+		<include refid="searchCondition2"/>
  	 	ORDER BY prod_no DESC
  	   <include refid="common.PAGING_SUFFIX"/>
 	</select>
@@ -69,7 +69,7 @@
 	<select id="selectProdCount" resultType="int" parameterType="com.com8e.prod.vo.ProdSearchVO">
 		select count(*) as cnt from prod
 		where 1 = 1
-		<include refid="searchCondition"/>
+		<include refid="searchCondition2"/>
 	</select>
 	
 	
