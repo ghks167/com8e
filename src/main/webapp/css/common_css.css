@@ -87,5 +87,10 @@
 	width: 30%;
 	height: 100%;
 }
-
+.main_area{
+	padding: 5% 10% 5% 10%;
+	background-color: #F6F6F6;
+	border-radius: 15px /15px;
+	
+}
 
