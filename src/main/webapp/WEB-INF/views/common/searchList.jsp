@@ -37,6 +37,7 @@
 	<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
 	<div class="container">
 	<%@include file="/WEB-INF/inc/common_main_search.jsp" %> 
+	<div style="height: 150px">&nbsp;</div>
 		<div class="main_area">
 		<h1><font color="#368AFF">통합검색 결과</font></h1>	
 		<hr><br>

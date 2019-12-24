@@ -32,7 +32,10 @@
 </head>
 <body>
 	<%@include file="/WEB-INF/inc/common_top_menu.jsp"%>
+	
 	<div class="container">
+	<%@include file="/WEB-INF/inc/common_main_search.jsp" %>
+			
 		<div class="main_area col-sm-12">
 		<h1>자유게시판</h1>	
 			<hr>

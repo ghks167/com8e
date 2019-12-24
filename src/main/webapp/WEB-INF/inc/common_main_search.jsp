@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 
 	<div class="col-sm-12 main_search_area">
-		<div class="col-sm-3 logo_area">
+		<a href="${pageContext.request.contextPath}"><div class="col-sm-3 logo_area">
 			<img alt="" class="img-rounded" src="${pageContext.request.contextPath}/images/logo.png">
-		</div>
+		</div></a>
 		<form action="${pageContext.request.contextPath}/common/searchList" id="search_form">
 		<div class="col-sm-7 search_text_area">
 			<div class="form-group has-success has-feedback">
