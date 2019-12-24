@@ -151,7 +151,7 @@
 
 				
 				<div class="col-sm-12 addr_area">
-					<h5>( * )은 필수입니다!</h5>
+					<h5>( * )은 필수입니다!</h5> 
 					<div class="col-sm-9">
 						<input type="text" class="form-control" id="sample4_postcode" name="jumun_post_code" placeholder="*우편번호">			
 					</div>
