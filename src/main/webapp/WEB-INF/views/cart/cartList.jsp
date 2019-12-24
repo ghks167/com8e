@@ -115,7 +115,7 @@
 						</c:choose>
 					</table>	
 				</form:form>
-				<div class="col-sm-12">
+				<div class="col-sm-12" style="text-align: center;">
 					<input type="button" value="전체상품주문" class="btn btn-success" id="id_all_order">
 					<input type="button" value="선택상품주문" class="btn btn-success" id="id_select_order">
 				</div>

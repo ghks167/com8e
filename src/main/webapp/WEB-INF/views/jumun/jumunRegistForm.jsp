@@ -12,7 +12,7 @@
 <%@include file="/WEB-INF/inc/common_header.jsp"%>
 <title>주문</title>
 <style type="text/css">
-.addr_area,.payment_area{
+.addr_area,.payment_area,.mem_area{
 	margin-top: 8%;
 }
 .addr_area > div{
@@ -90,20 +90,76 @@
 				</div>
 				
 				<!-- 사용자 정보 -->
-				<input type="hidden" value="${LOGIN_INFO}" name="jumun_mem">
+				<div class="col-sm-12 mem_area">
+					<h3>주문자 정보</h3>
+					<input type="hidden" value="${LOGIN_INFO}" name="jumun_mem">
+					
+					<table class="table table-striped">
+						<colgroup>
+							<col width="15%"/>
+							<col/>
+						</colgroup>
+						<tr>
+							<th>
+								ID :
+							</th>
+							<td>
+								<input type="text" class="form-control" value="${memVO.mem_id}" readonly="readonly">
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+								주문자 이름:
+							</th>
+							<td>
+								<input type="text" class="form-control" value="${memVO.mem_name}" readonly="readonly">
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+								주문자 전화번호:
+							</th>
+							<td>
+								<input type="text" class="form-control" value="${memVO.mem_hp}" readonly="readonly">
+							</td>
+						</tr>
+						
+						<tr>
+							<th>
+								주문자 주소:
+							</th>
+							<td>
+								<div class="col-sm-7" style="padding-left: 0">
+									<input type="text" class="form-control" value="${memVO.mem_addr}" id="id_addr_copy" readonly="readonly">
+								</div>
+								<div class="col-sm-5" style="text-align: right; padding-right: 0">
+									<input type="button" class="btn btn-default" value="회원 주소 배송지로 사용하기" onclick="addr_copy()">
+								</div>
+							</td>
+						</tr>
+						
+					</table>
+				</div>
+				
+				<div class="col-sm-12">
+					<hr>
+				</div>
 				
 				<!-- 주소정보 -->
 
 				
 				<div class="col-sm-12 addr_area">
+					<h5>( * )은 필수입니다!</h5>
 					<div class="col-sm-9">
-						<input type="text" class="form-control" id="sample4_postcode" name="jumun_post_code" placeholder="우편번호">			
+						<input type="text" class="form-control" id="sample4_postcode" name="jumun_post_code" placeholder="*우편번호">			
 					</div>
 					<div class="col-sm-3" style="text-align: right;">
 						<input type="button" onclick="sample4_execDaumPostcode()" class="btn btn-default"  value="우편번호 찾기">
 					</div>
 					<div class="col-sm-12">
-						<input type="text" class="form-control" id="sample4_roadAddress" name="jumun_addr" placeholder="도로명주소">
+						<input type="text" class="form-control" id="sample4_roadAddress" name="jumun_addr" placeholder="*도로명주소">
 					</div>
 					<div class="col-sm-12">
 						<input type="text" class="form-control" id="sample4_jibunAddress" placeholder="지번주소">
@@ -172,8 +228,8 @@
 				
 			
 					<div class="col-sm-12" style="text-align: center; margin-top: 50px;">
-						<a class="btn btn-warning">뒤로가기</a>
-						<input type="button" class="btn btn-success" value="결제하기" onclick="f_payment()">
+						<a class="btn btn-warning" href="javascript:history.back()">뒤로가기</a>
+						<input type="button" class="btn btn-success" value="결제하기" onclick="required_check()">
 					</div>
 				</div>
 		
@@ -272,8 +328,8 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script type="text/javascript">
-function f_payment() {
-	
+
+function f_payment() {	
 	var IMP = window.IMP; // 생략가능
 	IMP.init('iamport'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
 	var payment_info = {
@@ -308,6 +364,27 @@ function f_payment() {
 	});
 	
 }
+function required_check() {
+	var post_code = $("input[name = 'jumun_post_code']").val();
+	var addr = $("input[name = 'jumun_addr']").val();
+	
+	if(post_code == "" || addr == ""){
+		alert("주소를 확인하세요");
+		
+	}else {
+		f_payment();
+	}
+	
+	
+	
+	
+}
+function addr_copy() {
+	$("#sample4_roadAddress").val($("#id_addr_copy").val());
+}
+
+
+
 </script>
 
 
