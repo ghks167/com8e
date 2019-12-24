@@ -64,7 +64,7 @@
 											<td>
 												<div class="col-sm-12 prod_obj">
 													<div class="col-sm-2 preview_image">
-														<input type="checkbox" name="cart_prod" value="${cart.cart_prod}" >
+														<input type="checkbox" name="cart_no" value="${cart.cart_no}" >
 														<img class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/upload/PROD_MAIN/${cart.main_image_name}">
 													</div>
 													<div class="col-sm-6 name_area">
@@ -139,7 +139,7 @@
 		
 		
 		$("#id_all_order").on("click",function(){
-			var noarr = $("input[type = checkbox][name = cart_prod]");
+			var noarr = $("input[type = checkbox][name = cart_no]");
 			$(noarr).attr("checked",true);
 			
 			
@@ -148,7 +148,16 @@
 		
 		
 		$("#id_select_order").on("click",function(){
-			$("#id_order_form").submit();
+			var noarr = $("input[type = checkbox][name = cart_no]");
+			for(var i = 0; i<noarr.length; i++){
+				if(noarr[i].checked == true){
+					$("#id_order_form").submit();
+					return;
+				}
+			}
+			
+			alert("선택된 상품이 없습니다.")
+			
 		});
 		
 		

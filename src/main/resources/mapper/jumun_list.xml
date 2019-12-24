@@ -23,9 +23,9 @@
 		and
 			a.cart_mem = #{mem_id}
 		and 
-			a.cart_prod in (
-		<foreach collection="prods" item="prod_no"   separator=",">
-			#{prod_no}	
+			a.cart_no in (
+		<foreach collection="carts" item="cart_no"   separator=",">
+			#{cart_no}	
 		</foreach>
 			)
 			

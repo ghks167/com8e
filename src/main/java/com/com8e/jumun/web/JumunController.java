@@ -27,12 +27,12 @@ public class JumunController {
 	private IMemberService memberService;
 	
 	@RequestMapping(value = "/jumun/jumunRegist")
-	public String jumun(Model model, int[] cart_prod, HttpSession session) throws Exception{
+	public String jumun(Model model, int[] cart_no, HttpSession session) throws Exception{
 		String mem_id = (String)session.getAttribute("LOGIN_INFO");
 		
 		Map<String, Object> map = new HashMap<>();
 		map.put("mem_id", mem_id);
-		map.put("prods", cart_prod);
+		map.put("carts", cart_no);
 	
 		List<JumunListVO> list = jumunService.selectJumunListByCart(map);
 		MemberVO memvo = memberService.selectMember(mem_id);
