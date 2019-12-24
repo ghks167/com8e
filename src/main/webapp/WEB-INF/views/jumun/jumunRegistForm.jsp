@@ -159,7 +159,7 @@
 							<td>
 								<label for="samsung">삼성페이</label><input type="radio" name="payment_way" id="samsung" value="samsung">
 								&nbsp;
-								<label for="card">신용카드</label><input type="radio" name="payment_way" id="card" value="card">
+								<label for="card">신용카드</label><input type="radio" checked="checked" name="payment_way" id="card" value="card">
 								&nbsp;
 								<label for="trans">실시간계좌이체</label><input type="radio" name="payment_way" id="trans" value="trans">
 								&nbsp;
@@ -273,6 +273,7 @@
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script type="text/javascript">
 function f_payment() {
+	
 	var IMP = window.IMP; // 생략가능
 	IMP.init('iamport'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
 	var payment_info = {
@@ -304,7 +305,8 @@ function f_payment() {
 	    	$("#payment_form").submit();
 	    }
 	    alert('결제 성공');
-	});	
+	});
+	
 }
 </script>
 
