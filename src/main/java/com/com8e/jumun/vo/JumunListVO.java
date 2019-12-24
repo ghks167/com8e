@@ -46,4 +46,12 @@ public class JumunListVO {
 		this.jl_prod_price = jl_prod_price;
 	}
 	
+	@Override
+	public String toString() {
+		return "JumunListVO [jl_jumun_no=" + jl_jumun_no + ", jl_prod_no=" + jl_prod_no + ", jl_prod_name="
+				+ jl_prod_name + ", jl_prod_qty=" + jl_prod_qty + ", jl_prod_price=" + jl_prod_price
+				+ ", jl_image_name=" + jl_image_name + "]";
+	}
+	
+	
 }

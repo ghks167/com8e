@@ -30,4 +30,15 @@
 			)
 			
 	</select>
+	<insert id="insertJumunList" parameterType="com.com8e.jumun.vo.JumunListVO">
+		insert into
+			jumun_list
+		values(
+			jumun_seq.currval,
+			#{jl_prod_no},
+			#{jl_prod_qty},
+			#{jl_prod_price}
+		)
+	</insert>
+	
 </mapper>
