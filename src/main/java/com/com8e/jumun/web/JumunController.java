@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.com8e.common.vo.ResultMessageVO;
 import com.com8e.jumun.service.IJumunService;
 import com.com8e.jumun.vo.JumunListVO;
 import com.com8e.jumun.vo.JumunVO;
@@ -45,12 +46,23 @@ public class JumunController {
 	}
 	
 	@RequestMapping(value = "/jumun/jumunProcess")
-	public String jumunProcess(JumunVO vo) throws Exception{
-		jumunService.insertJumun(vo);
+	public String jumunProcess(JumunVO vo,Model model) throws Exception{
+		int i = jumunService.insertJumun(vo);
+		ResultMessageVO messageVO = new ResultMessageVO();			
+		if(i > 2) {
+			messageVO.setResult(true)
+					   .setTitle("주문완료")
+					   .setMessage("주문이 완료되었습니다.")
+					   .setUrlTitle("주문정보확인")
+					   .setUrl("#");
+		}else {
+			messageVO.setResult(true)
+			   .setTitle("주문실패")
+			   .setMessage("주문에 실패하였습니다.");
+		}
 		
-		
-		
-		return "jumun/jumunProcess";
+		model.addAttribute("resultMessage",messageVO);
+		return "common/message";
 	}
 	
 }

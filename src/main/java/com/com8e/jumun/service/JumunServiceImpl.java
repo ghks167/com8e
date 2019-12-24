@@ -33,11 +33,13 @@ public class JumunServiceImpl implements IJumunService{
 	@Override
 	public int insertJumun(JumunVO vo) throws Exception {
 		// TODO Auto-generated method stub
-		int i = jumunDao.insertJumun(vo);
+		int i = 0;
+				
+		i += jumunDao.insertJumun(vo);
 		
 		List<JumunListVO> items = vo.getItems();
 		for(JumunListVO listvo : items) {
-			jumunListDao.insertJumunList(listvo);
+			i += jumunListDao.insertJumunList(listvo);
 		}
 		
 		
