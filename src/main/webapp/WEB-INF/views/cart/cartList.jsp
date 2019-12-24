@@ -139,12 +139,9 @@
 		
 		
 		$("#id_all_order").on("click",function(){
-			var noarr = document.getElementsByName("cart_prod");
+			var noarr = $("input[type = checkbox][name = cart_prod]");
+			$(noarr).attr("checked",true);
 			
-			for(var i = 0; i<noarr.length; i++){
-				console.log(noarr[i]);
-				$(noarr[i]).attr("checked",true);
-			}
 			
 			$("#id_order_form").submit();
 		});

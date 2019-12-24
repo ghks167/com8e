@@ -62,7 +62,7 @@
 						<td><h4>잔여수량 : &nbsp;&nbsp; ${prod.prod_qty}</h4></td>
 					</tr>
 					<tr>
-						<td><h2>가격 : &nbsp;&nbsp;&#8361;&nbsp; ${prod.prod_price}</h2></td>
+						<td><h2 id="price">가격 : &nbsp;&nbsp;&#8361;&nbsp; ${prod.prod_price}</h2></td>
 					</tr>
 					<tr>
 						<td>
@@ -133,6 +133,14 @@
 			console.log($("#id_select_qty").html());
 			$("#id_select_qty").html('<input type="text" id="id_cart_qty" class="form-control" placeholder="수량">');
 		});
+		
+		function numberWithCommas(x) {
+		    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		}
+		
+		$("#price").html(numberWithCommas(${prod.prod_price}));
+
+		
 	
 	</script>
 </body>

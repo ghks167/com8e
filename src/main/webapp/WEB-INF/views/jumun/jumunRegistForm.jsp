@@ -38,7 +38,7 @@
 								
 							</div>
 							<div class="col-sm-3 price_area">
-								<h3>${jumun.jl_prod_qty * jumun.jl_prod_price} 원</h3>
+								<h3 class="total_pp"> ${jumun.jl_prod_qty * jumun.jl_prod_price}</h3>
 								<input type="hidden" value="${jumun.jl_prod_qty * jumun.jl_prod_price}" class="prod_price">
 								<br>
 							</div>
@@ -66,9 +66,16 @@
 			console.log(arr_price[i]);
 			total += parseInt($(arr_price[i]).val());
 		}
-		$("#id_total_price").html("총 금액 : "+total);
+		$("#id_total_price").html("총 금액 : "+numberWithCommas(total));
 	});
-
+	
+	var aa = $(".total_pp");
+	
+	for(var i =0; i<aa.length; i++){
+		$(aa[i]).html(numberWithCommas($(aa[i]).html())+ " 원");	
+	}
+	
+	
 
 
 </script>

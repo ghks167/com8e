@@ -125,7 +125,7 @@
 							</div>
 						</div>
 						<div class="col-sm-2 price_area">
-							<h3>${prod.prod_price} 원</h3>
+							<h3 class="price">${prod.prod_price}</h3>
 							<br>
 						</div>
 						<div class="col-sm-2">
@@ -213,6 +213,12 @@
 		function f_caterory_select(p){
 			$("#id_searchClass").val(p.dataset.value);
 			f.submit();
+		}
+		
+		var price_arr = document.getElementsByClassName("price");
+		
+		for(var i = 0; i<price_arr.length; i++){
+			$(price_arr[i]).html(numberWithCommas($(price_arr[i]).html()) + "원");
 		}
 		
 		
