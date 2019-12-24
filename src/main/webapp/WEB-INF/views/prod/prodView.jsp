@@ -69,7 +69,7 @@
 							<div class="col-sm-2" style="margin-top: 5px;">
 								수량 :
 							</div> 
-							<div class="col-sm-2" id="id_select_qty">
+							<div class="col-sm-3" id="id_select_qty">
 								<select class="form-control" id="id_cart_qty">
 									  <option value="1">1</option>
 									  <option value="2">2</option>
@@ -86,7 +86,7 @@
 							<div class="col-sm-2">
 								<input id="id_input_free" type="button" class="btn btn-default btn-xs" value="직접입력" style="margin-top: 5px;">
 							</div>
-							<div class="col-sm-6" style="text-align: right;">
+							<div class="col-sm-5" style="text-align: right;">
 								<input id="id_add_cart" type="button" class="btn btn-default" value="장바구니에 담기">
 							</div>
 						</td>
