@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.com8e.jumun.service.IJumunService;
 import com.com8e.jumun.vo.JumunListVO;
+import com.com8e.jumun.vo.JumunVO;
 
 @Controller
 public class JumunController {
@@ -21,7 +22,7 @@ public class JumunController {
 	private IJumunService jumunService;
 	
 	@RequestMapping(value = "/jumun/jumunRegist")
-	public String xxx(Model model, int[] cart_prod, HttpSession session) {
+	public String jumun(Model model, int[] cart_prod, HttpSession session) throws Exception{
 		String mem_id = (String)session.getAttribute("LOGIN_INFO");
 		
 		Map<String, Object> map = new HashMap<>();
@@ -34,4 +35,14 @@ public class JumunController {
 		
 		return "jumun/jumunRegistForm";
 	}
+	
+	@RequestMapping(value = "/jumun/jumunProcess")
+	public String jumunProcess(JumunVO vo) throws Exception{
+		jumunService.insertJumun(vo);
+		
+		
+		
+		return "jumun/jumunProcess";
+	}
+	
 }

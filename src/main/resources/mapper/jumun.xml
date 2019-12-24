@@ -5,4 +5,16 @@
 
 <mapper namespace="com.com8e.jumun.dao.IJumunDao">
 
+	<insert id="insertJumun" parameterType="com.com8e.jumun.vo.JumunVO">
+		insert into 
+			jumun
+		values(
+			jumun_seq.nextval,
+			#{jumun_mem},
+			#{jumun_post_code},
+			#{jumun_addr},
+			#{jumun_addr_det},
+			#{jumun_addr_ref}
+		)
+	</insert>
 </mapper>

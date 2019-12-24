@@ -11,5 +11,7 @@ import com.com8e.jumun.vo.JumunListVO;
 @Mapper
 public interface IJumunListDao {
 
-	public List<JumunListVO> selectJumunListByCart(Map<String, Object> map);
+	public List<JumunListVO> selectJumunListByCart(Map<String, Object> map) throws Exception;
+	
+	public int insertJumunList(JumunListVO vo)throws Exception;
 }
