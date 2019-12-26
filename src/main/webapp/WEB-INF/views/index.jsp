@@ -68,6 +68,7 @@
 		 
 		</div>
 		<%@include file="/WEB-INF/inc/common_footer.jsp" %>
+		<%@include file='/WEB-INF/inc/common_advertise.jsp'%>
 	</div>   
 </body>
 
