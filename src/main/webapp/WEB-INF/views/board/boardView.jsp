@@ -97,7 +97,7 @@
 					<input type='hidden' value='${board.bo_no}' name='re_bo_no'>
 					<input type='hidden' value='${LOGIN_INFO}' name='re_mem'>
 					<div class='col-sm-11'>
-	    				<h4><label for='inputReply'>댓글</label></h4>
+	    				<h4><label for='inputReply'>댓글 <font color="tomato">[${board.bo_re_cnt}]</font></label></h4>
 	    			</div>
 	    			<div class='col-sm-1' style='margin-bottom: 10px; text-align: right;'>
 	    				<input type='button' id='reply_submit_btn' class='btn btn-default' value='등록'>

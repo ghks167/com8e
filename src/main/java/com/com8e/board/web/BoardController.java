@@ -33,13 +33,20 @@ public class BoardController {
 	
 	@RequestMapping(value = "board/boardList")
 	public String boardList(@ModelAttribute("board")BoardVO board, 
-								@ModelAttribute("searchVO") BoardSearchVO searchVO, Model model) throws Exception{
+								@ModelAttribute("searchVO") BoardSearchVO searchVO, Model model
+	/* ,@RequestParam( value ="keyword",required = false) String keyword */) throws Exception{
 		
-			
+		
 		List<BoardVO> list = boardService.selectBoardList(searchVO);
-		
 		model.addAttribute("boardList", list);
 		model.addAttribute("searchVO",searchVO);
+		
+		/*
+		 * else if(keyword!=null) { List<BoardVO> list =
+		 * boardService.searchBoardList(keyword); model.addAttribute("boardList",list);
+		 * model.addAttribute("searchVO",searchVO); }
+		 */
+		
 		
 		return "board/boardList";			
 	}
@@ -48,7 +55,7 @@ public class BoardController {
 	@RequestMapping(value = "board/boardEdit")
 	public String boardEdit(@ModelAttribute("board")BoardVO board,@RequestParam("bo_no") int bo_no, ModelMap model) throws Exception{
 		
-		BoardVO vo = boardService.selectBoard(bo_no);
+		BoardVO vo = boardService.selectBoard(bo_no,false);
 		
 		model.addAttribute("board",vo);
 		
@@ -74,7 +81,7 @@ public class BoardController {
 	
 	@RequestMapping(value = "board/boardView", params = "bo_no")
 	public String boardView(int bo_no, Model model) throws Exception{
-		BoardVO vo = boardService.selectBoard(bo_no);
+		BoardVO vo = boardService.selectBoard(bo_no,true);
 		
 		model.addAttribute("board", vo);
 		return "board/boardView";

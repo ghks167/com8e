@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.com8e.board.dao.IBoardDao;
 import com.com8e.reply.dao.IReplyDao;
 import com.com8e.reply.vo.ReplyVO;
 
@@ -15,6 +16,9 @@ public class ReplyServiceImpl implements IReplyService{
 	
 	@Autowired
 	IReplyDao replyDao;
+	
+	@Autowired
+	IBoardDao boardDao;
 	
 	@Override
 	public int insertReply(ReplyVO vo) throws Exception {
@@ -40,5 +44,6 @@ public class ReplyServiceImpl implements IReplyService{
 		
 		return replyDao.insertComment(vo);
 	}
+
 
 }

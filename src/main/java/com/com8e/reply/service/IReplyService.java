@@ -9,6 +9,6 @@ public interface IReplyService {
 	public int insertReply(ReplyVO vo) throws Exception;
 	
 	public List<ReplyVO> selectReplyList(int re_bo_no) throws Exception;
-	
+		
 	public int insertComment(ReplyVO vo) throws Exception;
 }

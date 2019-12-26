@@ -29,7 +29,11 @@
 	min-height: 20vh;
 } 
  .main_area{
- 	min-height: 55vh;
+ 	min-height: 75vh;
+  }
+  .prodList_area{
+  overflow:hidden;
+  height: auto;
   }
 </style>
 </head>
@@ -39,10 +43,10 @@
 	<%@include file="/WEB-INF/inc/common_main_search.jsp" %> 
 	<div style="height: 150px">&nbsp;</div>
 		<div class="main_area">
-		<h1><font color="#368AFF">통합검색 결과</font></h1>	
+		<h1><font color="#368AFF"> <%= request.getParameter("keyword") %>에 대한 통합검색 결과</font></h1>	
 		<hr><br>
 		<div class="notice_area">
-			<h2>공지사항</h2>
+			<h2>공지사항<a href="${pageContext.request.contextPath}/board/boardList?searchWord=${param.keyword}"><font color="tomato">&nbsp;&nbsp;☜</font></a></h2>
 			<div class="boardList_area col-sm-12">
 				<table class="table table-striped">
 					<colgroup>
@@ -75,7 +79,7 @@
 			</div>
 			<hr><br>
 			<div class="freeboard_area">
-			<h2>자유게시판</h2>
+			<h2>자유게시판<a href="${pageContext.request.contextPath}/board/boardList?searchWord=${param.keyword}"><font color="tomato">&nbsp;&nbsp;☜</font></a></h2>
 			<div class="top_area col-sm-12 a">
 			<div class="boardList_area col-sm-12">
 				<table class="table table-striped">
@@ -108,11 +112,12 @@
 			</div>
 			</div>
 			<hr><br> 
+			</div>
 			<div class="prod_area">
 			<hr><br> 
-			<h2>상품목록</h2>
+			<h2>상품목록<a href="${pageContext.request.contextPath}/prod/prodList?keyword=${param.keyword}"><font color="tomato">&nbsp;&nbsp;☜</font></a></h2>
 			<br>
-			<div class="main_area">
+			<div class="prodList_area">
 				<c:forEach var="prod" items="${prodList}">
 					<div class="col-sm-12">
 						<hr>
@@ -128,7 +133,7 @@
 								</h4>
 								<h4>
 									<small>${prod.prod_type} </small>
-								</h4>
+								</h4> 
 							</div>
 							<div class="qty_area">
 								<h5>잔여수량 : ${prod.prod_qty}</h5>
@@ -147,7 +152,6 @@
 		</div>
 			<hr>
 		</div> 
-		</div>
 		</div>
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
 	</div>

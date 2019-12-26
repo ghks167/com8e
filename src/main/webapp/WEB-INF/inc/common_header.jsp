@@ -15,3 +15,5 @@
 <script src="${pageContext.request.contextPath}/bootstrap-3.3.2/js/ie-emulation-modes-warning.js"></script>
 <!-- 개인 css  -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common_css.css" >
+<!-- ckeditor -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script>

@@ -2,7 +2,6 @@ package com.com8e.board.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -37,7 +36,7 @@ public class BoardServiceImpl implements IBoardService{
 	}
 
 	@Override
-	public BoardVO selectBoard(int bo_no) throws Exception {
+	public BoardVO selectBoard(int bo_no, boolean incrementHit) throws Exception {
 		BoardVO vo = boardDao.selectBoard(bo_no);
 		List<BoardPrVO> list = boardPrDao.selectBoardPr(bo_no);
 		ArrayList<ProdVO> list2 = new ArrayList<ProdVO>();
@@ -47,6 +46,9 @@ public class BoardServiceImpl implements IBoardService{
 		}
 		vo.setProd_list(list2);
 		
+		if (incrementHit) {
+			boardDao.increaseBoardCount(vo.getBo_no());
+		}
 		
 		return vo;
 	}

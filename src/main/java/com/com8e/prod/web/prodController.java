@@ -94,15 +94,27 @@ public class prodController {
 	
 	@RequestMapping(value = "/prod/prodList")
 	public String prodList(@ModelAttribute("prod")ProdVO prod, @ModelAttribute("searchVO") ProdSearchVO searchVO
-									, Model model) throws Exception{
+									, Model model
+									,@RequestParam( value ="keyword",required = false) String keyword) throws Exception{
 		
 		String view = "/prod/prodList";	
+		
+		if(keyword==null) {
 		List<ProdVO> list = prodService.selectProdList(searchVO);
 		
 		
 		model.addAttribute("prodList", list);
 		model.addAttribute("searchVO", searchVO);
 		
+		}
+		
+		if(keyword!=null) {
+			List<ProdVO> list = prodService.selectProdLikeName(keyword);
+			
+			model.addAttribute("prodList", list);
+			model.addAttribute("searchVO", searchVO);
+			
+		}
 		return view;
 		
 		

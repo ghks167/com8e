@@ -22,6 +22,9 @@ public interface IBoardDao {
 	public int selectBoardCount(BoardSearchVO searchVO) throws Exception;
 
 	public int updateReplyCnt(int bo_no) throws Exception;
+	
+	/** 조회수 증가*/
+	public void increaseBoardCount(int bo_no) throws Exception;
 
 	/** 통합검색을 통한 자유게시판 리스트 조회하기*/
 	public List<BoardVO> searchBoardList(String keyword) throws Exception;

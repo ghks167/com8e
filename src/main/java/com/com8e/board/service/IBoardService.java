@@ -7,7 +7,7 @@ import com.com8e.board.vo.BoardVO;
 
 public interface IBoardService {
 	
-	public BoardVO selectBoard(int bo_no)throws Exception;
+	public BoardVO selectBoard(int bo_no , boolean incrementHit)throws Exception;
 	
 	public int insertBoard(BoardVO vo) throws Exception;
 	

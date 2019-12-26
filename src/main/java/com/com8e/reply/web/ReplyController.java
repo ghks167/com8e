@@ -51,6 +51,7 @@ public class ReplyController {
 	@ResponseBody
 	public Map<String, Object> commentRegist(ReplyVO vo) throws Exception{
 		int i = replyService.insertComment(vo);
+		boardService.updateReplyCnt(vo.getRe_bo_no());
 		Map<String, Object> map = new HashMap<String, Object>();
 		if(i > 0) {
 			map.put("result", true);
