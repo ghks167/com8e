@@ -13,4 +13,6 @@ public interface ICartService {
 	public int updateCartQty(CartVO vo)throws Exception;
 	
 	public List<CartVO> selectCart(int[] cart_no)throws Exception;
+	
+	public int deleteCart(List<Integer> list)throws Exception;
 }

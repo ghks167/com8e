@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.com8e.cart.service.ICartService;
@@ -65,6 +66,24 @@ public class CartController {
 		
 		
 		return "cart/cartJumun";
+	}
+	
+	@RequestMapping(value = "cart/cartDelete")
+	@ResponseBody
+	public Map<String, Object> cartDelete(@RequestParam(value = "cart_no[]")List<Integer> cart_no) throws Exception{
+		Map<String, Object> map = new HashMap<>();
+		
+		
+		for(int i : cart_no) {
+			System.out.println(i);
+		}
+		
+		int i = cartService.deleteCart(cart_no);
+		if(i > 0) {
+			map.put("result", true);
+		}
+			
+		return map;
 	}
 	
 	

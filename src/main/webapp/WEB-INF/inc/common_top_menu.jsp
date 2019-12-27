@@ -23,7 +23,7 @@
 						<!-- 로그인 되어있지 않을 경우 -->
 					 <%-- <c:if test="${empty ??????}"> --%>
                     <li class=""><a href="${pageContext.request.contextPath}/login/loginForm" id="id_a_login">로그인</a></li>
-                    <li class=""><a href="${pageContext.request.contextPath}/member/memberForm">회원가입</a></li>
+                    <li id="id_mem_regist_btn"><a href="${pageContext.request.contextPath}/member/memberForm">회원가입</a></li>
 					<%-- </c:if> --%>
 					
 						<!-- 로그인 되어 있을 경우 -->
@@ -45,6 +45,7 @@
 	%>
 			document.getElementById("id_a_login").innerHTML = "로그아웃";
 			document.getElementById("id_a_login").href = "${pageContext.request.contextPath}/login/loginout";
+			$("#id_mem_regist_btn").remove();
 	<%		
 		}
 	%>
