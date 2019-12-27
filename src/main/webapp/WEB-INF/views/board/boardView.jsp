@@ -59,11 +59,9 @@
 	<%@include file='/WEB-INF/inc/common_top_menu.jsp'%>
 	<div class='container'>
 		<div class='main_area col-sm-12'>
-		<h1>글보기</h1>
-		<a href='${pageContext.request.contextPath}/board/boardList'><button type='button' class='btn btn-sm btn-warning'><span class='glyphicon glyphicon-th-list' aria-hidden='true'></span>&nbsp;&nbsp;목록으로</button></a>
-		</div>
-		<hr>
-		<div class='main_area col-sm-12'>
+			<h1>글보기</h1>
+			<a href='${pageContext.request.contextPath}/board/boardList'><button type='button' class='btn btn-sm btn-warning'><span class='glyphicon glyphicon-th-list' aria-hidden='true'></span>&nbsp;&nbsp;목록으로</button></a>
+			<hr>
 
 			<div class='col-sm-12 info_area'>
 				<div class='col-sm-3 info'><h4>${board.bo_mem}</h4></div> 
