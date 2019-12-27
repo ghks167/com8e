@@ -55,7 +55,7 @@
 						<c:choose>
 							<c:when test="${fn:length(cart_list) == 0}">
 								<div class="col-sm-12">
-									<h3>장바구니가 비여있습니다.</h3>
+									<h3>장바구니가 비어있습니다.</h3>
 								</div>
 							</c:when>
 							<c:otherwise>
