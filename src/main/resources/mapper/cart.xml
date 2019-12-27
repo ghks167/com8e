@@ -30,4 +30,15 @@
 	<update id="updateCartQty">
 		update cart set cart_qty = #{cart_qty} where cart_no = #{cart_no}
 	</update>
+	
+	<delete id="deleteCart" parameterType="List">
+		delete from 
+			cart 
+		where
+			cart_no in (
+		<foreach item="item" collection="list" separator=",">
+			#{item}
+		</foreach>
+		)
+	</delete>
 </mapper>

@@ -58,5 +58,12 @@ public class CartServiceImpl implements ICartService{
 		
 		return list;
 	}
+
+
+	@Override
+	public int deleteCart(List<Integer> list) throws Exception {
+		
+		return cartDao.deleteCart(list);
+	}
 	
 }
