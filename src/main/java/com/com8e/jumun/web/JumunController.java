@@ -49,14 +49,14 @@ public class JumunController {
 	public String jumunProcess(JumunVO vo,Model model) throws Exception{
 		int i = jumunService.insertJumun(vo);
 		ResultMessageVO messageVO = new ResultMessageVO();			
-		if(i > 2) {
+		if(i > 0) {
 			messageVO.setResult(true)
 					   .setTitle("주문완료")
 					   .setMessage("주문이 완료되었습니다.")
 					   .setUrlTitle("주문정보확인")
 					   .setUrl("#");
 		}else {
-			messageVO.setResult(true)
+			messageVO.setResult(false)
 			   .setTitle("주문실패")
 			   .setMessage("주문에 실패하였습니다.");
 		}
