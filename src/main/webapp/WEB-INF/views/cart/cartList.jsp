@@ -170,15 +170,7 @@
 			
 			for(var i =0; i<noarr.length; i++){
 				cart_no.push($(noarr[i]).val());
-			}
-			
-			
-			console.log(cart_no);
-			
-			
-			
-			
-			
+			}	
 			$.ajax({
 				url:"<c:url value='/cart/cartDelete'/>",
 				data: {"cart_no" : cart_no},
