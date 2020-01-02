@@ -11,8 +11,6 @@ import com.com8e.board.vo.BoardSearchVO;
 import com.com8e.board.vo.BoardVO;
 import com.com8e.boardpr.dao.IBoardPrDao;
 import com.com8e.boardpr.vo.BoardPrVO;
-import com.com8e.notice.vo.NoticeSearchVO;
-import com.com8e.notice.vo.NoticeVO;
 import com.com8e.prod.dao.IProdDao;
 import com.com8e.prod.vo.ProdVO;
 
@@ -99,11 +97,11 @@ public class BoardServiceImpl implements IBoardService{
 	
 	
 	@Override
-	public NoticeVO selectNoticeBoard(int no_bo_no, boolean incrementHit) throws Exception {
-		NoticeVO vo = boardDao.selectNoticeBoard(no_bo_no);
+	public BoardVO selectNoticeBoard(int bo_no, boolean incrementHit) throws Exception {
+		BoardVO vo = boardDao.selectNoticeBoard(bo_no);
 		
 		if (incrementHit) {
-			boardDao.increaseNoticeCount(vo.getNo_bo_no());
+			boardDao.increaseNoticeCount(vo.getBo_no());
 		}
 	
 		return vo;
@@ -111,7 +109,7 @@ public class BoardServiceImpl implements IBoardService{
 	
 	
 	@Override
-	public int insertNoticeBoard(NoticeVO vo) throws Exception {
+	public int insertNoticeBoard(BoardVO vo) throws Exception {
 		int i = boardDao.insertNoticeBoard(vo);
 		return i;
 	}
@@ -119,24 +117,24 @@ public class BoardServiceImpl implements IBoardService{
 
 
 	@Override
-	public int updateNotice(NoticeVO vo) throws Exception {
+	public int updateNotice(BoardVO vo) throws Exception {
 		int i = boardDao.updateNotice(vo);
 		return i;
 	}
 
 	@Override
-	public List<NoticeVO> selectNoticeBoardList(NoticeSearchVO searchVO) throws Exception {
+	public List<BoardVO> selectNoticeBoardList(BoardSearchVO searchVO) throws Exception {
 		int cnt = boardDao.selectNoticeCount(searchVO);
 		searchVO.setTotalRowCount(cnt);
 		searchVO.pageSetting();
 		
-		List<NoticeVO> list = boardDao.selectNoticeBoardList(searchVO);
+		List<BoardVO> list = boardDao.selectNoticeBoardList(searchVO);
 		return list;
 	
 	}
 
 	@Override
-	public int selectNoticeCount(NoticeSearchVO searchVO) throws Exception {
+	public int selectNoticeCount(BoardSearchVO searchVO) throws Exception {
 		
 		return 0;
 	}

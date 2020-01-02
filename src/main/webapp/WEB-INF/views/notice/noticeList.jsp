@@ -86,13 +86,13 @@
 					</tr>
 					<c:forEach var="board" items="${boardList}">
 						<tr>
-							<td align="center">${board.no_bo_no}</td>
+							<td align="center">${board.bo_no}</td>
 							<td><a
-								href="${pageContext.request.contextPath}/notice/noticeView?no_bo_no=${board.no_bo_no}">${board.no_bo_title}&nbsp;&nbsp;</a><a
-								href=""><font color=tomato>[${board.no_bo_re_cnt}]</font></a></td>
-							<td align="center">${board.no_bo_mem}</td>
-							<td align="center">${board.no_bo_hit}</td>
-							<td align="center">${board.no_bo_date}</td>
+								href="${pageContext.request.contextPath}/notice/noticeView?bo_no=${board.bo_no}">${board.bo_title}&nbsp;&nbsp;</a><a
+								href=""><font color=tomato>[${board.bo_re_cnt}]</font></a></td>
+							<td align="center">${board.bo_mem}</td>
+							<td align="center">${board.bo_hit}</td>
+							<td align="center">${board.bo_date}</td>
 						</tr>
 					</c:forEach>
 				</table>

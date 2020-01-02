@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.com8e.board.vo.BoardSearchVO;
 import com.com8e.board.vo.BoardVO;
-import com.com8e.notice.vo.NoticeSearchVO;
-import com.com8e.notice.vo.NoticeVO;
 
 public interface IBoardService {
 	
@@ -25,15 +23,15 @@ public interface IBoardService {
 	public List<BoardVO> searchBoardList(String keyword) throws Exception;
 	
 	/**공지사항*/
-	public NoticeVO selectNoticeBoard (int no_bo_no, boolean incrementHit)throws Exception;
+	public BoardVO selectNoticeBoard (int bo_no, boolean incrementHit)throws Exception;
 	
-	public int insertNoticeBoard (NoticeVO vo) throws Exception;
+	public int insertNoticeBoard (BoardVO vo) throws Exception;
 	
-	public List<NoticeVO> selectNoticeBoardList(NoticeSearchVO searchVO)throws Exception;
+	public List<BoardVO> selectNoticeBoardList(BoardSearchVO searchVO)throws Exception;
 	
-	public int updateNotice(NoticeVO vo)throws Exception;
+	public int updateNotice(BoardVO vo)throws Exception;
 
-	public int selectNoticeCount(NoticeSearchVO searchVO) throws Exception;
+	public int selectNoticeCount(BoardSearchVO searchVO) throws Exception;
 
 
 	

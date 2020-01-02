@@ -66,33 +66,33 @@
 		<div class='main_area col-sm-12'>
 
 			<div class='col-sm-12 info_area'>
-				<div class='col-sm-3 info'><h4>${board.no_bo_mem}</h4></div> 
-				<div class='col-sm-3 info'><h4>${board.no_bo_date}</h4></div>
-				<div class='col-sm-3 info'><h4>조회 : ${board.no_bo_hit}</h4></div>
-				<div class='col-sm-3 info'><h4>댓글 : [${board.no_bo_re_cnt}]</h4></div>
+				<div class='col-sm-3 info'><h4>${board.bo_mem}</h4></div> 
+				<div class='col-sm-3 info'><h4>${board.bo_date}</h4></div>
+				<div class='col-sm-3 info'><h4>조회 : ${board.bo_hit}</h4></div>
+				<div class='col-sm-3 info'><h4>댓글 : [${board.bo_re_cnt}]</h4></div>
 			</div> 
 		
 			<div class='col-sm-12 title_area well well-sm'>
-				<h4 id ='id_bo_title'>${board.no_bo_title}</h4>
+				<h4 id ='id_bo_title'>${board.bo_title}</h4>
 			</div>
 			
 			<div class='col-sm-12 content_area well well-sm'>
-				${board.no_bo_content}
+				${board.bo_content}
 			</div>
 			
 
 			<div class="col-sm-12" style="text-align: right; margin-bottom: 50px;">
-					<a class="btn btn-default" href="${pageContext.request.contextPath}/notice/noticeEdit?no_bo_no=${board.no_bo_no}">수정하기</a>
+					<a class="btn btn-default" href="${pageContext.request.contextPath}/notice/noticeEdit?bo_no=${board.bo_no}">수정하기</a>
 				</div>
 		</div>
 		<div class='reply_area col-sm-12'>
 			<div class='form-group'>
 				<form action='#' id='id_reply_form'>
-					<input type='hidden' value='${board.no_bo_no}' name='re_bo_no'>
+					<input type='hidden' value='${board.bo_no}' name='re_bo_no'>
 					<input type='hidden' value='${LOGIN_INFO}' name='re_mem'>
 					<div class='col-sm-11'>
 					
-	    				<h4><label for='inputReply'>댓글 <font color="tomato">[${board.no_bo_re_cnt}]</font></label></h4>
+	    				<h4><label for='inputReply'>댓글 <font color="tomato">[${board.bo_re_cnt}]</font></label></h4>
 	    			</div>
 	    			<div class='col-sm-1' style='margin-bottom: 10px; text-align: right;'>
 	    				<input type='button' id='reply_submit_btn' class='btn btn-default' value='등록'>
@@ -133,7 +133,7 @@
 	});
 	
 	$(document).ready(function() {
-		pa = 're_bo_no=${board.no_bo_no}';
+		pa = 're_bo_no=${board.bo_no}';
 		$.ajax({
 			type: 'post',
 			url: '<c:url value='/reply/replyList'/>',
@@ -162,7 +162,7 @@
 		console.log(re_content);
 		
 		pa = {	
-				"re_bo_no":${board.no_bo_no},
+				"re_bo_no":${board.bo_no},
 				"re_parent_no":re_parent_no,
 				"re_content":re_content,
 				"re_mem":"${LOGIN_INFO}"

@@ -34,18 +34,18 @@
 		<h1>공지 수정</h1>	
 		<hr>
 		<div class="main_area">
-			<form:form commandName="board" method="post" action="noticeModify?no_bo_no=${board.no_bo_no}">
+			<form:form commandName="board" method="post" action="noticeModify?bo_no=${board.bo_no}">
 				<div class="form-group title_area">
 					<label for="inputTitle" class="col-sm-2 control-label">제목 : </label>
 					<div class="col-sm-10">
-						<form:input path="no_bo_title" cssClass="form-control" id="inputTitle" placeholder="title" value="${board.no_bo_title}"/>
+						<form:input path="bo_title" cssClass="form-control" id="inputTitle" placeholder="title" value="${board.bo_title}"/>
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label class="col-sm-2 control-label">작성자 : </label>
 					<div class="col-sm-10">
-						<form:input path="no_bo_mem" cssClass="form-control"  readonly="true"/>
+						<form:input path="bo_mem" cssClass="form-control"  readonly="true"/>
 					</div>
 				</div>
 				
@@ -53,13 +53,13 @@
 				<div class="form-group content_area">
 					<label for="inputContent" class="col-sm-12 control-label">내용 </label>
 					<div class="col-sm-12">
-						<form:textarea path="no_bo_content" cssClass="form-control" id="inputContent" rows="15" placeholder="content" value="${board.no_bo_content}"/>
+						<form:textarea path="bo_content" cssClass="form-control" id="inputContent" rows="15" placeholder="content" value="${board.bo_content}"/>
 					</div>
 				</div>
 				
 				<div class="col-sm-12">
 					<input type="submit" class="btn btn-success" value="수정완료">
-					<a href="${pageContext.request.contextPath}/notice/noticeView?no_bo_no=${board.no_bo_no}"><input type="button" class="btn btn-warning" value="뒤로가기"></a>		
+					<a href="${pageContext.request.contextPath}/notice/noticeView?bo_no=${board.bo_no}"><input type="button" class="btn btn-warning" value="뒤로가기"></a>		
 				</div>
 			</form:form>
 			
