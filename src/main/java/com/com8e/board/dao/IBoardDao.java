@@ -43,6 +43,9 @@ public interface IBoardDao {
 
 	public void increaseNoticeCount(int no_bo_no) throws Exception;
 	
+	/** 통합검색을 통한 공지사항게시판 리스트 조회하기*/
+	public List<BoardVO> searchNoticeList(String keyword) throws Exception;
+	
 
 
 }

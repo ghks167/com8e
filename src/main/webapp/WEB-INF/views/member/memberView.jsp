@@ -44,7 +44,7 @@
 				<div class="form-group">
 					<label for="inputpass" class="col-sm-2 control-label">비밀번호 : </label>
 					<div class="col-sm-8">
-						<form:input path="mem_pass" id="inputpass" cssClass="form-control edittext" placeholder="password" readonly="true"/>
+						<form:input type="password" path="mem_pass" id="inputpass" cssClass="form-control edittext" placeholder="password" readonly="true"/>
 					</div>
 				</div>
 				<br>
@@ -62,7 +62,7 @@
 				<div class="form-group">
 					<label for="inputregno" class="col-sm-2 control-label">주민등록번호 : </label>
 					<div class="col-sm-4">
-						<form:input path="mem_regno1" id="inputregno" cssClass="form-control" placeholder="YY/MM/DD" readonly="true"/>
+						<form:input  path="mem_regno1" id="inputregno" cssClass="form-control" placeholder="YY/MM/DD" readonly="true"/>
 					</div>
 					
 					<div class="col-sm-1">
@@ -70,7 +70,7 @@
 					</div>
 					
 					<div class="col-sm-4">
-						<form:input path="mem_regno2" cssClass="form-control" placeholder="*******" readonly="true"/>
+						<form:input path="mem_regno2" type="password" cssClass="form-control" placeholder="*******" readonly="true"/>
 					</div>		
 				</div>
 				<br>

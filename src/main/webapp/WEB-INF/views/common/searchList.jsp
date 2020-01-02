@@ -46,7 +46,7 @@
 		<h1><font color="#368AFF"> <%= request.getParameter("keyword") %>에 대한 통합검색 결과</font></h1>	
 		<hr><br>
 		<div class="notice_area">
-			<h2>공지사항<a href="${pageContext.request.contextPath}/board/boardList?searchWord=${param.keyword}"><font color="tomato">&nbsp;&nbsp;☜</font></a></h2>
+			<h2>공지사항<a href="${pageContext.request.contextPath}/notice/noticeList?searchWord=${param.keyword}"><font color="tomato">&nbsp;&nbsp;☜</font></a></h2>
 			<div class="boardList_area col-sm-12">
 				<table class="table table-striped">
 					<colgroup>
@@ -63,11 +63,11 @@
 						<th>조회수</th>
 						<th>작성날짜</th>
 					</tr>
-					<c:forEach var="board" items="${boardList}">
+					<c:forEach var="board" items="${noticeList}">
 						<tr>
 							<td align="center">${board.bo_no}</td>
 							<td><a
-								href="${pageContext.request.contextPath}/board/boardView?bo_no=${board.bo_no}">${board.bo_title}&nbsp;&nbsp;</a><a
+								href="${pageContext.request.contextPath}/notice/noticeView?bo_no=${board.bo_no}">${board.bo_title}&nbsp;&nbsp;</a><a
 								href=""><font color=tomato>[${board.bo_re_cnt}]</font></a></td>
 							<td align="center">${board.bo_mem}</td>
 							<td align="center">${board.bo_hit}</td>

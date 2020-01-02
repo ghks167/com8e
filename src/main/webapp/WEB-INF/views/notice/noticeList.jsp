@@ -139,10 +139,10 @@
 					</ul>
 				</nav>
 				</div>
-				<div class="col-sm-2" style="text-align: right">
+				<div class="col-sm-2" style="text-align: right" id="id_add_btn">
 					<a href="${pageContext.request.contextPath}/notice/noticeForm"
 						class="btn btn-primary"><span
-						class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;&nbsp;글쓰기
+						class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;&nbsp;공지 작성
 					</a>
 				</div>
 			</div>
@@ -180,9 +180,19 @@
 		</div> 
 		
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
+		<%@include file='/WEB-INF/views/common/common_side.jsp'%>
 	</div>
 		
 	<script type="text/javascript">
+	
+	//공지 작성 권한
+	$(document).ready(function() {
+		v_mem= "${mem_id}"
+	if(v_mem !="cyh9629"||v_mem ==''){
+		$("#id_add_btn").hide();
+	}
+	
+	});	
 	
 	/* var v_schWord = document.getElementById(id_keyword)valueOf; */
 	

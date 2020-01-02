@@ -101,7 +101,8 @@
     			</form>
   			</div>
   			
-  			
+  			<div class='col-sm-12' id='reply'>
+  			</div>
 		</div>
 		
 		

@@ -100,7 +100,7 @@
 					<div class="col-sm-2">
 						<input type="submit" class="btn btn-primary btn-sm" value="검색">
 						&nbsp;<br>
-						<button type="button" class="btn btn-primary btn-sm" id="id_add_btn">상품추가</button>
+						<a href="${pageContext.request.contextPath}/prod/prodForm"><button type="button" class="btn btn-success btn-sm" id="id_add_btn">상품추가</button></a>
 					</div>
 
 

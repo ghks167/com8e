@@ -15,7 +15,6 @@
 .main_area{
 	padding: 0 10% 0 10%;
 	overflow: auto;
-
 }
 
 .title_area{

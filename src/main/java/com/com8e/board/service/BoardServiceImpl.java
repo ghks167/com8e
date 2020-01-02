@@ -139,5 +139,12 @@ public class BoardServiceImpl implements IBoardService{
 		return 0;
 	}
 
+	@Override
+	public List<BoardVO> searchNoticeList(String keyword) throws Exception {
+		List<BoardVO> list = boardDao.searchNoticeList(keyword);
+		return list;
+		
+	}
+
 
 }

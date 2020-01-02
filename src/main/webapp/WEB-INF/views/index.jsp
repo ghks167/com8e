@@ -56,7 +56,7 @@
 							<img class="img-thumbnail" alt="" src="${pageContext.request.contextPath}/upload/PROD_MAIN/${mainThreeView.map.PROD_M.image_file_name}" style="width: 225px; height: 225px"><br>
 			  				</a>
 			  				<h4><a href="${pageContext.request.contextPath}/prod/prodView?prod_no=${mainThreeView.prod_no}">${mainThreeView.prod_name}</a></h4>
-			  			 	<font size="3px">&#8361;&nbsp;${mainThreeView.prod_price}</font>
+			  			 	<font size="3px" class="price">&#8361;&nbsp;${mainThreeView.prod_price}</font>
 			  				<hr>
 			  				
 			  			</div>
@@ -79,38 +79,43 @@
 </body>
 
 <script type="text/javascript">
-	
-	$("#prod_category").on("mouseover",function(){
-		$.ajax({ 
-		    url: "${pageContext.request.contextPath}/indexInclude/category", 
-		    success: function(data){ 
-		      $("#view_area").html(data); 
-		    } 
-		}); 
-	});
-	
-	
-	$("#prod_board").on("mouseover",function(){
-		$.ajax({ 
-		    url: "${pageContext.request.contextPath}/indexInclude/board.jsp", 
-		    success: function(data){ 
-		      $("#view_area").html(data); 
-		    } 
-		}); 
-	});
-	
-	$("#prod_notice").on("mouseover",function(){
-		$.ajax({ 
-		    url: "${pageContext.request.contextPath}/indexInclude/notice.jsp", 
-		    success: function(data){ 
-		      $("#view_area").html(data); 
-		    } 
-		}); 
+
+
+	function numberWithCommas(x) {
+		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
+	var price_arr = document.getElementsByClassName("price");
+
+	for (var i = 0; i < price_arr.length; i++) {
+		$(price_arr[i]).html(numberWithCommas($(price_arr[i]).html()));
+	}
+	$("#prod_category").on("mouseover", function() {
+		$.ajax({
+			url : "${pageContext.request.contextPath}/indexInclude/category",
+			success : function(data) {
+				$("#view_area").html(data);
+			}
+		});
 	});
 
+	$("#prod_board").on("mouseover", function() {
+		$.ajax({
+			url : "${pageContext.request.contextPath}/indexInclude/board.jsp",
+			success : function(data) {
+				$("#view_area").html(data);
+			}
+		});
+	});
 
-
-
+	$("#prod_notice").on("mouseover", function() {
+		$.ajax({
+			url : "${pageContext.request.contextPath}/indexInclude/notice.jsp",
+			success : function(data) {
+				$("#view_area").html(data);
+			}
+		});
+	});
 </script>
 </html>
 

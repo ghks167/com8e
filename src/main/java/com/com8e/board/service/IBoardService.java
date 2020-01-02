@@ -19,7 +19,7 @@ public interface IBoardService {
 	
 	public int updateReplyCnt(int bo_no) throws Exception;
 	
-	/** 통합검색을 통한 상품 리스트 조회하기*/
+	/** 통합검색을 통한 자유게시판 리스트 조회하기*/
 	public List<BoardVO> searchBoardList(String keyword) throws Exception;
 	
 	/**공지사항*/
@@ -32,6 +32,9 @@ public interface IBoardService {
 	public int updateNotice(BoardVO vo)throws Exception;
 
 	public int selectNoticeCount(BoardSearchVO searchVO) throws Exception;
+	
+	/** 통합검색을 통한 공지사항 리스트 조회하기*/
+	public List<BoardVO> searchNoticeList(String keyword) throws Exception;
 
 
 	

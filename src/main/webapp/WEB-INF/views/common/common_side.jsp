@@ -144,7 +144,7 @@ $(document).ready(function() {
 							  "<h5><a href='${pageContext.request.contextPath}/prod/prodView?prod_no="+data[i].prod.prod_no+"'>"+data[i].prod.prod_name+"</a></h5></tr></td>"+
 							  "<tr><td><h5><small>"+data[i].prod.prod_type+"</small></h5></div>"+
 							  "<h5 id='id_price_area'>선택수량 :<small>"+data[i].cart_qty+"</small></h5></tr></td>"+
-							  "<tr><td><h5>"+data[i].cart_qty * data[i].prod.prod_price+" 원</h5>"+
+							  "<tr><td><h5 class='price'>"+data[i].cart_qty * data[i].prod.prod_price+" 원</h5>"+
 							  "<h5>"+data[i].prod.prod_com+"</h5><hr></tr></td>";
 	
 							return oldHtml + newHtml;
@@ -157,6 +157,16 @@ $(document).ready(function() {
 	}); //ajax
 	
 });
+
+function numberWithCommas(x) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+var price_arr = document.getElementsByClassName("price");
+
+for (var i = 0; i < price_arr.length; i++) {
+	$(price_arr[i]).html(numberWithCommas($(price_arr[i]).html())+"원 ");
+}
 
 
 </script>

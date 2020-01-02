@@ -89,6 +89,8 @@
 							<div class="col-sm-5" style="text-align: right;">
 								<input id="id_add_cart" type="button" class="btn btn-default" value="장바구니에 담기">
 							</div>
+							<a href="${pageContext.request.contextPath}/prod/prodEdit?prod_no=${prod.prod_no}"><button type="button" id="id_modify_btn" class="btn btn-primary">상품 수정 </button></a>
+							<button type="button" id="id_delete_btn" class="btn btn-danger">상품 삭제 </button>
 						</td>
 					</tr>
 				</table>	
@@ -106,6 +108,25 @@
 		<%@include file='/WEB-INF/views/common/common_side.jsp'%>
 	</div>
 	<script type="text/javascript">
+	$(document).ready(function() {
+		v_mem= "${mem_id}"
+	if(v_mem !="cyh9629"||v_mem ==''){
+		$("#id_modify_btn").hide();
+		$("#id_delete_btn").hide();
+	}
+	
+	});	
+	
+	// 상품삭제 버튼 
+	$("#id_delete_btn").click(function(){
+		
+		if (confirm("정말 상품을 삭제하시겠습니까??") == true){    //확인
+		    alert("삭제되었습니다!");
+		}else{   //취소
+		    return;
+		}
+	})
+	
 		$("#id_add_cart").on("click",function(){
 			if("${LOGIN_INFO}" == ""){
 				location.href = "${pageContext.request.contextPath}/login/loginForm";	

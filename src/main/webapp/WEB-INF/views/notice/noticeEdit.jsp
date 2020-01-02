@@ -54,6 +54,12 @@
 					<label for="inputContent" class="col-sm-12 control-label">내용 </label>
 					<div class="col-sm-12">
 						<form:textarea path="bo_content" cssClass="form-control" id="inputContent" rows="15" placeholder="content" value="${board.bo_content}"/>
+						<script type="text/javascript">
+						CKEDITOR.replace('inputContent'
+				                , {height: 500                                                  
+				                 });
+						</script>
+						
 					</div>
 				</div>
 				
