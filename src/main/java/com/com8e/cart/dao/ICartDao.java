@@ -17,4 +17,6 @@ public interface ICartDao {
 	
 	public CartVO selectCart(int cart_no)throws Exception;
 	
+	public int deleteCart(List<Integer> list)throws Exception;
+	
 }

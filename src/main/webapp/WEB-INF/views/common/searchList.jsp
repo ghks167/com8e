@@ -154,6 +154,8 @@
 		</div> 
 		</div>
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
+		<%@include file='/WEB-INF/views/common/common_side.jsp'%>
+		
 	</div>
 		
 	<script type="text/javascript">
@@ -163,7 +165,7 @@
 	var fn_go_page = function (p) {
 		var f = document.forms["frm_boardSearch"];
 		f.curPage.value = p;
-		fn_search_submit();
+		fn_search_submit(); 
 	}
 
 	// 목록갯수 변경 후 선택 버튼 클릭 시 서브밋 호출

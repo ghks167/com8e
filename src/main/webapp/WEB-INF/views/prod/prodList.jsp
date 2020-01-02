@@ -174,6 +174,7 @@
 			</form:form>
 		</div>
 		<%@include file="/WEB-INF/inc/common_footer.jsp"%>
+		<%@include file='/WEB-INF/views/common/common_side.jsp'%>
 	</div>
 	<script type="text/javascript">
 	

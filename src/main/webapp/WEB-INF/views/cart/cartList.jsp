@@ -39,6 +39,7 @@
 }
 .main_area{
 	min-height: 70vh;
+	padding-bottom: 150px;
 }
 
 </style>
@@ -54,7 +55,7 @@
 						<c:choose>
 							<c:when test="${fn:length(cart_list) == 0}">
 								<div class="col-sm-12">
-									<h3>장바구니가 비여있습니다.</h3>
+									<h3>장바구니가 비어있습니다.</h3>
 								</div>
 							</c:when>
 							<c:otherwise>
@@ -81,7 +82,6 @@
 																<h5 id="id_price_area">선택수량 : </h5>
 															</div>
 															<div class="col-sm-4" style="margin-top: 0; margin-bottom: 0;">
-																
 																<select class="form-control" onchange="f_qty_chage(this)" data-cart_no ="${cart.cart_no}">
 																	<c:forEach var="i" begin="1" end="99">
 																		<c:choose>
@@ -115,7 +115,10 @@
 						</c:choose>
 					</table>	
 				</form:form>
-				<div class="col-sm-12" style="text-align: center;">
+				<div class="col-sm-6" style="text-align: left;">
+					<input type="button" value="선택상품삭제" class="btn btn-danger" id="id_select_delect">
+				</div>
+				<div class="col-sm-6" style="text-align: right;">
 					<input type="button" value="전체상품주문" class="btn btn-success" id="id_all_order">
 					<input type="button" value="선택상품주문" class="btn btn-success" id="id_select_order">
 				</div>
@@ -161,8 +164,28 @@
 		});
 		
 		
-		
-		
+		$("#id_select_delect").on("click", function() {
+			var noarr = $("input[type = checkbox][name = cart_no]:checked");
+			var cart_no = [];
+			
+			for(var i =0; i<noarr.length; i++){
+				cart_no.push($(noarr[i]).val());
+			}	
+			$.ajax({
+				url:"<c:url value='/cart/cartDelete'/>",
+				data: {"cart_no" : cart_no},
+				type: "post",
+				dataType: "json",
+				success: function (data) {
+					if(data.result){
+						alert("삭제되었습니다.");
+						location.reload();
+					}else {
+						alert("삭제에 실패했습니다.")
+					}
+				}
+			});
+		});
 		
 	
 	
