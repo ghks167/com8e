@@ -37,7 +37,7 @@ public class searchListController {
 	public String searchList(@ModelAttribute("prod")ProdVO prod, @ModelAttribute("searchVO") ProdSearchVO searchVO 
 								,@RequestParam("keyword") String keyword,ModelMap model
 								,@ModelAttribute("board")BoardVO board
-								,@ModelAttribute("notice")NoticeVO notice) throws Exception {
+								,@ModelAttribute("notice")BoardVO notice) throws Exception {
 		
 		
 		List<ProdVO> plist = prodService.selectProdLikeName(keyword);
