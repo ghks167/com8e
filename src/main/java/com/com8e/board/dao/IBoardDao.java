@@ -42,6 +42,7 @@ public interface IBoardDao {
 	public int selectNoticeCount(BoardSearchVO searchVO) throws Exception;
 
 	public void increaseNoticeCount(int no_bo_no) throws Exception;
+	
 
 
 }

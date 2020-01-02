@@ -46,7 +46,7 @@
 				<form action="${pageContext.request.contextPath}/login/logincheck" method="post">
 		
 					<br> <input class="form-control  input-sm" type="text" name="mem_id" placeholder="ID"/>
-					<br> <input class="form-control  input-sm" type="text" name="mem_pass" placeholder="Password"/>
+					<br> <input type="password" class="form-control  input-sm" type="text" name="mem_pass" placeholder="Password"/>
 					<br> <br> <input type="submit" class="btn btn-default" value="로그인"> <br>
 				</form>
 				

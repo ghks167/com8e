@@ -74,8 +74,7 @@
 		)
 			
 	</insert>
-	
-	
+
 	
 	<update id="updateBoard" parameterType="com.com8e.board.vo.BoardVO">
 		UPDATE board
