@@ -27,6 +27,7 @@
 			   		</choose>
 		</if>
 		</if>
+		
 	</sql>
 	
 	<sql id="searchCondition2">
