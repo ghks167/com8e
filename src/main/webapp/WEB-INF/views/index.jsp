@@ -33,9 +33,10 @@
 				<ul class="nav nav-pills nav-stacked">
 					<li role="presentation" class="active"><a>com8e.com</a></li>
 					<li role="presentation" id="prod_category"><a href="${pageContext.request.contextPath}/prod/prodList">상품분류</a></li>
-					<li role="presentation" id="prod_board" ><a href="${pageContext.request.contextPath}/prod/prodForm">공지사항</a></li>
+					<li role="presentation" id="prod_board" > <a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></li>
 					<li role="presentation" id="prod_notice" ><a href="${pageContext.request.contextPath}/board/boardList">게시판</a></li>
 				</ul>
+				
 			</div>
 			<div class="introduce_view col-sm-8" style="padding-top: 0px;">
 				<div class="col-sm-12" id="view_area">
@@ -57,6 +58,7 @@
 			  				<h4><a href="${pageContext.request.contextPath}/prod/prodView?prod_no=${mainThreeView.prod_no}">${mainThreeView.prod_name}</a></h4>
 			  			 	<font size="3px">&#8361;&nbsp;${mainThreeView.prod_price}</font>
 			  				<hr>
+			  				
 			  			</div>
 			  		
 			  		</c:if>

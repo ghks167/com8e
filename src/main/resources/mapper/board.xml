@@ -29,6 +29,30 @@
 		</if>
 	</sql>
 	
+	<sql id="searchCondition2">
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(searchWord)">
+			 <if test="searchWord != null and searchWord != ''">
+			   		<choose>
+			   		 	<when test='searchType == "T"'>
+			   		 		AND no_bo_title LIKE '%' || #{searchWord} || '%'
+			   		 	</when>
+			   		 	<when test='searchType == "W"'>
+			   		 		AND no_bo_mem LIKE '%' || #{searchWord} || '%'
+			   		 	</when>
+			   		 	 <when test='searchType == "C"'>
+			   		 		AND no_bo_content LIKE '%' || #{searchWord} || '%'
+			   		 	</when>
+			   			<otherwise>
+			   			AND (  	no_bo_title   LIKE '%' || #{searchWord} || '%'
+			   				  OR	no_bo_mem  LIKE '%' || #{searchWord} || '%'
+			   				  OR	no_bo_content LIKE '%' || #{searchWord} || '%'
+			   				  )
+			   			</otherwise>
+			   		</choose>
+		</if>
+		</if>
+	</sql>
+	
 	<select id="selectBoardCount" resultType="int" parameterType="com.com8e.board.vo.BoardSearchVO">
 	select count (*) as cnt from board
 	where 1=1
@@ -39,7 +63,7 @@
 	<select id="selectBoardList" resultType="com.com8e.board.vo.BoardVO">
 		<include refid="common.PAGING_PREFIX"></include>
 		select * from board
-		where 1=1
+		where bo_category='free'
 		<include refid="searchCondition1"/>
 		ORDER BY bo_no desc
 		<include refid="common.PAGING_SUFFIX"/>
@@ -60,7 +84,7 @@
 			bo_mem,
 			bo_category
 		) values (
-			board_seq.nextval,
+			notice_seq.nextval,
 			#{bo_title},
 			#{bo_content},
 			sysdate,
@@ -71,6 +95,8 @@
 		)
 			
 	</insert>
+	
+	
 	
 	<update id="updateBoard" parameterType="com.com8e.board.vo.BoardVO">
 		UPDATE board
@@ -94,4 +120,79 @@
 	
 	select * from board where bo_title like '%'||#{bo_title}||'%'
 	</select>
+	
+	
+	
+	
+	<insert id="insertNoticeBoard">
+		insert into notice (
+			no_bo_no,
+			no_bo_title,
+			no_bo_content,
+			no_bo_date,
+			no_bo_hit,
+			no_bo_re_cnt,
+			no_bo_mem,
+			no_bo_category
+		) values (
+			notice_seq.nextval,
+			#{no_bo_title},
+			#{no_bo_content},
+			sysdate,
+			0,
+			0,
+			#{no_bo_mem},
+			'free_notice'
+		)
+			
+	</insert>
+	
+	<select id="selectNoticeBoard" parameterType="int" resultType="com.com8e.notice.vo.NoticeVO" >
+		select * from notice where no_bo_no = #{no_bo_no} 
+		
+	</select>
+	
+	
+	
+	<select id="selectNoticeBoardList" resultType="com.com8e.notice.vo.NoticeVO">
+		<include refid="common.PAGING_PREFIX"></include>
+		select 
+			no_bo_no,
+			no_bo_title,
+			no_bo_content,
+			no_bo_hit,
+			no_bo_re_cnt,
+			no_bo_mem,
+			no_bo_category,
+			to_char(no_bo_date,'YYYY-MM-DD') as no_bo_date
+			
+			 from notice
+		where no_bo_category='free_notice'
+		<include refid="searchCondition1"/>
+		ORDER BY no_bo_no desc
+		<include refid="common.PAGING_SUFFIX"/>
+	</select>
+	
+	<update id="updateNotice" parameterType="com.com8e.notice.vo.NoticeVO">
+		UPDATE notice
+	  	   SET  no_bo_title = #{no_bo_title}
+         		,no_bo_content = #{no_bo_content}
+    	 WHERE no_bo_no = #{no_bo_no}
+	</update>
+	
+	<select id="selectNoticeCount" resultType="int" parameterType="com.com8e.notice.vo.NoticeSearchVO">
+		select count (*) as cnt from notice
+		where 1=1
+		<include refid="searchCondition1"></include>	
+	</select>
+	
+	
+	<update id="increaseNoticeCount" parameterType="int">
+
+		update notice
+		set no_bo_hit = no_bo_hit + 1
+		where no_bo_no = #{no_bo_no}
+	</update>
+	
+	
 </mapper>

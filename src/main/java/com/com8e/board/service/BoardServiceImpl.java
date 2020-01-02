@@ -11,6 +11,8 @@ import com.com8e.board.vo.BoardSearchVO;
 import com.com8e.board.vo.BoardVO;
 import com.com8e.boardpr.dao.IBoardPrDao;
 import com.com8e.boardpr.vo.BoardPrVO;
+import com.com8e.notice.vo.NoticeSearchVO;
+import com.com8e.notice.vo.NoticeVO;
 import com.com8e.prod.dao.IProdDao;
 import com.com8e.prod.vo.ProdVO;
 
@@ -55,7 +57,6 @@ public class BoardServiceImpl implements IBoardService{
 
 	@Override
 	public int insertBoard(BoardVO vo) throws Exception{
-		// TODO Auto-generated method stub
 		int[] prod_list = vo.getBo_prod_list();
 		int i = boardDao.insertBoard(vo);
 		
@@ -64,9 +65,6 @@ public class BoardServiceImpl implements IBoardService{
 			prVO.setBp_prod_no(j);
 			boardPrDao.insertBoardPr(prVO);
 		}
-		
-		
-		
 		
 		return i;
 	}
@@ -96,5 +94,52 @@ public class BoardServiceImpl implements IBoardService{
 		return list;
 
 	}
+	
+	
+	
+	
+	@Override
+	public NoticeVO selectNoticeBoard(int no_bo_no, boolean incrementHit) throws Exception {
+		NoticeVO vo = boardDao.selectNoticeBoard(no_bo_no);
+		
+		if (incrementHit) {
+			boardDao.increaseNoticeCount(vo.getNo_bo_no());
+		}
+	
+		return vo;
+	}
+	
+	
+	@Override
+	public int insertNoticeBoard(NoticeVO vo) throws Exception {
+		int i = boardDao.insertNoticeBoard(vo);
+		return i;
+	}
+
+
+
+	@Override
+	public int updateNotice(NoticeVO vo) throws Exception {
+		int i = boardDao.updateNotice(vo);
+		return i;
+	}
+
+	@Override
+	public List<NoticeVO> selectNoticeBoardList(NoticeSearchVO searchVO) throws Exception {
+		int cnt = boardDao.selectNoticeCount(searchVO);
+		searchVO.setTotalRowCount(cnt);
+		searchVO.pageSetting();
+		
+		List<NoticeVO> list = boardDao.selectNoticeBoardList(searchVO);
+		return list;
+	
+	}
+
+	@Override
+	public int selectNoticeCount(NoticeSearchVO searchVO) throws Exception {
+		
+		return 0;
+	}
+
 
 }

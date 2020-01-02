@@ -19,6 +19,8 @@ import com.com8e.board.service.IBoardService;
 import com.com8e.board.vo.BoardSearchVO;
 import com.com8e.board.vo.BoardVO;
 import com.com8e.common.vo.ResultMessageVO;
+import com.com8e.notice.vo.NoticeSearchVO;
+import com.com8e.notice.vo.NoticeVO;
 import com.com8e.prod.service.IProdService;
 import com.com8e.prod.vo.ProdVO;
 
@@ -50,8 +52,7 @@ public class BoardController {
 		
 		return "board/boardList";			
 	}
-	
-	
+
 	@RequestMapping(value = "board/boardEdit")
 	public String boardEdit(@ModelAttribute("board")BoardVO board,@RequestParam("bo_no") int bo_no, ModelMap model) throws Exception{
 		
@@ -134,6 +135,85 @@ public class BoardController {
 		
 		return map;
 	}
+	
+	
+	
+	
+	@RequestMapping(value = "notice/noticeList")
+	public String noticeList(@ModelAttribute("board")NoticeVO board, 
+			@ModelAttribute("searchVO") NoticeSearchVO searchVO, Model model) throws Exception{
+		
+		List<NoticeVO> list = boardService.selectNoticeBoardList(searchVO);
+		model.addAttribute("boardList", list);
+		model.addAttribute("searchVO",searchVO);
+		
+		return "notice/noticeList";
+	}
+	
+	
+	@RequestMapping(value = "notice/noticeEdit")
+	public String noticeEdit(@ModelAttribute("board")NoticeVO board,@RequestParam("no_bo_no") int no_bo_no, ModelMap model) throws Exception{
+		NoticeVO vo = boardService.selectNoticeBoard(no_bo_no,false);
+		model.addAttribute("board",vo);
+		
+		return "notice/noticeEdit";
+		
+	}
+	
+	
+	@RequestMapping(value = "notice/noticeForm")
+	public String noticeForm(Model model, HttpSession session, @ModelAttribute("board")NoticeVO board) {
+		String mem_id = (String)session.getAttribute("LOGIN_INFO");
+		if(mem_id == null) {
+			return "login/loginForm";	
+		}
+		board.setNo_bo_mem(mem_id);
+		model.addAttribute("board",board);
+		return "notice/noticeForm";
+	}
+	
+	
+	@RequestMapping(value="notice/noticeModify")
+	public String noticeModify(NoticeVO board, ModelMap model,@RequestParam("no_bo_no") int no_bo_no) throws Exception{
+		int i = boardService.updateNotice(board);
+		ResultMessageVO messageVO = new ResultMessageVO();
+		
+		if(i>0) {			
+			messageVO.setResult(true).setMessage("성공적으로 수정되었습니다.").setTitle("수정 완료").setUrlTitle("글보기").setUrl("notice/noticeView?no_bo_no="+no_bo_no);
+			model.addAttribute("resultMessage", messageVO);
+			return "common/message";
+		}else {
+			messageVO.setResult(false).setMessage("글수정에 실패하였습니다.").setTitle("수정 실패").setUrlTitle("뒤로가기").setUrl("notice/noticeEdit?no_bo_no="+no_bo_no);
+			model.addAttribute("resultMessage", messageVO);
+			return "common/message";
+		}
+	}
+	
+	@RequestMapping(value = "notice/noticeView", params = "no_bo_no")
+	public String noticeView(int no_bo_no, Model model) throws Exception{
+		NoticeVO vo = boardService.selectNoticeBoard(no_bo_no,true);
+		
+		model.addAttribute("board", vo);
+		return "notice/noticeView";
+	}
+	
+	@RequestMapping(value = "notice/noticeRegist")
+	public String noticeRegist(NoticeVO board, Model model) throws Exception{
+		int i = boardService.insertNoticeBoard(board);
+
+		ResultMessageVO messageVO = new ResultMessageVO();
+		if(i>0) {			
+			messageVO.setResult(true).setMessage("성공적으로 등록되었습니다.").setTitle("등록 성공").setUrlTitle("글보기").setUrl("notice/noticeList");
+			model.addAttribute("resultMessage", messageVO);
+			return "common/message";
+		}else {
+			messageVO.setResult(false).setMessage("글등록에 실패하였습니다.").setTitle("등록 실패").setUrlTitle("뒤로가기").setUrl("notice/noticeForm");
+			model.addAttribute("resultMessage", messageVO);
+			return "common/message";
+		}
+		
+	}
+	
 	
 
 }
