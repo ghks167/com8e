@@ -13,6 +13,7 @@ import com.com8e.notice.vo.NoticeVO;
 public interface IBoardDao {
 
 	public List<BoardVO> selectBoardList(BoardSearchVO searchVO)throws Exception;
+	
 
 	public BoardVO selectBoard(int bo_no)throws Exception;
 
