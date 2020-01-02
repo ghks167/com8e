@@ -12,7 +12,7 @@
 <title>${prod.prod_name}</title>
 <style type="text/css">
 
-
+	
 .main_image {
 	overflow: hidden;
 	display: flex;

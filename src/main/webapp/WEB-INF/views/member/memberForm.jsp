@@ -35,6 +35,7 @@
 					<label for="inputid" class="col-sm-2 control-label">아이디 : </label>
 					<div class="col-sm-8">
 						<form:input path="mem_id" id="inputid" cssClass="form-control" placeholder="ID"/>
+						<button type="button" id="id_overlap_check">중복확인</button>
 					</div>
 				</div>
 				<br>
@@ -43,7 +44,7 @@
 				<div class="form-group">
 					<label for="inputpass" class="col-sm-2 control-label">비밀번호 : </label>
 					<div class="col-sm-8">
-						<form:input path="mem_pass" id="inputpass" cssClass="form-control" placeholder="password"/>
+						<form:input type="password" path="mem_pass" id="inputpass" cssClass="form-control" placeholder="password"/>
 					</div>
 				</div>
 				<br>
@@ -69,7 +70,7 @@
 					</div>
 					
 					<div class="col-sm-4">
-						<form:input path="mem_regno2" cssClass="form-control" placeholder="*******"/>
+						<form:input type="password" path="mem_regno2" cssClass="form-control" placeholder="*******"/>
 					</div>		
 				</div>
 				<br>
@@ -141,7 +142,7 @@
 			if(overlap_check){
 				$("#id_form").submit();
 			}else {
-				alert("중복체크해주세요!")
+				alert("아이디 중복을 다시한번 확인해주세요.")
 			}
 		});
 	

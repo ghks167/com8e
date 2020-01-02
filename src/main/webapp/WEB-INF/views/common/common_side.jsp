@@ -91,6 +91,7 @@ img{
 <div class="cart" id="cart" >
 	<h5><a href='${pageContext.request.contextPath}/cart/cartList'>장바구니 이동</a></h5>
 	<h4>내 장바구니</h4>
+	<hr>
 	<table class='table table-striped' id="tb_cart">
 	
 	</table>

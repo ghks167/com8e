@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.com8e.board.service.IBoardService;
 import com.com8e.board.vo.BoardVO;
+import com.com8e.notice.vo.NoticeVO;
 import com.com8e.prod.service.IProdService;
 import com.com8e.prod.vo.ProdSearchVO;
 import com.com8e.prod.vo.ProdVO;
@@ -35,11 +36,13 @@ public class searchListController {
 	@RequestMapping(value="common/searchList")
 	public String searchList(@ModelAttribute("prod")ProdVO prod, @ModelAttribute("searchVO") ProdSearchVO searchVO 
 								,@RequestParam("keyword") String keyword,ModelMap model
-								,@ModelAttribute("board")BoardVO board) throws Exception {
+								,@ModelAttribute("board")BoardVO board
+								,@ModelAttribute("notice")NoticeVO notice) throws Exception {
 		
 		
 		List<ProdVO> plist = prodService.selectProdLikeName(keyword);
 		List<BoardVO> blist = boardService.searchBoardList(keyword);
+		
 		
 		model.addAttribute("prodList",plist);
 		model.addAttribute("boardList",blist);
